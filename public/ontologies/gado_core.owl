@@ -1,0 +1,1108 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://surveys.nees.com.br/ontologies/gado_core.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://surveys.nees.com.br/ontologies/gado_core.owl">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="gc" IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#"/>
+    <Declaration>
+        <Class IRI="#Feedback"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#composesDynamic"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#food"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isTiedTo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rewards"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Quests"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#orientation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAppliedTo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boss_Fights"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#describesPlayer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#education"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Relationships"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isClassifiedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Game_Context"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Player"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDescribedByModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interactsIn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#computer_science_and_engineering"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#facilitators"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#archetypeLikes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isComprisedOf"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#purpose"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Achievements"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#power"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#spark"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Avatars"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isUsedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#archetypeBrainRegion"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#water"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPlayerInteraction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-Game_Context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#classifiesPlayer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Social_Graph"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Competition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Story"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#social_networks"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#archetypeBehavior"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motivation_And_Need_Theory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Transactions"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#research"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mastery"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sustainability"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tiesComponent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Chances"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Collections"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Emotions"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motivational_Component"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#autonomy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#business"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GDE_Component"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#health-care"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Badges"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gifting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Challenges"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cooperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Constraints"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Win_States"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gamification_Context"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#signal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#makesUseOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Content_Unlocking"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#affordsMotivation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Player_Type"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Narrative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Resource_Acquisition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Progression"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#archetypeChemicalMessenger"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Time_Constraints"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GDE_Mechanic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GDE_Dynamic"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#financial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Points"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#computer-supported_cooperative_work"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#crowdsourcing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Status"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#personal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDescribedByType"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#marketing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motivation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Levels"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGamification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Game_Design_Element"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theme"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Turns"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#describesType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Combat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Virtual_Goods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Teams"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Leaderboards"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gamification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Player_Model"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Story"/>
+        <Class IRI="#Theme"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Achievements"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Challenges"/>
+                    <Class IRI="#Win_States"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Avatars"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Feedback"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badges"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Challenges"/>
+                    <Class IRI="#Feedback"/>
+                    <Class IRI="#Rewards"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boss_Fights"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Challenges"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Challenges"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Constraints"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Chances"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Constraints"/>
+                    <Class IRI="#Emotions"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Collections"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Resource_Acquisition"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Combat"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Turns"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Competition"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Constraints"/>
+                    <Class IRI="#Relationships"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Constraints"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Content_Unlocking"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Rewards"/>
+                    <Class IRI="#Win_States"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cooperation"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Relationships"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Emotions"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feedback"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Progression"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GDE_Component"/>
+        <Class IRI="#Game_Design_Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GDE_Dynamic"/>
+        <Class IRI="#Game_Design_Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GDE_Mechanic"/>
+        <Class IRI="#Game_Design_Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GDE_Mechanic"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#tiesComponent"/>
+            <Class IRI="#GDE_Component"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game_Context"/>
+        <Class IRI="#Gamification_Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gifting"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Transactions"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Leaderboards"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Feedback"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Levels"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Status"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Narrative"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-Game_Context"/>
+        <Class IRI="#Gamification_Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Points"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Resource_Acquisition"/>
+                    <Class IRI="#Rewards"/>
+                    <Class IRI="#Win_States"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progression"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Quests"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Challenges"/>
+                    <Class IRI="#Cooperation"/>
+                    <Class IRI="#Rewards"/>
+                    <Class IRI="#Story"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Relationships"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Resource_Acquisition"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Progression"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rewards"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Emotions"/>
+                    <Class IRI="#Progression"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Social_Graph"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Cooperation"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Status"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Emotions"/>
+                    <Class IRI="#Progression"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Story"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Narrative"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Teams"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Cooperation"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theme"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Narrative"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Time_Constraints"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Challenges"/>
+                    <Class IRI="#Competition"/>
+                    <Class IRI="#Win_States"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Transactions"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Progression"/>
+                    <Class IRI="#Relationships"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Turns"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Constraints"/>
+                    <Class IRI="#Progression"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Virtual_Goods"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Component"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Resource_Acquisition"/>
+                    <Class IRI="#Transactions"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Win_States"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#GDE_Mechanic"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#isTiedTo"/>
+                <Class IRI="#Constraints"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Achievements"/>
+        <Class IRI="#Avatars"/>
+        <Class IRI="#Badges"/>
+        <Class IRI="#Boss_Fights"/>
+        <Class IRI="#Collections"/>
+        <Class IRI="#Combat"/>
+        <Class IRI="#Content_Unlocking"/>
+        <Class IRI="#Gifting"/>
+        <Class IRI="#Leaderboards"/>
+        <Class IRI="#Levels"/>
+        <Class IRI="#Points"/>
+        <Class IRI="#Quests"/>
+        <Class IRI="#Social_Graph"/>
+        <Class IRI="#Teams"/>
+        <Class IRI="#Time_Constraints"/>
+        <Class IRI="#Virtual_Goods"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Challenges"/>
+        <Class IRI="#Chances"/>
+        <Class IRI="#Competition"/>
+        <Class IRI="#Cooperation"/>
+        <Class IRI="#Feedback"/>
+        <Class IRI="#Resource_Acquisition"/>
+        <Class IRI="#Rewards"/>
+        <Class IRI="#Status"/>
+        <Class IRI="#Theme"/>
+        <Class IRI="#Transactions"/>
+        <Class IRI="#Turns"/>
+        <Class IRI="#Win_States"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Constraints"/>
+        <Class IRI="#Emotions"/>
+        <Class IRI="#Narrative"/>
+        <Class IRI="#Progression"/>
+        <Class IRI="#Relationships"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#classifiesPlayer"/>
+        <ObjectProperty IRI="#isClassifiedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#describesPlayer"/>
+        <ObjectProperty IRI="#isDescribedByType"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#describesType"/>
+        <ObjectProperty IRI="#isDescribedByModel"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasGamification"/>
+        <ObjectProperty IRI="#isAppliedTo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPlayerInteraction"/>
+        <ObjectProperty IRI="#interactsIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isTiedTo"/>
+        <ObjectProperty IRI="#tiesComponent"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isUsedBy"/>
+        <ObjectProperty IRI="#makesUseOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#affordsMotivation"/>
+        <Class IRI="#Game_Design_Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#classifiesPlayer"/>
+        <Class IRI="#Player_Model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#composesDynamic"/>
+        <Class IRI="#GDE_Mechanic"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#describesPlayer"/>
+        <Class IRI="#Player_Type"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#describesType"/>
+        <Class IRI="#Player_Model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGamification"/>
+        <Class IRI="#Non-Game_Context"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPlayerInteraction"/>
+        <Class IRI="#Gamification_Context"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#interactsIn"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAppliedTo"/>
+        <Class IRI="#Gamification"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isClassifiedBy"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isComprisedOf"/>
+        <Class IRI="#Motivation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDescribedByModel"/>
+        <Class IRI="#Player_Type"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDescribedByType"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isTiedTo"/>
+        <Class IRI="#GDE_Component"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isUsedBy"/>
+        <Class IRI="#Game_Design_Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isUsedBy"/>
+        <Class IRI="#Motivation_And_Need_Theory"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#makesUseOf"/>
+        <Class IRI="#Gamification"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tiesComponent"/>
+        <Class IRI="#GDE_Mechanic"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#affordsMotivation"/>
+        <Class IRI="#Motivation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#classifiesPlayer"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#composesDynamic"/>
+        <Class IRI="#GDE_Dynamic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#describesPlayer"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#describesType"/>
+        <Class IRI="#Player_Type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGamification"/>
+        <Class IRI="#Gamification"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPlayerInteraction"/>
+        <Class IRI="#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interactsIn"/>
+        <Class IRI="#Gamification_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAppliedTo"/>
+        <Class IRI="#Non-Game_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isClassifiedBy"/>
+        <Class IRI="#Player_Model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isComprisedOf"/>
+        <Class IRI="#Motivational_Component"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDescribedByModel"/>
+        <Class IRI="#Player_Model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDescribedByType"/>
+        <Class IRI="#Player_Type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isTiedTo"/>
+        <Class IRI="#GDE_Mechanic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isUsedBy"/>
+        <Class IRI="#Gamification"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#makesUseOf"/>
+        <Class IRI="#Game_Design_Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#makesUseOf"/>
+        <Class IRI="#Motivation_And_Need_Theory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tiesComponent"/>
+        <Class IRI="#GDE_Component"/>
+    </ObjectPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#archetypeBehavior"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#archetypeBrainRegion"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#archetypeChemicalMessenger"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#archetypeLikes"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Achievements</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Defined objectives</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Avatars</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A virtual representation of a player’s character in a game. Common in role-playing games in which the player might take on the role of a magical creature or a medieval warrior.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Badges</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A visual token of a achievement. Usually designed to look like the real-world analogs, such as Boy Scout badges or the Good Housekeeping seal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Boss_Fights</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A difficult fight against a high-level opponent, called a boss. Often marks the end of a level or a section of a game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Challenges</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Puzzles or other tasks that require effort to solve</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Chances</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Elements of randomness</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Collections</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Set of items or badges to accumulate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Combat</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A defined battle, typically short-lived</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Competition</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">One player or group wins, and the other loses</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Constraints</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Limitations or forced trade-offs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Content_Unlocking</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Aspects available only when players reach objectives</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Cooperation</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players must work together to achieve a shared goal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Emotions</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Curiosity, competitiveness, frustration, happiness, and so on</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Feedback</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Information about how the player is doing.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GDE_Component</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A particular structure in a game, implementing the game’s mechanics and dynamics. Points and badges are examples of game components</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GDE_Dynamic</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The conceptual structures underlying a game, such as the narrative and rules (constraints) that shape the game. These are the most abstract game elements. Players feel their effects but do not engage with them directly.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GDE_Mechanic</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The processes that drive forward the action in a game, such as feedback or turns. Game mechanics are the actions that implement higher-level game dynamics and manifest themselves in lower-level game components.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Game_Design_Element</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A design pattern that can be incorporated into a game. Game elements are the pieces that a game designer assembles in creating an engaging experience</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gamification</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Use of game design elements in non-game contexts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gamification_Context</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Context of gamification refers to the core service or an activity being gamified</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gifting</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Opportunities to share resources with others</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Leaderboards</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A ranked list of participants in a game, with the highest scores on top.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Levels</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Defined steps in player progression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Motivation</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Motivation is literally the desire to do things.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Narrative</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A consistent, ongoing storyline</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Points</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Numerical representations of game progression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Progression</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The player’s growth and development</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Quests</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A specific mission or challenge for players of a game. The quest will usually have a narrative and an objective and a reward for completion.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Relationships</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Social interactions generating feelings of camaraderie, status, altruism, and so on</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Resource_Acquisition</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Obtaining useful or collectible items</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Rewards</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Benefits for some action or achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Social_Graph</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The network of relationships among friends, such as the matrix of connections on Facebook or other social networking sites.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Status</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The rank or level of a player. Players are often motivated by trying to reach a higher level or status. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Teams</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Defined groups of players working together for a common goal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Transactions</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Trading between players, directly or through intermediaries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Turns</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Sequential participation by alternating players</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Virtual_Goods</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Virtual items that have value or uniqueness within a game environment. Players may be able to purchase virtual goods with virtual currency, real money, or through achievements within the game. Also called virtual assets.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Win_States</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The outcomes of a game that constitute “winning”. Typically defined by the rules of the game and the game’s feedback or rewards mechanisms.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,48 @@
+# Configuration par défaut du framework NSXAI
+
+# Ontologies
+ontologies:
+  base_dir: "ITLT"
+  files:
+    gado_core: "gado_core.owl"
+    gado_full: "gado_full.owl"
+    gato: "gato.owl"
+    its_pedagogical: "its.pedagogical.owl"
+    its_domain: "itsdomain.owl"
+  default_reasoner: "OWLRL"
+
+# Knowledge Graph
+knowledge_graph:
+  backend: "memory"  # Options: memory, neo4j, rdf
+  neo4j:
+    uri: "bolt://localhost:7687"
+    user: "neo4j"
+    password: "${NEO4J_PASSWORD}"
+
+# Neural Layer
+neural:
+  default_device: "auto"  # auto, cpu, cuda
+  random_seed: 42
+  batch_size: 32
+  learning_rate: 0.001
+
+# Neuro-Symbolic Integration
+neuro_symbolic:
+  embedding_dim: 128
+  alignment_method: "translation"  # translation, projection, gnn
+  explanation_depth: 3  # Profondeur max des explications symboliques
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/nsxai.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# Experiments
+experiments:
+  tracking_backend: "mlflow"  # mlflow, wandb, tensorboard
+  mlflow:
+    tracking_uri: "http://localhost:5000"
+    experiment_name: "nsxai_default"

@@ -1,0 +1,533 @@
+============================================================
+RAPPORT DES ONTOLOGIES
+============================================================
+Dossier: C:\Users\david\Documents\Github\NSXAI\public\ontologies
+Date: 2026-04-28 23:32:39
+Ontologies chargées: 5
+
+────────────────────────────────────────
+GADO_CORE
+────────────────────────────────────────
+  Triples:     668
+  Classes:     48
+  Propriétés:  21
+  Individus:   22
+
+  Classes:
+    • Achievements
+    • Avatars
+    • Badges
+    • Boss_Fights
+    • Challenges
+    • Chances
+    • Collections
+    • Combat
+    • Competition
+    • Constraints (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Content_Unlocking
+    • Cooperation
+    • Emotions (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Feedback
+    • GDE_Component (hérite de: Game_Design_Element, Game_Design_Element)
+    • GDE_Dynamic (hérite de: Game_Design_Element, Game_Design_Element)
+    • GDE_Mechanic (hérite de: Game_Design_Element, Game_Design_Element)
+    • Game_Context (hérite de: Gamification_Context, Gamification_Context)
+    • Game_Design_Element
+    • Gamification
+    • Gamification_Context
+    • Gifting
+    • Leaderboards
+    • Levels
+    • Motivation
+    • Motivation_And_Need_Theory
+    • Motivational_Component
+    • Narrative (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Non-Game_Context (hérite de: Gamification_Context, Gamification_Context)
+    • Player
+    • Player_Model
+    • Player_Type
+    • Points
+    • Progression (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Quests
+    • Relationships (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Resource_Acquisition
+    • Rewards
+    • Social_Graph
+    • Status
+    • Story
+    • Teams
+    • Theme
+    • Time_Constraints
+    • Transactions
+    • Turns
+    • Virtual_Goods
+    • Win_States
+
+  Propriétés: 17 objets, 4 données
+    Propriétés d'objet:
+      • gado_core.affordsMotivation
+      • gado_core.classifiesPlayer
+      • gado_core.composesDynamic
+      • gado_core.describesPlayer
+      • gado_core.describesType
+      • gado_core.hasGamification
+      • gado_core.hasPlayerInteraction
+      • gado_core.interactsIn
+      • gado_core.isAppliedTo
+      • gado_core.isClassifiedBy
+      • gado_core.isComprisedOf
+      • gado_core.isDescribedByModel
+      • gado_core.isDescribedByType
+      • gado_core.isTiedTo
+      • gado_core.isUsedBy
+      • gado_core.makesUseOf
+      • gado_core.tiesComponent
+    Propriétés de données:
+      • gado_core.archetypeBehavior
+      • gado_core.archetypeBrainRegion
+      • gado_core.archetypeChemicalMessenger
+      • gado_core.archetypeLikes
+
+────────────────────────────────────────
+GADO_FULL
+────────────────────────────────────────
+  Triples:     562
+  Classes:     51
+  Propriétés:  32
+  Individus:   12
+
+  Classes:
+    • Achiever
+    • Activity_Loop
+    • BrainHex
+    • CategoryCompetition (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • CategoryEffectiveness (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • CategoryEnjoyment (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • CategoryExploration (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • CategoryParticipation (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • CategoryPerformance (hérite de: Target_Behavior_Category, Target_Behavior_Category)
+    • Conqueror
+    • Constraints (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Daredevil
+    • DesignPractice
+    • Emotions (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Engagement_Loop (hérite de: Activity_Loop, Activity_Loop)
+    • Feedback
+    • Game_Design_Element
+    • Mastemind
+    • Metric
+    • Motivation_And_Need_Theory
+    • Motivational_Affordance
+    • Narrative (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Player_Action
+    • Player_Model
+    • Player_Type
+    • Progression (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • Progressive_Loop (hérite de: Activity_Loop, Activity_Loop)
+    • Relationships (hérite de: GDE_Dynamic, GDE_Dynamic)
+    • SDT_Autonomy
+    • SDT_Competence
+    • SDT_Relatedness
+    • Seeker
+    • Self-Determination_Theory (hérite de: Motivation_And_Need_Theory, Motivation_And_Need_Theory)
+    • Socializer
+    • Survivor
+    • Target_Behavior
+    • Target_Behavior_Category
+    • Yee_Achievement_Component (hérite de: Yees_Motivational_Components, Yees_Motivational_Components)
+    • Yee_Advancement
+    • Yee_Competition
+    • Yee_Customization
+    • Yee_Discovery
+    • Yee_Escapism
+    • Yee_Immersion_Component (hérite de: Yees_Motivational_Components, Yees_Motivational_Components)
+    • Yee_Mechanics
+    • Yee_Relationship
+    • Yee_Role-Playing
+    • Yee_Social_Component (hérite de: Yees_Motivational_Components, Yees_Motivational_Components)
+    • Yee_Socializing
+    • Yee_Teamwork
+    • Yees_Motivational_Components (hérite de: Player_Model, Player_Model)
+
+  Propriétés: 20 objets, 12 données
+    Propriétés d'objet:
+      • gado_full.coversComponent
+      • gado_core.describesType
+      • gado_full.hasCategory
+      • gado_full.hasGameElement
+      • gado_full.hasMetric
+      • gado_full.hasPlayer
+      • gado_full.hasTargetBehavior
+      • gado_full.isAccomplishedWith
+      • gado_full.isComposedBy
+      • gado_full.isMotivatedWith
+      • gado_full.isPartOfEngagementLoop
+      • gado_full.isSatisfiedWith
+      • gado_full.isUsedFor
+      • gado_full.leadsTo
+      • gado_full.leadsToCompetition
+      • gado_full.leadsToEffectiveness
+      • gado_full.leadsToEnjoyment
+      • gado_full.leadsToExploration
+      • gado_full.leadsToParticipation
+      • gado_full.leadsToPerformance
+    Propriétés de données:
+      • gado_full.competionName
+      • gado_full.effectivenessName
+      • gado_full.enjoymentName
+      • gado_full.explorationName
+      • gado_full.loopDifficulty
+      • gado_full.loopQuality
+      • gado_full.loopStatus
+      • gado_full.metricDescription
+      • gado_full.metricExpectedValue
+      • gado_full.metricValue
+      • gado_full.participationName
+      • gado_full.performanceName
+
+────────────────────────────────────────
+GATO
+────────────────────────────────────────
+  Triples:     34
+  Classes:     4
+  Propriétés:  8
+  Individus:   0
+
+  Classes:
+    • GamificationModel
+    • GamifiedITS
+    • StudentModel
+    • THINGInstrutionalPlan
+
+  Propriétés: 8 objets, 0 données
+    Propriétés d'objet:
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasActivityLoops
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasBehaviouralKnowledge
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasDomainModel
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasGamificationModel
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasPedagogicalModel
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.hasStudentModel
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.includes
+      • C:\Users\david\Documents\Github\NSXAI\public\ontologies\gato.makesUseOf
+
+────────────────────────────────────────
+ITS.PEDAGOGICAL
+────────────────────────────────────────
+  Triples:     169
+  Classes:     11
+  Propriétés:  31
+  Individus:   0
+
+  Classes:
+    • CurriculumUnit (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • InstrutionalPlan (hérite de: PedagogicalModel, PedagogicalModel)
+    • PedagogicalModel
+    • ProblemNext (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • ProblemUnit (hérite de: Sequencing, Sequencing)
+    • ResourceUnit (hérite de: Sequencing, Sequencing)
+    • Sequencing (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • Strategy (hérite de: PedagogicalModel, PedagogicalModel)
+    • THINGInstrutionalPlan (hérite de: THINGPedagogicalModel, THINGPedagogicalModel)
+    • THINGPedagogicalModel
+    • Tactic (hérite de: PedagogicalModel, PedagogicalModel)
+
+  Propriétés: 15 objets, 16 données
+    Propriétés d'objet:
+      • its.pedagogical.has_Curriculum
+      • its.pedagogical.has_PedagogicalUnit
+      • its.pedagogical.has_Problem
+      • its.pedagogical.has_ProblemNext
+      • its.pedagogical.has_Resource
+      • its.pedagogical.has_Sequencing
+      • its.pedagogical.has_domain
+      • its.pedagogical.isChildOf_Strategy
+      • its.pedagogical.isChildOf_Tactic
+      • its.pedagogical.isParentOf_Strategy
+      • its.pedagogical.isParentOf_Tactic
+      • its.pedagogical.next_Curriculum
+      • its.pedagogical.next_Unit
+      • its.pedagogical.previous_Unit
+      • its.pedagogical.strategicTutoring
+    Propriétés de données:
+      • its.pedagogical.Level
+      • its.pedagogical.abilityScoreMean
+      • its.pedagogical.abilityScoreStandardDeviation
+      • its.pedagogical.isExplained
+      • its.pedagogical.score_Max
+      • its.pedagogical.score_Min
+      • its.pedagogical.statement
+      • its.pedagogical.strategy
+      • its.pedagogical.tactic
+      • its.pedagogical.time
+      • its.pedagogical.type
+      • its.pedagogical.typeAssessment
+      • its.pedagogical.typeStrategy
+      • its.pedagogical.typeStrategyTutoring
+      • its.pedagogical.typeTactic
+      • its.pedagogical.value
+
+────────────────────────────────────────
+ITSDOMAIN
+────────────────────────────────────────
+  Triples:     1214
+  Classes:     66
+  Propriétés:  178
+  Individus:   0
+
+  Classes:
+    • Activity (hérite de: Resource, Resource)
+    • BehaviouralKnowledge (hérite de: THINGCurriculum, THINGCurriculum)
+    • Bug (hérite de: Catalogue, Catalogue)
+    • Bug_Misconception
+    • CKCurriculumInformation (hérite de: THINGCurriculum, THINGCurriculum)
+    • Catalogue (hérite de: THINGCurriculum, THINGCurriculum)
+    • Comment (hérite de: ThingResource, ThingResource)
+    • Competence (hérite de: THINGDomain, THINGDomain)
+    • CompositeResource (hérite de: Resource, Resource)
+    • Concept (hérite de: Resource, Resource)
+    • ConceptualKnowledge (hérite de: THINGCurriculum, THINGCurriculum)
+    • Content (hérite de: Resource, Resource)
+    • Context
+    • Course
+    • Curriculum
+    • CurriculumUnit (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • Depth
+    • Diagnosis (hérite de: ThingResource, ThingResource)
+    • DiscursiveOption (hérite de: Option, Option)
+    • DiscursiveProblem (hérite de: Problem, Problem)
+    • Domain (hérite de: DomainModel, DomainModel)
+    • DomainModel
+    • Error (hérite de: Catalogue, Catalogue)
+    • Error_Bug
+    • Error_Misconception
+    • EvaluationResource (hérite de: Resource, Resource)
+    • Exercise (hérite de: Resource, Resource)
+    • FillBlanksOption (hérite de: Option, Option)
+    • FillBlanksProblem (hérite de: Problem, Problem)
+    • Form (hérite de: EvaluationResource, EvaluationResource)
+    • GenericOperator (hérite de: THINGCurriculum, THINGCurriculum)
+    • Hint (hérite de: ThingResource, ThingResource)
+    • InstrutionalPlan (hérite de: PedagogicalModel, PedagogicalModel)
+    • KnowledgeUnit (hérite de: THINGCurriculum, THINGCurriculum)
+    • MatchColumnOption (hérite de: Option, Option)
+    • MatchColumnProblem (hérite de: Problem, Problem)
+    • MethodStep (hérite de: ThingResource, ThingResource)
+    • Misconception (hérite de: Catalogue, Catalogue)
+    • MultipleChoiceOption (hérite de: Option, Option)
+    • MultipleChoiceProblem (hérite de: Problem, Problem)
+    • Option (hérite de: Resource, Resource)
+    • PedagogicalModel
+    • PedagogicalUnit (hérite de: THINGCurriculum, THINGCurriculum)
+    • Problem (hérite de: Resource, Resource)
+    • ProblemBasedEvaluation (hérite de: EvaluationResource, EvaluationResource)
+    • ProblemNext (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • ProblemUnit (hérite de: Sequencing, Sequencing)
+    • Question (hérite de: Resource, Resource)
+    • Resolution (hérite de: ThingResource, ThingResource)
+    • ResolutionMethod (hérite de: ThingResource, ThingResource)
+    • Resource
+    • ResourceUnit (hérite de: Sequencing, Sequencing)
+    • ResourceWeight (hérite de: THINGCurriculum, THINGCurriculum)
+    • Sequencing (hérite de: THINGInstrutionalPlan, THINGInstrutionalPlan)
+    • Strategy (hérite de: PedagogicalModel, PedagogicalModel)
+    • THINGCurriculum
+    • THINGDomain (hérite de: DomainModel, DomainModel)
+    • THINGInstrutionalPlan (hérite de: THINGPedagogicalModel, THINGPedagogicalModel)
+    • THINGPedagogicalModel
+    • Tactic (hérite de: PedagogicalModel, PedagogicalModel)
+    • ThingResource
+    • TrueOrFalseOption (hérite de: Option, Option)
+    • TrueOrFalseProblem (hérite de: Problem, Problem)
+    • UniversalGenericOperator (hérite de: THINGCurriculum, THINGCurriculum)
+    • UserAccount
+    • WritingEvaluation (hérite de: EvaluationResource, EvaluationResource)
+
+  Propriétés: 86 objets, 91 données
+    Propriétés d'objet:
+      • MeuTutor.Domain.Curriculum.
+      • MeuTutor.Domain.Resource.LeftColumn
+      • MeuTutor.Domain.Resource.MatchColumnAnswer
+      • MeuTutor.Domain.Resource.ResourceList
+      • MeuTutor.Domain.Resource.RightColumn
+      • MeuTutor.Domain.associatedDomain
+      • MeuTutor.Domain.Curriculum.difficulty
+      • MeuTutor.Domain.Resource.fillBlanksHasOption
+      • MeuTutor.Domain.Curriculum.hasBehaviouralKnowledge
+      • MeuTutor.Domain.Curriculum.hasBug
+      • MeuTutor.Domain.Curriculum.hasCatalogue
+      • MeuTutor.Domain.Curriculum.hasConcept
+      • MeuTutor.Domain.Curriculum.hasConceptualKnowledge
+      • MeuTutor.Domain.Curriculum.hasConsistency
+      • MeuTutor.Domain.Curriculum.hasContent
+      • MeuTutor.Domain.CP.hasContext
+      • MeuTutor.Domain.Curriculum.hasCurriculum
+      • MeuTutor.Domain.Curriculum.hasCurriculumInformation
+      • MeuTutor.Domain.Curriculum.hasDiscrepancy
+      • MeuTutor.Domain.Curriculum.hasDomain
+      • MeuTutor.Domain.hasDomains
+      • MeuTutor.Domain.hasEloRating
+      • MeuTutor.Domain.Curriculum.hasError
+      • MeuTutor.Domain.Resource.hasEvaluation
+      • MeuTutor.Domain.Curriculum.hasExample
+      • MeuTutor.Domain.Curriculum.hasExplanation
+      • MeuTutor.Domain.Curriculum.hasKnowledgeUnit
+      • MeuTutor.Domain.Curriculum.hasLO
+      • MeuTutor.Domain.hasLevel
+      • MeuTutor.Domain.Curriculum.hasMisconception
+      • MeuTutor.Domain.Resource.hasOption
+      • MeuTutor.Domain.Curriculum.hasPedagogicalUnit
+      • MeuTutor.Domain.Curriculum.hasResource
+      • MeuTutor.Domain.Resource.hasResource
+      • MeuTutor.Domain.hasSubDomain
+      • MeuTutor.Domain.Curriculum.hasSuperConceptualKnowledge
+      • MeuTutor.Domain.Curriculum.hasTags
+      • MeuTutor.Domain.Resource.has_Context
+      • MeuTutor.Domain.Curriculum.has_Curriculum
+      • MeuTutor.Pedagogical.has_Curriculum
+      • MeuTutor.Domain.Resource.has_Depth
+      • MeuTutor.Domain.Resource.has_Diagnosis
+      • MeuTutor.Domain.Resource.has_Domain
+      • MeuTutor.Domain.has_Domain
+      • MeuTutor.Domain.Resource.has_MethodStep
+      • MeuTutor.Domain.Curriculum.has_MissConception
+      • MeuTutor.Pedagogical.has_PedagogicalUnit
+      • MeuTutor.Pedagogical.has_Problem
+      • MeuTutor.Pedagogical.has_ProblemNext
+      • MeuTutor.Domain.Resource.has_Problems
+      • MeuTutor.Domain.Resource.has_Questions
+      • MeuTutor.Domain.Resource.has_Resolution
+      • MeuTutor.Domain.Resource.has_ResolutionMethod
+      • MeuTutor.Pedagogical.has_Resource
+      • MeuTutor.Pedagogical.has_Sequencing
+      • MeuTutor.Domain.Resource.has_comments
+      • MeuTutor.Domain.Resource.has_discursiveOption
+      • MeuTutor.Pedagogical.has_domain
+      • MeuTutor.Domain.Resource.has_hint
+      • MeuTutor.Domain.CP.isChildOfCurriculum
+      • MeuTutor.Domain.Resource.isChildOfHint
+      • MeuTutor.Pedagogical.isChildOf_Strategy
+      • MeuTutor.Pedagogical.isChildOf_Tactic
+      • MeuTutor.Domain.CP.isComposedByContext
+      • MeuTutor.Domain.isComposedByContext
+      • MeuTutor.Domain.isComposedByCurriculum
+      • MeuTutor.Domain.CP.isComposedByDepth
+      • MeuTutor.Domain.isComposedByDepth
+      • MeuTutor.Domain.CP.isComposedByLaterality
+      • MeuTutor.Domain.Curriculum.isComposedByLaterality
+      • MeuTutor.Domain.Curriculum.isComposedByProblem
+      • MeuTutor.Domain.CP.isParentOfCurriculum
+      • MeuTutor.Domain.Resource.isParentOfHint
+      • MeuTutor.Pedagogical.isParentOf_Strategy
+      • MeuTutor.Pedagogical.isParentOf_Tactic
+      • MeuTutor.Domain.isSubDomainOf
+      • MeuTutor.Domain.Resource.matched_To
+      • MeuTutor.Domain.Resource.multipleChoiceAnswer
+      • MeuTutor.Domain.Resource.multipleChoiceHasOption
+      • MeuTutor.Pedagogical.next_Curriculum
+      • MeuTutor.Pedagogical.next_Unit
+      • MeuTutor.Pedagogical.previous_Unit
+      • MeuTutor.Domain.Resource.related_Curriculum
+      • MeuTutor.Pedagogical.strategicTutoring
+      • its.domain.teachesDomain
+      • MeuTutor.Domain.Resource.trueOrFalseHasOption
+    Propriétés de données:
+      • MeuTutor.Domain.Resource.
+      • MeuTutor.Domain.Curriculum.DatatypeProperty_2
+      • MeuTutor.Domain.Resource.DatatypeProperty_2
+      • MeuTutor.Pedagogical.Level
+      • MeuTutor.Domain.Resource.OptionAnswer
+      • MeuTutor.Domain.Resource.Statement
+      • MeuTutor.Domain.Resource.URIResource
+      • MeuTutor.Domain.Resource.URIType
+      • MeuTutor.Pedagogical.abilityScoreMean
+      • MeuTutor.Pedagogical.abilityScoreStandardDeviation
+      • MeuTutor.Domain.Curriculum.ckType
+      • MeuTutor.Domain.Curriculum.cluster
+      • MeuTutor.Domain.Resource.comment
+      • MeuTutor.Domain.Resource.context
+      • MeuTutor.Domain.Resource.corrected
+      • its.domain.courseName
+      • MeuTutor.Domain.Resource.currentOperation
+      • MeuTutor.Domain.CP.description
+      • MeuTutor.Domain.Curriculum.description
+      • MeuTutor.Domain.Resource.description
+      • MeuTutor.Domain.desiredPoints
+      • MeuTutor.Domain.Resource.developmentStatus
+      • MeuTutor.Domain.Resource.difficulty
+      • MeuTutor.Domain.Curriculum.domain
+      • MeuTutor.Domain.domain
+      • MeuTutor.Domain.Resource.duration
+      • MeuTutor.Domain.Resource.enabled
+      • MeuTutor.Domain.Resource.endDate
+      • MeuTutor.Domain.Resource.error
+      • MeuTutor.Domain.Resource.exercise
+      • MeuTutor.Domain.Resource.hasCalculations
+      • MeuTutor.Domain.Curriculum.hasPG
+      • MeuTutor.Domain.Curriculum.hasPL0
+      • MeuTutor.Domain.Curriculum.hasPS
+      • MeuTutor.Domain.Curriculum.hasPT
+      • MeuTutor.Domain.Resource.hasSuggestedTags
+      • MeuTutor.Domain.Resource.has_Answers
+      • MeuTutor.Domain.Resource.has_Epoch
+      • MeuTutor.Domain.Resource.has_Knowledge
+      • MeuTutor.Domain.Resource.has_token
+      • MeuTutor.Domain.Resource.hint
+      • MeuTutor.Domain.CP.importanceLevel
+      • MeuTutor.Pedagogical.isExplained
+      • MeuTutor.Domain.CP.issue
+      • MeuTutor.Domain.Curriculum.issue
+      • MeuTutor.Domain.Resource.issue
+      • MeuTutor.Domain.Resource.item
+      • MeuTutor.Domain.Resource.level
+      • MeuTutor.Domain.Resource.methodDescription
+      • MeuTutor.Domain.Resource.methodStep
+      • MeuTutor.Domain.Resource.methodname
+      • MeuTutor.Domain.Resource.numberOfFavorites
+      • MeuTutor.Domain.Resource.numberOfViews
+      • MeuTutor.Domain.Resource.order
+      • MeuTutor.Domain.Resource.posting_date
+      • MeuTutor.Domain.Resource.posting_hour
+      • MeuTutor.Domain.Curriculum.precedence
+      • MeuTutor.Domain.Resource.question
+      • MeuTutor.Domain.Curriculum.rate
+      • MeuTutor.Domain.Resource.resolution
+      • MeuTutor.Pedagogical.score_Max
+      • MeuTutor.Pedagogical.score_Min
+      • MeuTutor.Domain.Resource.size
+      • MeuTutor.Domain.Resource.startDate
+      • MeuTutor.Pedagogical.statement
+      • MeuTutor.Domain.Resource.stepName
+      • MeuTutor.Domain.Resource.stepOrder
+      • MeuTutor.Pedagogical.strategy
+      • MeuTutor.Domain.Resource.subjects
+      • MeuTutor.Domain.Resource.submmitedDate
+      • MeuTutor.Domain.Resource.superKC
+      • MeuTutor.Pedagogical.tactic
+      • its.domain.teacher
+      • MeuTutor.Domain.Resource.term
+      • MeuTutor.Pedagogical.time
+      • MeuTutor.Domain.Resource.title
+      • MeuTutor.Domain.Resource.tokenized_statement
+      • MeuTutor.Domain.Curriculum.totalWeight
+      • MeuTutor.Domain.CP.type
+      • MeuTutor.Domain.Resource.type
+      • MeuTutor.Domain.type
+      • MeuTutor.Pedagogical.type
+      • MeuTutor.Pedagogical.typeAssessment
+      • MeuTutor.Pedagogical.typeStrategy
+      • MeuTutor.Pedagogical.typeStrategyTutoring
+      • MeuTutor.Pedagogical.typeTactic
+      • MeuTutor.Domain.Resource.type_Test
+      • MeuTutor.Domain.value
+      • MeuTutor.Pedagogical.value
+      • MeuTutor.Domain.Curriculum.weight
+      • MeuTutor.Domain.Resource.weight
+
+============================================================
+RÉSUMÉ GLOBAL
+============================================================
+Total ontologies: 5
+Total triples: 2647
+Total classes: 180
+Total propriétés: 270
+Total individus: 34

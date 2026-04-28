@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public">
+        <uri id="Automatically generated entry, Timestamp=1776948234963" name="http://surveys.nees.com.br/ontologies/gado_core.owl" uri="gado_core.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1776948234963" name="http://surveys.nees.com.br/ontologies/gado_full.owl" uri="gado_full.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1776948234963" name="http://surveys.nees.com.br/ontologies/gato.owl" uri="gato.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1776948234963" name="http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl" uri="its.pedagogical.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1776948234963" name="http://surveys.nees.com.br/ontologies/itsdomain.owl" uri="itsdomain.owl"/>
+    </group>
+</catalog>

@@ -1,0 +1,1231 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://surveys.nees.com.br/ontologies/gado_full.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://surveys.nees.com.br/ontologies/gado_full.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://surveys.nees.com.br/ontologies/gado_core.owl</Import>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#effectiveness"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGameElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mastemind"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Escapism"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsTo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DesignPractice"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#enjoyment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Relationship"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#loopQuality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Competition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryCompetition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTargetBehavior"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Achiever"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#increaseHappiness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Advancement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Competence"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryPerformance"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#performanceName"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#participation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Target_Behavior_Category"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryEffectiveness"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isComposedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Motivational_Affordance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Mechanics"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#loopDifficulty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Socializer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Immersion_Component"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#enjoymentName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conqueror"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Seeker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryParticipation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Teamwork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Daredevil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAccomplishedWith"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metricExpectedValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Survivor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Role-Playing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#interactionWithTheSystem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOfEngagementLoop"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#motivation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPlayer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#engagement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToCompetition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Autonomy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BrainHex"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#satisfaction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Player_Action"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isUsedFor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#loopStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Self-Determination_Theory"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#participationName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#effectivenessName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Customization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Achievement_Component"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Activity_Loop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Progressive_Loop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Target_Behavior"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToExploration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#coversComponent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Social_Component"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#leadsToEffectiveness"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metricValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Engagement_Loop"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#explorationName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metricDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yees_Motivational_Components"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSatisfiedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryExploration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMotivatedWith"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Socializing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#describesType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#competionName"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#signupForTheSystem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#increasePerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoryEnjoyment"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#testEngagementLoop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Relatedness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Yee_Discovery"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMetric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Player_Action"/>
+        <Class IRI="#Target_Behavior"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Autonomy"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Self-Determination_Theory"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isSatisfiedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Competence"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Self-Determination_Theory"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isSatisfiedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Relatedness"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Self-Determination_Theory"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isSatisfiedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Achiever"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BrainHex"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#describesType"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryCompetition"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryEffectiveness"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryEnjoyment"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryExploration"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryParticipation"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoryPerformance"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conqueror"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+                </ObjectUnionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Daredevil"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Engagement_Loop"/>
+        <Class IRI="#Activity_Loop"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mastemind"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progressive_Loop"/>
+        <Class IRI="#Activity_Loop"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Seeker"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+                </ObjectIntersectionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Self-Determination_Theory"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Socializer"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Survivor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#coversComponent"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+                </ObjectIntersectionOf>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Achievement_Component"/>
+        <Class IRI="#Yees_Motivational_Components"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Advancement"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Achievement_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Competition"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Achievement_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Customization"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Immersion_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Discovery"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Immersion_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Escapism"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Immersion_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Immersion_Component"/>
+        <Class IRI="#Yees_Motivational_Components"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Mechanics"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Achievement_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Relationship"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Social_Component"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#isMotivatedWith"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#isMotivatedWith"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Role-Playing"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Immersion_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <ObjectUnionOf>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Social_Component"/>
+        <Class IRI="#Yees_Motivational_Components"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Socializing"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Social_Component"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isMotivatedWith"/>
+                <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yee_Teamwork"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Yee_Social_Component"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#isMotivatedWith"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Progression"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#isMotivatedWith"/>
+                    <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Yees_Motivational_Components"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#business"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#computer-supported_cooperative_work"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#computer_science_and_engineering"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#crowdsourcing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#education"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#health-care"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#marketing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#orientation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#research"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#social_networks"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context"/>
+        <NamedIndividual IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#sustainability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Engagement_Loop"/>
+        <NamedIndividual IRI="#testEngagementLoop"/>
+    </ClassAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMetric"/>
+        <ObjectProperty IRI="#isUsedFor"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isAccomplishedWith"/>
+        <ObjectProperty IRI="#leadsTo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isComposedBy"/>
+        <ObjectProperty IRI="#isPartOfEngagementLoop"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#coversComponent"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCategory"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGameElement"/>
+        <Class IRI="#DesignPractice"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMetric"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPlayer"/>
+        <Class IRI="#Player_Action"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTargetBehavior"/>
+        <Class IRI="#DesignPractice"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAccomplishedWith"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isComposedBy"/>
+        <Class IRI="#Engagement_Loop"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMotivatedWith"/>
+        <Class IRI="#Yees_Motivational_Components"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOfEngagementLoop"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback"/>
+            <Class IRI="#Motivational_Affordance"/>
+            <Class IRI="#Player_Action"/>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSatisfiedWith"/>
+        <Class IRI="#Self-Determination_Theory"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isUsedFor"/>
+        <Class IRI="#Metric"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsTo"/>
+        <Class IRI="#Activity_Loop"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToCompetition"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEffectiveness"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Badges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEffectiveness"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Achievements"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Avatars"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Badges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Points"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Quests"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Story"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Theme"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToExploration"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Achievements"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToExploration"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Boss_Fights"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToExploration"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToExploration"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Levels"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Badges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Levels"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Points"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Story"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Theme"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Achievements"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Badges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Levels"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Story"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Theme"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#coversComponent"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCategory"/>
+        <Class IRI="#Target_Behavior_Category"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGameElement"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGameElement"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMetric"/>
+        <Class IRI="#Metric"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPlayer"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTargetBehavior"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAccomplishedWith"/>
+        <Class IRI="#Activity_Loop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isComposedBy"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isComposedBy"/>
+        <Class IRI="#Motivational_Affordance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isComposedBy"/>
+        <Class IRI="#Player_Action"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMotivatedWith"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOfEngagementLoop"/>
+        <Class IRI="#Engagement_Loop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSatisfiedWith"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isUsedFor"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsTo"/>
+        <Class IRI="#Target_Behavior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToCompetition"/>
+        <Class IRI="#CategoryCompetition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToEffectiveness"/>
+        <Class IRI="#CategoryEffectiveness"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToEnjoyment"/>
+        <Class IRI="#CategoryEnjoyment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToExploration"/>
+        <Class IRI="#CategoryExploration"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToParticipation"/>
+        <Class IRI="#CategoryParticipation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#leadsToPerformance"/>
+        <Class IRI="#CategoryPerformance"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#competionName"/>
+        <Class IRI="#CategoryCompetition"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#effectivenessName"/>
+        <Class IRI="#CategoryEffectiveness"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#enjoymentName"/>
+        <Class IRI="#CategoryEnjoyment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#explorationName"/>
+        <Class IRI="#CategoryExploration"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#loopDifficulty"/>
+        <Class IRI="#Progressive_Loop"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#loopQuality"/>
+        <Class IRI="#Engagement_Loop"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#loopStatus"/>
+        <Class IRI="#Engagement_Loop"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metricDescription"/>
+        <Class IRI="#Metric"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metricExpectedValue"/>
+        <Class IRI="#Metric"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metricValue"/>
+        <Class IRI="#Metric"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#participationName"/>
+        <Class IRI="#CategoryParticipation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#performanceName"/>
+        <Class IRI="#CategoryPerformance"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#competionName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#effectivenessName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#enjoymentName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#explorationName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#loopDifficulty"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:float"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+            </FacetRestriction>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">1.0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#loopQuality"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:float"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+            </FacetRestriction>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">1.0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#loopStatus"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metricDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metricExpectedValue"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metricValue"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#participationName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#performanceName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Psychological theories related to the human motivation and needs.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Represents a theoretical model that describes a player.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents the type of a player based on game theories.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Autonomy</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Autonomy is the need to have independence and to be able make own choices.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Competence</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Competence is the need to control the outcomes and experience a sense of ability (mastery)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://surveys.nees.com.br/ontologies/gado_core.owl#SDT_Relatedness</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Relatedness is the need to be connected with others, iterate with them, and experience caring for them.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Achiever</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This archetype is more explicitly goal-oriented, motivated by long-term achievements.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Activity_Loop</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Loop of activities in a game-like context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BrainHex</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Typology of playing preferences motivated by combining existing findings from player research with neurobiological insights into the presumed underlying mechanisms</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Conqueror</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players fitting the this archetype enjoy defeating impossibly difficult foes, struggling until they achieve victory, and beating other players.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Daredevil</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This play style is all about the thrill of the chase, the excitement of risk taking and generally playing on the edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DesignPractice</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">One or a set of game elements that leads a player to certain behaviors.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Engagement_Loop</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Engagement Loops (micro level; individual user action).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mastemind</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who fit this archetype enjoy solving puzzles and devising strategies, as well as focusing on making the most efficient decisions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Metric</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A standard of measurent for target behavior.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Motivational_Affordance</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The term affordance can refer to any qualities of the service system that contributes to the emergence of gameful experience. (Huotari)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Player_Action</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The actions of a player in a gamified context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Progressive_Loop</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Progression Loops (macro level; broader structures of activity throughout the course of the game)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Seeker</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Motivated by interest mechanism, which relates to the brain area processing sensory information and memory association.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Self-Determination_Theory</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An approach to human motivation and personality that uses traditional empirical methods while employing an organismic metatheory that highlights the importance of humans&apos; evolved inner resources for personality development and behavioral self-regulation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Socializer</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">People are a primary source of enjoyment for players fitting this archetype</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Survivor</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This archetype could be related to Lazzaro’s serious fun, but in either case it can be seen as a special case of Caillois’ ilinx, which purposefully courts controlled experiences of panic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Target_Behavior</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The expected behavior in the Fogg’s Behavior Model.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Target_Behavior_Category</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A category of Target Behavior based on empirical data in the literature.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Advancement</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who derive satisfaction from reaching goals, leveling quickly and accumulating in-game resources such as gold.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Competition</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy competing with other gamers on the battlefield or economy.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Customization</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy customizing the appearance of their characters.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Discovery</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy exploring the world and discovering locations, quests or artifacts that others may not know about.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Escapism</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who use the environment as a place to relax or relieve their stress from the real world.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Mechanics</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who derive satisfaction from analyzing and understanding the underlying numerical mechanics of the system.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Relationship</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who are looking to form sustained, meaningful relationships with others.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Role-Playing</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy being immersed in a story through the eyes of a character that they designed.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Socializing</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy meeting and getting to know other gamers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yee_Teamwork</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Players who enjoy working and collaborating with others</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Yees_Motivational_Components</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Motivational components based on an extensive survey of MMORPG players.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

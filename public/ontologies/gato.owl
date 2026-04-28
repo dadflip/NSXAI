@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://surveys.nees.com.br/ontologies/gato.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://surveys.nees.com.br/ontologies/gato.owl">
+    <Prefix name="" IRI="http://surveys.nees.com.br/ontologies/gato.owl"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl</Import>
+    <Import>http://surveys.nees.com.br/ontologies/gado_full.owl</Import>
+    <Declaration>
+        <ObjectProperty IRI="#hasGamificationModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStudentModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#includes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasActivityLoops"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPedagogicalModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GamificationModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDomainModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBehaviouralKnowledge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StudentModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GamifiedITS"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#makesUseOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://surveys.ness.com.br/ontologies/its/its.pedagogical.owl#THINGInstrutionalPlan"/>
+    </Declaration>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasDomainModel"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasGamificationModel"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasStudentModel"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasActivityLoops"/>
+        <Class IRI="#GamificationModel"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBehaviouralKnowledge"/>
+        <Class IRI="#StudentModel"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDomainModel"/>
+        <Class IRI="#GamifiedITS"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGamificationModel"/>
+        <Class IRI="#GamifiedITS"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPedagogicalModel"/>
+        <Class IRI="#GamifiedITS"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStudentModel"/>
+        <Class IRI="#GamifiedITS"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#includes"/>
+        <Class IRI="#StudentModel"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#makesUseOf"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_full.owl#Player_Action"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasActivityLoops"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_full.owl#Activity_Loop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBehaviouralKnowledge"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/its/its.domain.curriculum.owl#BehaviouralKnowledge"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDomainModel"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/its/its.domain.owl#DomainModel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGamificationModel"/>
+        <Class IRI="#GamificationModel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPedagogicalModel"/>
+        <Class IRI="http://surveys.ness.com.br/ontologies/its/its.pedagogical.owl#THINGInstrutionalPlan"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStudentModel"/>
+        <Class IRI="#StudentModel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#includes"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#makesUseOf"/>
+        <Class IRI="http://surveys.nees.com.br/ontologies/its/its.domain.resource.owl#Resource"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
