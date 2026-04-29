@@ -48,7 +48,7 @@ NSXAI/
 │       ├── ci/                          → CI/CD scripts
 │       └── release/                     → Versioning
 │
-├── source/                            # Source resources (raw data)
+├── public/                            # public resources (raw data)
 │   ├── ontologies/                      → ITLT/ : OWL ontologies
 │   │   ├── gado_core.owl                → Core GADO
 │   │   ├── gado_full.owl                → Full GADO
