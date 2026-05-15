@@ -1,0 +1,22 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+
+<http://rdfs.org/sioc/ns> a owl:Ontology .
+
+sioc:Container a owl:Class .
+
+sioc:Item a owl:Class .
+
+sioc:UserAccount a owl:Class ;
+    rdfs:comment "A user account in an online community site (stub from SIOC vocabulary)."@en .
+
+sioc:account_of a owl:ObjectProperty .
+
+sioc:has_member a owl:ObjectProperty .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+sioc:Container rdfs:subClassOf owl:Thing .
+sioc:Item rdfs:subClassOf owl:Thing .
+sioc:UserAccount rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------

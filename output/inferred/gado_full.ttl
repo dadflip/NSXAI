@@ -1,0 +1,529 @@
+@prefix gc: <http://surveys.nees.com.br/ontologies/gado_core.owl#> .
+@prefix gf: <http://surveys.nees.com.br/ontologies/gado_full.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://surveys.nees.com.br/ontologies/gado_full.owl> a owl:Ontology ;
+    rdfs:label "GADO Full Ontology"@en ;
+    rdfs:comment "GADO Full extends GADO Core with player archetypes (Bartle, Yee), motivational affordances, activity loops, and design practices for gamification in educational ITS contexts."@en ;
+    owl:imports <http://surveys.nees.com.br/ontologies/gado_core.owl> ;
+    owl:versionInfo "1.1"^^xsd:string .
+
+gf:Achiever a owl:Class ;
+    rdfs:comment "This archetype is more explicitly goal-oriented, motivated by long-term achievements."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Progression ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:BrainHex a owl:Class ;
+    rdfs:comment "Typology of playing preferences motivated by combining existing findings from player research with neurobiological insights into the presumed underlying mechanisms"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Model [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Player_Type ;
+                        owl:onProperty gc:describesType ] ) ] .
+
+gf:Conqueror a owl:Class ;
+    rdfs:comment "Players fitting the this archetype enjoy defeating impossibly difficult foes, struggling until they achieve victory, and beating other players."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Progression gc:Relationships ) ] ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:Daredevil a owl:Class ;
+    rdfs:comment "This play style is all about the thrill of the chase, the excitement of risk taking and generally playing on the edge."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Emotions ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:Mastermind a owl:Class ;
+    rdfs:comment "Players who fit this archetype enjoy solving puzzles and devising strategies, as well as focusing on making the most efficient decisions."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Constraints ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:SDT_Autonomy a owl:Class ;
+    rdfs:comment "Autonomy is the need to have independence and to be able make own choices."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Self-Determination_Theory [ a owl:Restriction ;
+                        owl:onProperty gf:isSatisfiedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Narrative gc:Progression ) ] ] ) ] .
+
+gf:SDT_Competence a owl:Class ;
+    rdfs:comment "Competence is the need to control the outcomes and experience a sense of ability (mastery)"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Self-Determination_Theory [ a owl:Restriction ;
+                        owl:onProperty gf:isSatisfiedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Constraints gc:Progression ) ] ] ) ] .
+
+gf:SDT_Relatedness a owl:Class ;
+    rdfs:comment "Relatedness is the need to be connected with others, iterate with them, and experience caring for them."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Self-Determination_Theory [ a owl:Restriction ;
+                        owl:onProperty gf:isSatisfiedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Emotions gc:Relationships ) ] ] ) ] .
+
+gf:Seeker a owl:Class ;
+    rdfs:comment "Motivated by interest mechanism, which relates to the brain area processing sensory information and memory association."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( gc:Constraints gc:Narrative gc:Progression ) ] ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:Socializer a owl:Class ;
+    rdfs:comment "People are a primary source of enjoyment for players fitting this archetype"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Relationships ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:Survivor a owl:Class ;
+    rdfs:comment "This archetype could be related to Lazzaro's serious fun, but in either case it can be seen as a special case of Caillois' ilinx, which purposefully courts controlled experiences of panic"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:Player_Type [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( gc:Emotions gc:Narrative ) ] ;
+                        owl:onProperty gf:coversComponent ] ) ] .
+
+gf:Yee_Advancement a owl:Class ;
+    rdfs:comment "Players who derive satisfaction from reaching goals, leveling quickly and accumulating in-game resources such as gold."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Achievement_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom gc:Progression ] ) ] .
+
+gf:Yee_Competition a owl:Class ;
+    rdfs:comment "Players who enjoy competing with other gamers on the battlefield or economy."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Achievement_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Emotions gc:Relationships ) ] ] ) ] .
+
+gf:Yee_Customization a owl:Class ;
+    rdfs:comment "Players who enjoy customizing the appearance of their characters."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Immersion_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom gc:Narrative ] ) ] .
+
+gf:Yee_Discovery a owl:Class ;
+    rdfs:comment "Players who enjoy exploring the world and discovering locations, quests or artifacts that others may not know about."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Immersion_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom gc:Progression ] ) ] .
+
+gf:Yee_Escapism a owl:Class ;
+    rdfs:comment "Players who use the environment as a place to relax or relieve their stress from the real world."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Immersion_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Emotions gc:Narrative ) ] ] ) ] .
+
+gf:Yee_Mechanics a owl:Class ;
+    rdfs:comment "Players who derive satisfaction from analyzing and understanding the underlying numerical mechanics of the system."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Achievement_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom gc:Constraints ] ) ] .
+
+gf:Yee_Relationship a owl:Class ;
+    rdfs:comment "Players who are looking to form sustained, meaningful relationships with others."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Social_Component [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty gf:isMotivatedWith ;
+                                    owl:someValuesFrom gc:Emotions ] [ a owl:Restriction ;
+                                    owl:onProperty gf:isMotivatedWith ;
+                                    owl:someValuesFrom gc:Relationships ] ) ] ) ] .
+
+gf:Yee_Role-Playing a owl:Class ;
+    rdfs:comment "Players who enjoy being immersed in a story through the eyes of a character that they designed."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Immersion_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Constraints gc:Narrative ) ] ] ) ] .
+
+gf:Yee_Socializing a owl:Class ;
+    rdfs:comment "Players who enjoy meeting and getting to know other gamers"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Social_Component [ a owl:Restriction ;
+                        owl:onProperty gf:isMotivatedWith ;
+                        owl:someValuesFrom gc:Relationships ] ) ] .
+
+gf:Yee_Teamwork a owl:Class ;
+    rdfs:comment "Players who enjoy working and collaborating with others"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gf:Yee_Social_Component [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty gf:isMotivatedWith ;
+                                    owl:someValuesFrom gc:Progression ] [ a owl:Restriction ;
+                                    owl:onProperty gf:isMotivatedWith ;
+                                    owl:someValuesFrom gc:Relationships ] ) ] ) ] .
+
+gf:competionName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for competitive behavior metrics."@en ;
+    rdfs:domain gf:CategoryCompetition ;
+    rdfs:range xsd:string .
+
+gf:effectiveness a owl:NamedIndividual ;
+    rdfs:comment "An example instance of effectiveness measurement in a gamified system."@en .
+
+gf:effectivenessName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for effectiveness measurement."@en ;
+    rdfs:domain gf:CategoryEffectiveness ;
+    rdfs:range xsd:string .
+
+gf:engagement a owl:NamedIndividual ;
+    rdfs:comment "An example instance of an engagement metric or engagement state."@en .
+
+gf:enjoyment a owl:NamedIndividual ;
+    rdfs:comment "An example instance of enjoyment measurement."@en .
+
+gf:enjoymentName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for enjoyment metrics."@en ;
+    rdfs:domain gf:CategoryEnjoyment ;
+    rdfs:range xsd:string .
+
+gf:explorationName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for exploration behavior tracking."@en ;
+    rdfs:domain gf:CategoryExploration ;
+    rdfs:range xsd:string .
+
+gf:hasActivityLoops a owl:ObjectProperty ;
+    rdfs:comment "Associates a gamification model with the activity loops it contains."@en ;
+    rdfs:domain gf:GamificationModel ;
+    rdfs:range gf:Activity_Loop .
+
+gf:hasCategory a owl:ObjectProperty ;
+    rdfs:comment "Associates a target behavior with its category classification."@en ;
+    rdfs:domain gf:Target_Behavior ;
+    rdfs:range gf:Target_Behavior_Category .
+
+gf:hasGameElement a owl:ObjectProperty ;
+    rdfs:comment "Specifies the game elements used in a design practice."@en ;
+    rdfs:domain gf:DesignPractice ;
+    rdfs:range gc:GDE_Component,
+        gc:GDE_Mechanic .
+
+gf:hasMetric a owl:ObjectProperty ;
+    rdfs:comment "Associates a target behavior with the metrics that measure it."@en ;
+    rdfs:domain gf:Target_Behavior ;
+    rdfs:range gf:Metric ;
+    owl:inverseOf gf:isUsedFor .
+
+gf:hasPlayer a owl:ObjectProperty ;
+    rdfs:comment "Associates a player action with the player performing it."@en ;
+    rdfs:domain gf:Player_Action ;
+    rdfs:range gc:Player .
+
+gf:hasTargetBehavior a owl:ObjectProperty ;
+    rdfs:comment "Specifies the intended behavior that a design practice aims to achieve."@en ;
+    rdfs:domain gf:DesignPractice ;
+    rdfs:range gf:Target_Behavior .
+
+gf:increaseHappiness a owl:NamedIndividual ;
+    rdfs:comment "An example target behavior aimed at increasing player happiness or satisfaction."@en .
+
+gf:increasePerformance a owl:NamedIndividual ;
+    rdfs:comment "An example target behavior aimed at improving player performance."@en .
+
+gf:interactionWithTheSystem a owl:NamedIndividual ;
+    rdfs:comment "An example target behavior focused on increasing system interaction frequency or depth."@en .
+
+gf:isAccomplishedWith a owl:ObjectProperty ;
+    rdfs:comment "Indicates the activity loop that accomplishes a target behavior."@en ;
+    rdfs:domain gf:Target_Behavior ;
+    rdfs:range gf:Activity_Loop ;
+    owl:inverseOf gf:leadsTo .
+
+gf:isComposedBy a owl:ObjectProperty ;
+    rdfs:comment "Indicates the components (feedback, affordances, actions) that compose an engagement loop."@en ;
+    rdfs:domain gf:Engagement_Loop ;
+    rdfs:range gc:Feedback,
+        gf:Motivational_Affordance,
+        gf:Player_Action ;
+    owl:inverseOf gf:isPartOfEngagementLoop .
+
+gf:leadsToCompetition a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element leads to competitive behavior."@en ;
+    rdfs:domain gc:Leaderboards ;
+    rdfs:range gf:CategoryCompetition .
+
+gf:leadsToEffectiveness a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element leads to improved effectiveness or performance quality."@en ;
+    rdfs:domain gc:Badges,
+        gc:Leaderboards ;
+    rdfs:range gf:CategoryEffectiveness .
+
+gf:leadsToEnjoyment a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element leads to increased enjoyment or satisfaction."@en ;
+    rdfs:domain gc:Achievements,
+        gc:Avatars,
+        gc:Badges,
+        gc:Points,
+        gc:Quests,
+        gc:Rewards,
+        gc:Story,
+        gc:Theme ;
+    rdfs:range gf:CategoryEnjoyment .
+
+gf:leadsToExploration a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element encourages exploration and discovery."@en ;
+    rdfs:domain gc:Achievements,
+        gc:Boss_Fights,
+        gc:Challenges,
+        gc:Levels ;
+    rdfs:range gf:CategoryExploration .
+
+gf:leadsToParticipation a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element leads to increased participation and engagement."@en ;
+    rdfs:domain gc:Badges,
+        gc:Challenges,
+        gc:Leaderboards,
+        gc:Levels,
+        gc:Points,
+        gc:Rewards,
+        gc:Story,
+        gc:Theme ;
+    rdfs:range gf:CategoryParticipation .
+
+gf:leadsToPerformance a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a game element leads to improved player performance."@en ;
+    rdfs:domain gc:Achievements,
+        gc:Badges,
+        gc:Challenges,
+        gc:Feedback,
+        gc:Leaderboards,
+        gc:Levels,
+        gc:Rewards,
+        gc:Story,
+        gc:Theme ;
+    rdfs:range gf:CategoryPerformance .
+
+gf:loopDifficulty a owl:DatatypeProperty ;
+    rdfs:comment "A property indicating the difficulty level of an activity loop."@en ;
+    rdfs:domain gf:Progressive_Loop ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:float ;
+            owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float ] [ xsd:maxInclusive "1.0"^^xsd:float ] ) ] .
+
+gf:loopQuality a owl:DatatypeProperty ;
+    rdfs:comment "A property indicating the quality or design elegance of an activity loop."@en ;
+    rdfs:domain gf:Engagement_Loop ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:float ;
+            owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float ] [ xsd:maxInclusive "1.0"^^xsd:float ] ) ] .
+
+gf:loopStatus a owl:DatatypeProperty ;
+    rdfs:comment "A property indicating the state or status of an activity loop."@en ;
+    rdfs:domain gf:Engagement_Loop ;
+    rdfs:range xsd:boolean .
+
+gf:metricDescription a owl:DatatypeProperty ;
+    rdfs:comment "A string description of what a metric measures."@en ;
+    rdfs:domain gf:Metric ;
+    rdfs:range xsd:string .
+
+gf:metricExpectedValue a owl:DatatypeProperty ;
+    rdfs:comment "The expected or target value for a metric."@en ;
+    rdfs:domain gf:Metric ;
+    rdfs:range xsd:double .
+
+gf:metricValue a owl:DatatypeProperty ;
+    rdfs:comment "The actual measured or current value of a metric."@en ;
+    rdfs:domain gf:Metric ;
+    rdfs:range xsd:double .
+
+gf:motivation a owl:NamedIndividual ;
+    rdfs:comment "An example instance or measurement of player motivation."@en .
+
+gf:participation a owl:NamedIndividual ;
+    rdfs:comment "An example instance of participation measurement or participation level."@en .
+
+gf:participationName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for participation metrics."@en ;
+    rdfs:domain gf:CategoryParticipation ;
+    rdfs:range xsd:string .
+
+gf:performance a owl:NamedIndividual ;
+    rdfs:comment "An example instance of performance measurement."@en .
+
+gf:performanceName a owl:DatatypeProperty ;
+    rdfs:comment "A string name or label for performance metrics."@en ;
+    rdfs:domain gf:CategoryPerformance ;
+    rdfs:range xsd:string .
+
+gf:satisfaction a owl:NamedIndividual ;
+    rdfs:comment "An example instance of player satisfaction measurement."@en .
+
+gf:signupForTheSystem a owl:NamedIndividual ;
+    rdfs:comment "An example target behavior aimed at increasing system signup or user registration."@en .
+
+gf:testEngagementLoop a gf:Engagement_Loop,
+        owl:NamedIndividual ;
+    rdfs:comment "An example instance of an engagement loop for testing or demonstration purposes."@en .
+
+gf:GamificationModel a owl:Class ;
+    rdfs:comment "A complete model of gamification encompassing activity loops, engagement mechanics, and player affordances."@en .
+
+gf:Progressive_Loop a owl:Class ;
+    rdfs:comment "Progression Loops (macro level; broader structures of activity throughout the course of the game)"@en ;
+    rdfs:subClassOf gf:Activity_Loop .
+
+gf:isPartOfEngagementLoop a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a component belongs to an engagement loop."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( gc:Feedback gf:Motivational_Affordance gf:Player_Action ) ] ;
+    rdfs:range gf:Engagement_Loop .
+
+gf:isUsedFor a owl:ObjectProperty ;
+    rdfs:comment "Indicates the target behavior that a metric is used to measure."@en ;
+    rdfs:domain gf:Metric ;
+    rdfs:range gf:Target_Behavior .
+
+gf:leadsTo a owl:ObjectProperty ;
+    rdfs:comment "Indicates the target behavior that an activity loop achieves."@en ;
+    rdfs:domain gf:Activity_Loop ;
+    rdfs:range gf:Target_Behavior .
+
+gf:CategoryCompetition a owl:Class ;
+    rdfs:comment "A target behavior category focused on competitive outcomes and achievement hierarchies."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:CategoryEffectiveness a owl:Class ;
+    rdfs:comment "A target behavior category measuring the efficiency and quality of player actions."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:CategoryEnjoyment a owl:Class ;
+    rdfs:comment "A target behavior category centered on player satisfaction and intrinsic motivation."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:CategoryExploration a owl:Class ;
+    rdfs:comment "A target behavior category focused on discovery, curiosity, and world engagement."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:CategoryParticipation a owl:Class ;
+    rdfs:comment "A target behavior category measuring engagement and involvement levels."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:CategoryPerformance a owl:Class ;
+    rdfs:comment "A target behavior category assessing player skill execution and mastery."@en ;
+    rdfs:subClassOf gf:Target_Behavior_Category .
+
+gf:DesignPractice a owl:Class ;
+    rdfs:comment "One or a set of game elements that leads a player to certain behaviors."@en .
+
+gf:Motivational_Affordance a owl:Class .
+
+gf:Yee_Achievement_Component a owl:Class ;
+    rdfs:comment "A motivational component from Yee's taxonomy focused on advancement and goal achievement."@en ;
+    rdfs:subClassOf gf:Yees_Motivational_Components .
+
+gf:Yee_Social_Component a owl:Class ;
+    rdfs:comment "A motivational component from Yee's taxonomy focused on social interaction and relationships."@en ;
+    rdfs:subClassOf gf:Yees_Motivational_Components .
+
+gf:isSatisfiedWith a owl:ObjectProperty ;
+    rdfs:comment "Indicates the game element that satisfies a self-determination theory need."@en ;
+    rdfs:domain gf:Self-Determination_Theory ;
+    rdfs:range gc:Game_Design_Element .
+
+gf:Player_Action a owl:Class ;
+    rdfs:comment "The actions of a player in a gamified context."@en .
+
+gf:Self-Determination_Theory a owl:Class ;
+    rdfs:comment "An approach to human motivation and personality that uses traditional empirical methods while employing an organismic metatheory that highlights the importance of humans' evolved inner resources for personality development and behavioral self-regulation"@en ;
+    rdfs:subClassOf gc:Motivation_And_Need_Theory .
+
+gf:Yee_Immersion_Component a owl:Class ;
+    rdfs:comment "A motivational component from Yee's taxonomy centered on story immersion and world exploration."@en ;
+    rdfs:subClassOf gf:Yees_Motivational_Components .
+
+gf:Yees_Motivational_Components a owl:Class ;
+    rdfs:comment "Motivational components based on an extensive survey of MMORPG players."@en ;
+    rdfs:subClassOf gc:Player_Model .
+
+gf:Activity_Loop a owl:Class ;
+    rdfs:comment "Loop of activities in a game-like context."@en .
+
+gf:Engagement_Loop a owl:Class ;
+    rdfs:comment "Engagement Loops (micro level; individual user action)."@en ;
+    rdfs:subClassOf gf:Activity_Loop .
+
+gf:Metric a owl:Class ;
+    rdfs:comment "A standard of measurent for target behavior."@en .
+
+gf:Target_Behavior a owl:Class ;
+    rdfs:comment "The expected behavior in the Fogg's Behavior Model."@en ;
+    owl:equivalentClass gf:Player_Action .
+
+gf:Target_Behavior_Category a owl:Class ;
+    rdfs:comment "A category of Target Behavior based on empirical data in the literature."@en .
+
+gf:coversComponent a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a player type is covered or characterized by a motivational component."@en ;
+    rdfs:domain gc:Player_Type ;
+    rdfs:range gc:Game_Design_Element .
+
+gf:isMotivatedWith a owl:ObjectProperty ;
+    rdfs:comment "Associates a motivational component with the game elements that support it."@en ;
+    rdfs:domain gf:Yees_Motivational_Components ;
+    rdfs:range gc:Game_Design_Element .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:52:51Z (84 triplet(s)) ------------------------------
+gf:Achiever rdfs:subClassOf owl:Thing .
+gf:BrainHex rdfs:subClassOf owl:Thing .
+gf:Conqueror rdfs:subClassOf owl:Thing .
+gf:Daredevil rdfs:subClassOf owl:Thing .
+gf:DesignPractice rdfs:subClassOf owl:Thing .
+gf:GamificationModel rdfs:subClassOf owl:Thing .
+gf:Mastermind rdfs:subClassOf owl:Thing .
+gf:Metric rdfs:subClassOf owl:Thing .
+gf:Motivational_Affordance rdfs:subClassOf owl:Thing .
+gf:Player_Action rdfs:subClassOf owl:Thing .
+gf:SDT_Autonomy rdfs:subClassOf owl:Thing .
+gf:SDT_Competence rdfs:subClassOf owl:Thing .
+gf:SDT_Relatedness rdfs:subClassOf owl:Thing .
+gf:Seeker rdfs:subClassOf owl:Thing .
+gf:Socializer rdfs:subClassOf owl:Thing .
+gf:Survivor rdfs:subClassOf owl:Thing .
+gf:Target_Behavior rdfs:subClassOf owl:Thing .
+gf:Target_Behavior_Category rdfs:subClassOf owl:Thing .
+gf:Yee_Advancement rdfs:subClassOf owl:Thing .
+gf:Yee_Competition rdfs:subClassOf owl:Thing .
+gf:Yee_Customization rdfs:subClassOf owl:Thing .
+gf:Yee_Discovery rdfs:subClassOf owl:Thing .
+gf:Yee_Escapism rdfs:subClassOf owl:Thing .
+gf:Yee_Mechanics rdfs:subClassOf owl:Thing .
+gf:Yee_Relationship rdfs:subClassOf owl:Thing .
+gf:Yee_Role-Playing rdfs:subClassOf owl:Thing .
+gf:Yee_Socializing rdfs:subClassOf owl:Thing .
+gf:Yee_Teamwork rdfs:subClassOf owl:Thing .
+gf:effectiveness a owl:Thing .
+gf:engagement a owl:Thing .
+gf:enjoyment a owl:Thing .
+gf:increaseHappiness a owl:Thing .
+gf:increasePerformance a owl:Thing .
+gf:interactionWithTheSystem a owl:Thing .
+gf:motivation a owl:Thing .
+gf:participation a owl:Thing .
+gf:performance a owl:Thing .
+gf:satisfaction a owl:Thing .
+gf:signupForTheSystem a owl:Thing .
+gf:testEngagementLoop a gf:Activity_Loop,
+        owl:Thing .
+gf:Activity_Loop rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------

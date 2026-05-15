@@ -1,0 +1,50 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mt: <http://meututor.com.br/Ontologies/meututor_domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://meututor.com.br/Ontologies/meututor_domain.owl> a owl:Ontology .
+
+mt:Competence a owl:Class .
+
+mt:Domain a owl:Class .
+
+mt:DomainModel a owl:Class .
+
+mt:THINGDomain a owl:Class .
+
+mt:associatedDomain a owl:ObjectProperty .
+
+mt:desiredPoints a owl:DatatypeProperty .
+
+mt:domain a owl:DatatypeProperty .
+
+mt:hasDomain a owl:AnnotationProperty .
+
+mt:hasDomains a owl:ObjectProperty .
+
+mt:hasEloRating a owl:ObjectProperty .
+
+mt:hasLevel a owl:ObjectProperty .
+
+mt:hasSubDomain a owl:ObjectProperty .
+
+mt:has_Domain a owl:ObjectProperty .
+
+mt:isComposedByContext a owl:ObjectProperty .
+
+mt:isComposedByCurriculum a owl:ObjectProperty .
+
+mt:isComposedByDepth a owl:ObjectProperty .
+
+mt:isSubDomainOf a owl:ObjectProperty .
+
+mt:type a owl:DatatypeProperty .
+
+mt:value a owl:DatatypeProperty .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+mt:Competence rdfs:subClassOf owl:Thing .
+mt:Domain rdfs:subClassOf owl:Thing .
+mt:DomainModel rdfs:subClassOf owl:Thing .
+mt:THINGDomain rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------

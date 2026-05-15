@@ -1,0 +1,332 @@
+@prefix its: <http://surveys.nees.com.br/ontologies/its_domain.owl#> .
+@prefix mt: <http://meututor.com.br/Ontologies/meututor_domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sioc:UserAccount a owl:Class ;
+    rdfs:comment "A user account (student or instructor) in the ITS platform (from SIOC vocabulary)."@en .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl> a owl:Ontology ;
+    rdfs:label "ITS Domain Ontology"@en ;
+    rdfs:comment """
+      Consolidated ITS domain ontology covering courses, knowledge domains, curriculum,
+      pedagogical units, and learning resources. Derived from MeuTutor domain ontologies.
+      The pedagogical layer (strategies, tactics, instructional plans) is defined separately
+      in its.pedagogical.owl, which imports this ontology.
+    """@en ;
+    owl:imports <http://meututor.com.br/Ontologies/meututor_domain.owl>,
+        <http://meututor.com.br/Ontologies/meututor_domain_cp.owl>,
+        <http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl>,
+        <http://meututor.com.br/Ontologies/meututor_domain_resource.owl>,
+        <http://rdfs.org/sioc/ns> ;
+    owl:versionInfo "1.1"^^xsd:string .
+
+its:courseName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Official name of the Course."@en ;
+    rdfs:domain its:Course ;
+    rdfs:range xsd:string .
+
+its:teacher a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Name of the instructor responsible for the Course."@en ;
+    rdfs:domain its:Course ;
+    rdfs:range xsd:string .
+
+its:teachesDomain a owl:ObjectProperty ;
+    rdfs:comment "Specifies the knowledge Domain taught by a Course."@en ;
+    rdfs:domain its:Course ;
+    rdfs:range mt:Domain .
+
+<mt:Competence> rdfs:comment "A competence groups several Domains that a student is expected to master."@en .
+
+<mt:Domain> rdfs:comment """
+      A knowledge Domain is the subject-matter area taught by an ITS.
+      It is structured by at least one Context, Depth level, and Curriculum.
+    """@en .
+
+<mt:DomainModel> rdfs:comment "Answers the question \"What to teach?\" in an educational system."@en .
+
+<mt:associatedDomain> rdfs:comment "Associates any resource with its knowledge domain."@en .
+
+<mt:desiredPoints> rdfs:comment "Target score or point threshold for a student performance goal."@en .
+
+<mt:domain> rdfs:comment "String label for the Domain (used alongside the IRI)."@en .
+
+<mt:hasDomains> rdfs:comment "Links a Competence to the Domains it covers."@en .
+
+<mt:hasEloRating> rdfs:comment "Elo rating associated with a domain entity (used for student modelling)."@en .
+
+<mt:hasLevel> rdfs:comment "Proficiency level associated with a domain entity."@en .
+
+<mt:hasSubDomain> rdfs:comment "Links a domain to one of its sub-domains."@en .
+
+<mt:isComposedByContext> rdfs:comment "Relates a Domain to the Contexts from which it can be viewed."@en .
+
+<mt:isComposedByCurriculum> rdfs:comment "Relates a Domain to its constituent Curriculum units."@en .
+
+<mt:isComposedByDepth> rdfs:comment "Relates a Domain to the Depth levels used to stratify its knowledge."@en .
+
+<mt:type> rdfs:comment "Classification type of the Domain (e.g. academic, professional, vocational)."@en .
+
+<mtcp:Context> rdfs:comment """
+      Represents a particular standpoint or interpretation of a knowledge domain.
+      Different Contexts yield different representations of the same knowledge object.
+    """@en .
+
+<mtcp:Curriculum> rdfs:comment """
+      A Curriculum node is a <Context, Depth> pair that groups a set of Pedagogical Units
+      defined according to teaching/learning objectives.
+    """@en .
+
+<mtcp:Depth> rdfs:comment """
+      Stratifies the epistemological levels of knowledge-object perception within a given Context.
+    """@en .
+
+<mtcp:hasContext> rdfs:comment "Associates an entity with its Context."@en .
+
+<mtcp:importanceLevel> rdfs:comment "Relative importance of this Curriculum node within the domain."@en .
+
+<mtcp:isChildOfCurriculum> rdfs:comment "Transitive child relationship between Curriculum nodes."@en .
+
+<mtcp:isComposedByContext> rdfs:comment "A Curriculum is composed by exactly one Context."@en .
+
+<mtcp:isComposedByDepth> rdfs:comment "A Curriculum is composed by exactly one Depth level."@en .
+
+<mtcp:isComposedByLaterality> rdfs:comment """
+      Relates a Curriculum to sibling Curricula that represent prerequisite knowledge
+      from a particular Context/Depth perspective.
+    """@en .
+
+<mtcp:isParentOfCurriculum> rdfs:comment "Transitive parent relationship between Curriculum nodes."@en .
+
+<mtcp:issue> rdfs:comment "Human-readable label / identifier for a Context, Curriculum or Depth node."@en .
+
+<mtcp:type> rdfs:comment "Classification type of a Context (e.g. formal, informal, professional)."@en .
+
+<mtcu:BehaviouralKnowledge> rdfs:comment """
+      Encodes the domain-specific inference rules or procedures a student should be able to perform.
+    """@en .
+
+<mtcu:Bug> rdfs:comment "A systematic procedural error in the student's behavioural knowledge."@en .
+
+<mtcu:Bug_Misconception> rdfs:comment "A catalogue entry that is simultaneously a Bug and a Misconception."@en .
+
+<mtcu:CKCurriculumInformation> rdfs:comment "Metadata linking a ConceptualKnowledge node to its Curriculum position (cluster, precedence)."@en .
+
+<mtcu:Catalogue> rdfs:comment "Abstract catalogue of known student difficulties (bugs, errors, misconceptions)."@en .
+
+<mtcu:ConceptualKnowledge> rdfs:comment """
+      Contains the definitions of concepts underlying the Behavioural Knowledge,
+      i.e. the concepts involved in an inference mechanism.
+    """@en .
+
+<mtcu:Error> rdfs:comment "A specific incorrect response or calculation error."@en .
+
+<mtcu:Error_Bug> rdfs:comment "A catalogue entry that is simultaneously a Bug and an Error."@en .
+
+<mtcu:Error_Misconception> rdfs:comment "A catalogue entry that is simultaneously an Error and a Misconception."@en .
+
+<mtcu:GenericOperator> rdfs:comment """
+      Defines how the system knowledge (Rs*k) and the bug/misconception catalogues
+      interact to create a diagnosis space.
+    """@en .
+
+<mtcu:KnowledgeUnit> rdfs:comment """
+      Groups support knowledge for problem-solving: concepts, results, examples, counter-examples,
+      hints, and analogous problems (from the same class).
+    """@en .
+
+<mtcu:Misconception> rdfs:comment "A faulty conceptual belief held by the student."@en .
+
+<mtcu:PedagogicalUnit> rdfs:comment """
+      A Pedagogical Unit (PU) corresponds to a set of problems and resources ordered
+      according to pedagogical criteria.
+    """@en .
+
+<mtcu:ResourceWeight> rdfs:comment "Associates a resource with its relative weight within a pedagogical unit."@en .
+
+<mtcu:UniversalGenericOperator> rdfs:comment """
+      Represents any Behavioural Knowledge associated with all bugs in the bug catalogue.
+    """@en .
+
+<mtcu:ckType> rdfs:comment "Classifies the type of conceptual knowledge (e.g. declarative, procedural)."@en .
+
+<mtcu:cluster> rdfs:comment "Cluster identifier grouping related ConceptualKnowledge nodes."@en .
+
+<mtcu:difficulty> rdfs:comment """
+      Represents how difficult the learning resource is for the typical target audience.
+    """@en .
+
+<mtcu:domain> rdfs:comment "String identifier of the knowledge domain (used when a full IRI reference is not available)."@en .
+
+<mtcu:hasBehaviouralKnowledge> rdfs:comment "Associates a knowledge entity with its Behavioural Knowledge definition."@en .
+
+<mtcu:hasCatalogue> rdfs:comment "Associates a knowledge entity with its bug/error/misconception Catalogue."@en .
+
+<mtcu:hasConceptualKnowledge> rdfs:comment "Associates a knowledge entity with its Conceptual Knowledge definition."@en .
+
+<mtcu:hasConsistency> rdfs:comment "Consistency indicator for a curriculum entity."@en .
+
+<mtcu:hasDiscrepancy> rdfs:comment "Records a discrepancy detected by a Generic Operator."@en .
+
+<mtcu:hasDomain> rdfs:comment "Links a ConceptualKnowledge node to its knowledge Domain."@en .
+
+<mtcu:hasExplanation> rdfs:comment "Links a knowledge entity to an explanatory Learning Object."@en .
+
+<mtcu:hasKnowledgeUnit> rdfs:comment "A Pedagogical Unit is associated with exactly one Knowledge Unit."@en .
+
+<mtcu:hasLO> rdfs:comment "Super-property grouping all Learning Object associations."@en .
+
+<mtcu:hasPG> rdfs:comment "BKT parameter: probability of a correct guess (P(G))."@en .
+
+<mtcu:hasPL0> rdfs:comment "BKT parameter: initial probability of knowledge (P(L0))."@en .
+
+<mtcu:hasPS> rdfs:comment "BKT parameter: probability of a slip / incorrect answer despite knowledge (P(S))."@en .
+
+<mtcu:hasPT> rdfs:comment "BKT parameter: probability of learning / transition (P(T))."@en .
+
+<mtcu:hasPedagogicalUnit> rdfs:comment "A Curriculum contains one or more Pedagogical Units."@en .
+
+<mtcu:hasSuperConceptualKnowledge> rdfs:comment "Points to the parent ConceptualKnowledge in a generalisation hierarchy."@en .
+
+<mtcu:hasTags> rdfs:comment "Free-text tags associated with a ConceptualKnowledge node."@en .
+
+<mtcu:has_Curriculum> rdfs:comment "Functional shortcut linking any entity to its single Curriculum."@en .
+
+<mtcu:has_MissConception> rdfs:comment "Links a Diagnosis to the ConceptualKnowledge node that represents the misconception."@en .
+
+<mtcu:isComposedByLaterality> rdfs:comment """
+      Relates a Knowledge Unit to prerequisite Curricula (lateral knowledge),
+      i.e. supportive knowledge from a given Context/Depth perspective.
+    """@en .
+
+<mtcu:isComposedByProblem> rdfs:comment "Relates a catalogue entry to the problem that triggers it."@en .
+
+<mtcu:issue> rdfs:comment "Human-readable label / identifier for a ConceptualKnowledge or PedagogicalUnit node."@en .
+
+<mtcu:precedence> rdfs:comment "Ordering precedence of a knowledge node within its curriculum."@en .
+
+<mtcu:rate> rdfs:comment "Frequency/probability rate of the bug, error, or misconception."@en .
+
+<mtcu:weight> rdfs:comment "Relative weight of a resource within a pedagogical unit."@en .
+
+<mtr:Activity> rdfs:comment "A student activity resource with defined start/end dates and weight."@en .
+
+<mtr:Comment> rdfs:comment "A peer or instructor comment attached to a Problem."@en .
+
+<mtr:CompositeResource> rdfs:comment "A resource composed of multiple atomic (non-composite) resources."@en .
+
+<mtr:Concept> rdfs:comment "A definitional concept resource presented to the student."@en .
+
+<mtr:Content> rdfs:comment "A content resource (e.g. lecture notes, video, reading material)."@en .
+
+<mtr:Diagnosis> rdfs:comment "A diagnostic result triggered by a student selecting a particular Option."@en .
+
+<mtr:DiscursiveProblem> rdfs:comment "A free-text / discursive problem requiring an open-ended written answer."@en .
+
+<mtr:EvaluationResource> rdfs:comment "Abstract superclass for all evaluation types."@en .
+
+<mtr:Exercise> rdfs:comment "A worked example or exercise resource."@en .
+
+<mtr:Form> rdfs:comment "A form-based evaluation containing survey Questions."@en .
+
+<mtr:Hint> rdfs:comment "A scaffolded hint provided to a student during problem-solving; hints form a tree."@en .
+
+<mtr:MatchColumnAnswer> rdfs:comment "Identifies the correct matching answer(s) in a MatchColumnProblem."@en .
+
+<mtr:MethodStep> rdfs:comment "An individual step within a ResolutionMethod."@en .
+
+<mtr:Option> rdfs:comment "Abstract superclass for all answer options."@en .
+
+<mtr:OptionAnswer> rdfs:comment "The correct answer value (\"true\" or \"false\") for a TrueOrFalseOption."@en .
+
+<mtr:Problem> rdfs:comment "Abstract superclass for all problem types."@en .
+
+<mtr:ProblemBasedEvaluation> rdfs:comment "An evaluation composed of a set of Problems."@en .
+
+<mtr:Question> rdfs:comment "A survey or form question linked to a Curriculum."@en .
+
+<mtr:Resolution> rdfs:comment "The worked solution associated with a Problem."@en .
+
+<mtr:ResolutionMethod> rdfs:comment "A named resolution strategy applicable to a problem class."@en .
+
+<mtr:ResourceList> rdfs:comment "Enumerates the atomic resources that compose a CompositeResource."@en .
+
+<mtr:Statement> rdfs:comment "The problem or activity statement presented to the student."@en .
+
+<mtr:URIResource> rdfs:comment "URI pointing to the actual content of a Resource."@en .
+
+<mtr:URIType> rdfs:comment "MIME type or format descriptor of the resource URI."@en .
+
+<mtr:WritingEvaluation> rdfs:comment "A free-text writing evaluation."@en .
+
+<mtr:context> rdfs:comment "Contextual information or scenario description for a Problem."@en .
+
+<mtr:corrected> rdfs:comment "Indicates whether the evaluation has been corrected / graded."@en .
+
+<mtr:developmentStatus> rdfs:comment "Development status of the problem (e.g. draft, reviewed, published)."@en .
+
+<mtr:difficulty> rdfs:comment "IRT difficulty parameter for a Problem."@en .
+
+<mtr:duration> rdfs:comment "Estimated duration of the content resource in minutes."@en .
+
+<mtr:enabled> rdfs:comment "Indicates whether a resource is currently available to students."@en .
+
+<mtr:error> rdfs:comment "Description of the diagnosed error."@en .
+
+<mtr:hasCalculations> rdfs:comment "Indicates whether the problem involves numerical calculations."@en .
+
+<mtr:hasOption> rdfs:comment "Generic option association; specialised by problem-type sub-properties."@en .
+
+<mtr:has_Answers> rdfs:comment "Accepted answer(s) for a fill-in-the-blanks option (pipe-separated if multiple)."@en .
+
+<mtr:has_Diagnosis> rdfs:comment "Links an Option to the Diagnosis it triggers when chosen."@en .
+
+<mtr:has_Epoch> rdfs:comment "Training epoch number associated with a problem-based evaluation (used in adaptive systems)."@en .
+
+<mtr:has_Knowledge> rdfs:comment "Knowledge component addressed by a form question."@en .
+
+<mtr:has_token> rdfs:comment "Access token or identifier for a specific problem instance."@en .
+
+<mtr:issue> rdfs:comment "Known issue or errata associated with a Content resource."@en .
+
+<mtr:item> rdfs:comment "The text content of an option presented to the student."@en .
+
+<mtr:level> rdfs:comment "Proficiency level required for an activity or problem."@en .
+
+<mtr:matched_To> rdfs:comment "Links a left-column option to its corresponding right-column match."@en .
+
+<mtr:multipleChoiceAnswer> rdfs:comment "Identifies the correct option(s) in a MultipleChoiceProblem."@en .
+
+<mtr:order> rdfs:comment "Display order of a hint or option within its problem."@en .
+
+<mtr:size> rdfs:comment "Number of problems included in an evaluation."@en .
+
+<mtr:subjects> rdfs:comment """
+      Identifies the subject(s) covered by a simple evaluation
+      (e.g. a specific domain, a specific curriculum, or all domains).
+    """@en .
+
+<mtr:superKC> rdfs:comment "Identifier of the parent knowledge component in the resource hierarchy."@en .
+
+<mtr:term> rdfs:comment "The canonical term label for a Concept resource."@en .
+
+<mtr:tokenized_statement> rdfs:comment "Tokenised (NLP-processed) version of the problem statement."@en .
+
+<mtr:type_Test> rdfs:comment """
+      Identifies whether an evaluation is simple (linked to a specific Domain or Curriculum)
+      or comprehensive (covering all domains).
+    """@en .
+
+its:Course a owl:Class ;
+    rdfs:comment """
+      An ITS Course bundles a set of knowledge Domains and is delivered to enrolled students.
+    """@en .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:53:02Z (6 triplet(s)) ------------------------------
+sioc:UserAccount rdfs:subClassOf owl:Thing .
+its:Course rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------

@@ -1,0 +1,23 @@
+# config.yaml — Configuration centrale du pipeline NSXAI
+# ========================================================
+# Tous les scripts lisent ce fichier. Aucun chemin n'est
+# passé en argument : tout est résolu depuis ici.
+
+# Dossier racine des sources OWL (relatif à ce fichier)
+owl_dir: ontologies
+
+# Catalog Protégé (relatif à owl_dir ; null = auto-détection)
+catalog: catalog-v001.xml
+
+# Dossier de travail : toutes les sorties y sont rangées
+work_dir: output
+
+# Sous-dossiers générés (relatifs à work_dir)
+dirs:
+  ttl:      ttl        # owl2ttl      -> output/ttl/
+  inferred: inferred   # hermit_infer -> output/inferred/
+  kg:       kg         # kg_builder   -> output/kg/
+
+# Options globales
+verbose: false
+quiet:   false

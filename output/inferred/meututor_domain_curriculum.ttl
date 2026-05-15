@@ -1,0 +1,134 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mtcu: <http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl> a owl:Ontology .
+
+mtcu:BehaviouralKnowledge a owl:Class .
+
+mtcu:Bug a owl:Class .
+
+mtcu:Bug_Misconception a owl:Class .
+
+mtcu:CKCurriculumInformation a owl:Class .
+
+mtcu:Catalogue a owl:Class .
+
+mtcu:ConceptualKnowledge a owl:Class .
+
+mtcu:Error a owl:Class .
+
+mtcu:Error_Bug a owl:Class .
+
+mtcu:Error_Misconception a owl:Class .
+
+mtcu:GenericOperator a owl:Class .
+
+mtcu:KnowledgeUnit a owl:Class .
+
+mtcu:Misconception a owl:Class .
+
+mtcu:PedagogicalUnit a owl:Class .
+
+mtcu:ResourceWeight a owl:Class .
+
+mtcu:THINGCurriculum a owl:Class .
+
+mtcu:UniversalGenericOperator a owl:Class .
+
+mtcu:ckType a owl:DatatypeProperty .
+
+mtcu:cluster a owl:DatatypeProperty .
+
+mtcu:description a owl:DatatypeProperty .
+
+mtcu:difficulty a owl:DatatypeProperty .
+
+mtcu:domain a owl:DatatypeProperty .
+
+mtcu:hasBehaviouralKnowledge a owl:ObjectProperty .
+
+mtcu:hasBug a owl:ObjectProperty .
+
+mtcu:hasCatalogue a owl:ObjectProperty .
+
+mtcu:hasConcept a owl:ObjectProperty .
+
+mtcu:hasConceptualKnowledge a owl:ObjectProperty .
+
+mtcu:hasConsistency a owl:ObjectProperty .
+
+mtcu:hasContent a owl:ObjectProperty .
+
+mtcu:hasCurriculum a owl:ObjectProperty .
+
+mtcu:hasCurriculumInformation a owl:ObjectProperty .
+
+mtcu:hasDiscrepancy a owl:ObjectProperty .
+
+mtcu:hasDomain a owl:ObjectProperty .
+
+mtcu:hasError a owl:ObjectProperty .
+
+mtcu:hasExample a owl:ObjectProperty .
+
+mtcu:hasExplanation a owl:ObjectProperty .
+
+mtcu:hasKnowledgeUnit a owl:ObjectProperty .
+
+mtcu:hasLO a owl:ObjectProperty .
+
+mtcu:hasMisconception a owl:ObjectProperty .
+
+mtcu:hasPG a owl:DatatypeProperty .
+
+mtcu:hasPL a owl:ObjectProperty .
+
+mtcu:hasPS a owl:DatatypeProperty .
+
+mtcu:hasPT a owl:DatatypeProperty .
+
+mtcu:hasPedagogicalUnit a owl:ObjectProperty .
+
+mtcu:hasResource a owl:ObjectProperty .
+
+mtcu:hasSuperConceptualKnowledge a owl:ObjectProperty .
+
+mtcu:hasTags a owl:ObjectProperty .
+
+mtcu:has_Curriculum a owl:ObjectProperty .
+
+mtcu:has_MissConception a owl:ObjectProperty .
+
+mtcu:isComposedByLaterality a owl:ObjectProperty .
+
+mtcu:isComposedByProblem a owl:ObjectProperty .
+
+mtcu:issue a owl:DatatypeProperty .
+
+mtcu:precedence a owl:DatatypeProperty .
+
+mtcu:rate a owl:DatatypeProperty .
+
+mtcu:totalWeight a owl:DatatypeProperty .
+
+mtcu:weight a owl:DatatypeProperty .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (32 triplet(s)) ------------------------------
+mtcu:BehaviouralKnowledge rdfs:subClassOf owl:Thing .
+mtcu:Bug rdfs:subClassOf owl:Thing .
+mtcu:Bug_Misconception rdfs:subClassOf owl:Thing .
+mtcu:CKCurriculumInformation rdfs:subClassOf owl:Thing .
+mtcu:Catalogue rdfs:subClassOf owl:Thing .
+mtcu:ConceptualKnowledge rdfs:subClassOf owl:Thing .
+mtcu:Error rdfs:subClassOf owl:Thing .
+mtcu:Error_Bug rdfs:subClassOf owl:Thing .
+mtcu:Error_Misconception rdfs:subClassOf owl:Thing .
+mtcu:GenericOperator rdfs:subClassOf owl:Thing .
+mtcu:KnowledgeUnit rdfs:subClassOf owl:Thing .
+mtcu:Misconception rdfs:subClassOf owl:Thing .
+mtcu:PedagogicalUnit rdfs:subClassOf owl:Thing .
+mtcu:ResourceWeight rdfs:subClassOf owl:Thing .
+mtcu:THINGCurriculum rdfs:subClassOf owl:Thing .
+mtcu:UniversalGenericOperator rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------

@@ -1,0 +1,32 @@
+# =============================================================================
+# NSXAI — Dépendances globales
+# Installation : pip install -r requirements.txt
+# =============================================================================
+
+# --- 1. CORE : Ontologie & Raisonnement ---
+owlready2==0.46          # Manipulation d'ontologies OWL
+rdflib==7.0.0            # Lecture/écriture de données RDF
+
+# --- 2. KNOWLEDGE GRAPH : Traitement des graphes et données ---
+networkx==3.2            # Structures de graphes
+pandas==2.1.4            # Manipulation de données tabulaires
+numpy==1.24.3            # Calcul numérique
+scikit-learn==1.3.2      # Algorithmes de ML (PCA, centralités, etc.)
+pyarrow                  # Support pour Parquet/Feather (lecture/écriture rapide)
+fastparquet              # Alternative à pyarrow pour Parquet
+
+# --- 3. HTTP & API ---
+requests==2.31.0        # Requêtes HTTP
+
+# --- 4. UTILITAIRES ---
+python-dotenv==1.0.0     # Gestion des variables d'environnement (.env)
+pyyaml                   # Parsing YAML (pour les configs)
+
+# =============================================================================
+# 5. OPTIONNEL : GNN (PyTorch Geometric) — À décommenter si besoin
+# =============================================================================
+# Dépendances pour le backend PyG (GraphSAGE, GAT, etc.).
+# Sans ces lignes, le code utilise sklearn (PageRank + centralité).
+#
+# torch==2.1.0
+# torch-geometric==2.4.0

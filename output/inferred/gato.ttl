@@ -1,0 +1,62 @@
+@prefix gato: <http://surveys.nees.com.br/ontologies/gato.owl#> .
+@prefix gc: <http://surveys.nees.com.br/ontologies/gado_core.owl#> .
+@prefix gf: <http://surveys.nees.com.br/ontologies/gado_full.owl#> .
+@prefix itsp: <http://surveys.nees.com.br/ontologies/its/its_pedagogical.owl#> .
+@prefix mt: <http://meututor.com.br/Ontologies/meututor_domain.owl#> .
+@prefix mtcu: <http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl#> .
+@prefix mtr: <http://meututor.com.br/Ontologies/meututor_domain_resource.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://surveys.nees.com.br/ontologies/gato.owl> a owl:Ontology ;
+    rdfs:label "GATO - Gamified ITS Ontology"@en ;
+    rdfs:comment """
+            GATO integrates GADO Full (gamification) with the ITS Pedagogical ontology
+            to model a complete Gamified Intelligent Tutoring System.
+            Defines GamifiedITS and StudentModel, and reuses GamificationModel from GADO Full.
+        """@en ;
+    owl:imports <http://surveys.nees.com.br/ontologies/gado_full.owl>,
+        <http://surveys.nees.com.br/ontologies/its/its_pedagogical.owl> ;
+    owl:versionIRI <http://surveys.nees.com.br/ontologies/gato.owl/1.0> ;
+    owl:versionInfo "1.0-fixed"^^xsd:string .
+
+gato:hasBehaviouralKnowledge a owl:ObjectProperty ;
+    rdfs:domain gato:StudentModel ;
+    rdfs:range mtcu:BehaviouralKnowledge .
+
+gato:hasDomainModel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain gato:GamifiedITS ;
+    rdfs:range mt:DomainModel .
+
+gato:hasGamificationModel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain gato:GamifiedITS ;
+    rdfs:range gf:GamificationModel .
+
+gato:hasPedagogicalModel a owl:ObjectProperty ;
+    rdfs:domain gato:GamifiedITS ;
+    rdfs:range itsp:THINGInstrutionalPlan .
+
+gato:hasStudentModel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain gato:GamifiedITS ;
+    rdfs:range gato:StudentModel .
+
+gato:includes a owl:ObjectProperty ;
+    rdfs:domain gato:StudentModel ;
+    rdfs:range gc:Player .
+
+gato:usesResource a owl:ObjectProperty ;
+    rdfs:domain gf:Player_Action ;
+    rdfs:range mtr:Resource .
+
+gato:StudentModel a owl:Class .
+
+gato:GamifiedITS a owl:Class .
+
+# -- INFERRED BY HermiT - 2026-05-15T20:52:52Z (4 triplet(s)) ------------------------------
+gato:GamifiedITS rdfs:subClassOf owl:Thing .
+gato:StudentModel rdfs:subClassOf owl:Thing .
+# -- END INFERRED ------------------------------------------------------------------
