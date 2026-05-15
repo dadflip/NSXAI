@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Gamified ITS Ontology Suite" prefer="public">
+        <!-- ── Core ITS / GADO / GATO ontologies ──────────────────────────── -->
+        <uri name="http://surveys.nees.com.br/ontologies/gado_core.owl"           uri="gado_core.owl"/>
+        <uri name="http://surveys.nees.com.br/ontologies/gado_full.owl"           uri="gado_full.owl"/>
+        <uri name="http://surveys.nees.com.br/ontologies/gato.owl"                uri="gato.owl"/>
+        <uri name="http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl" uri="its_pedagogical.owl"/>
+        <uri name="http://surveys.nees.com.br/ontologies/its_domain.owl"          uri="its_domain.owl"/>
+        <uri name="http://surveys.nees.com.br/ontologies/its/its.domain.owl"      uri="its_domain.owl"/>
+
+        <!-- ── MeuTutor stub (resolves mt: / mtcp: / mtcu: / mtr: namespaces) ─ -->
+        <uri name="http://meututor.com.br/Ontologies/MeuTutor.stub"                  uri="meututor_stub.owl"/>
+        <uri name="http://meututor.com.br/Ontologies/MeuTutor.Domain.owl"            uri="meututor_stub.owl"/>
+        <uri name="http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl"         uri="meututor_stub.owl"/>
+        <uri name="http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl" uri="meututor_stub.owl"/>
+        <uri name="http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl"   uri="meututor_stub.owl"/>
+
+        <!-- ── SIOC stub (resolves sioc:UserAccount used in its_domain.owl) ── -->
+        <uri name="http://rdfs.org/sioc/ns"                                          uri="sioc_stub.owl"/>
+        <uri name="http://rdfs.org/sioc/ns#"                                         uri="sioc_stub.owl"/>
+    </group>
+</catalog>

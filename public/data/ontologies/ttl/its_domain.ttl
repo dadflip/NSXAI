@@ -1,0 +1,1137 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://anonymous> a owl:Ontology .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#description> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#hasContext> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#importanceLevel> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isComposedByContext> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isComposedByDepth> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum>,
+        <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Depth> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isComposedByLaterality> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#issue> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Depth> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#type> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ckType> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#cluster> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#CKCurriculumInformation> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#description> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#difficulty> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#domain> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasBug> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug_Misconception> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Bug> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasCatalogue> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#GenericOperator> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Catalogue> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConcept> a owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Concept> ;
+    rdfs:subPropertyOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasLO> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConsistency> a owl:ObjectProperty .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasContent> a owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> ;
+    rdfs:subPropertyOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasLO> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasCurriculum> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ResourceWeight> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasCurriculumInformation> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#CKCurriculumInformation> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasDiscrepancy> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#GenericOperator> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasDomain> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasError> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Bug> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Misconception> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasExample> a owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Exercise> ;
+    rdfs:subPropertyOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasLO> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasExplanation> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasLO> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasKnowledgeUnit> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasMisconception> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug_Misconception> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Misconception> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Misconception> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasPG> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasPL0> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ) ] ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasPS> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasPT> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ) ] ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasPedagogicalUnit> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasResource> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ResourceWeight> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasSuperConceptualKnowledge> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasTags> a owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#has_Curriculum> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#has_MissConception> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Diagnosis> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#isComposedByLaterality> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#isComposedByProblem> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Misconception> ) ] .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#issue> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#precedence> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#CKCurriculumInformation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ) ] ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#rate> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Misconception> ) ] ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#totalWeight> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#weight> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ResourceWeight> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#LeftColumn> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnAnswer> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#OptionAnswer> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#TrueOrFalseOption> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResourceList> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#CompositeResource> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#RightColumn> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Statement> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#URIResource> a owl:DatatypeProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#URIType> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#comment> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Comment> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#context> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#corrected> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#currentOperation> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#description> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Concept> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#developmentStatus> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#difficulty> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#duration> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#enabled> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#endDate> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range xsd:dateTime .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#error> a owl:DatatypeProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Diagnosis> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#exercise> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Exercise> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#fillBlanksHasOption> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#FillBlanksProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#FillBlanksOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hasCalculations> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hasEvaluation> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hasOption> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hasResource> a owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hasSuggestedTags> a owl:DatatypeProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Answers> a owl:DatatypeProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#FillBlanksOption> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Context> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Depth> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Depth> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Diagnosis> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Diagnosis> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Domain> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Epoch> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Knowledge> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Question> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_MethodStep> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResolutionMethod> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MethodStep> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Problems> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Questions> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Form> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Question> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_Resolution> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resolution> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_ResolutionMethod> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resolution> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResolutionMethod> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_comments> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Comment> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_discursiveOption> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#DiscursiveProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#DiscursiveOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_hint> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#has_token> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#hint> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#issue> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#item> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#level> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ) ] ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#matched_To> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#methodDescription> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResolutionMethod> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#methodStep> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MethodStep> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#methodname> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResolutionMethod> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#multipleChoiceAnswer> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#multipleChoiceHasOption> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#numberOfFavorites> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#numberOfViews> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#order> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> ) ] ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#posting_date> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Comment> ;
+    rdfs:range xsd:date .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#posting_hour> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Comment> ;
+    rdfs:range xsd:time .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#question> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Question> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#related_Curriculum> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Question> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#resolution> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resolution> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#size> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#startDate> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range xsd:dateTime .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#stepName> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MethodStep> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#stepOrder> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MethodStep> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#subjects> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#submmitedDate> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#EvaluationResource> ;
+    rdfs:range xsd:dateTime .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#superKC> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#term> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Concept> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#title> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#tokenized_statement> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#trueOrFalseHasOption> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#TrueOrFalseProblem> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#TrueOrFalseOption> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#type> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Exercise> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> ) ] ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#type_Test> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#weight> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> ;
+    rdfs:range xsd:float .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#associatedDomain> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#desiredPoints> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:int .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#domain> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#hasDomain> a owl:AnnotationProperty .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#hasDomains> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Competence> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#hasEloRating> a owl:ObjectProperty .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#hasLevel> a owl:FunctionalProperty,
+        owl:ObjectProperty .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#hasSubDomain> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    owl:inverseOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#isSubDomainOf> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#has_Domain> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#isComposedByContext> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#isComposedByCurriculum> a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#isComposedByDepth> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Depth> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#type> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range xsd:string .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#value> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:int .
+
+<http://rdfs.org/sioc/ns#UserAccount> a owl:Class ;
+    rdfs:comment "A user account (student or instructor) in the ITS platform (from SIOC vocabulary)."@en .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl> a owl:Ontology ;
+    rdfs:label "ITS Domain Ontology"@en ;
+    rdfs:comment """
+      Consolidated ITS domain ontology covering courses, knowledge domains, curriculum,
+      pedagogical units, and learning resources. Derived from MeuTutor domain ontologies.
+      The pedagogical layer (strategies, tactics, instructional plans) is defined separately
+      in its.pedagogical.owl, which imports this ontology.
+    """@en ;
+    owl:versionInfo "1.1"^^xsd:string .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl#courseName> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Official name of the Course."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/its_domain.owl#Course> ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl#teacher> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Name of the instructor responsible for the Course."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/its_domain.owl#Course> ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl#teachesDomain> a owl:ObjectProperty ;
+    rdfs:comment "Specifies the knowledge Domain taught by a Course."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/its_domain.owl#Course> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<mt:Competence> rdfs:comment "A competence groups several Domains that a student is expected to master."@en .
+
+<mt:Domain> rdfs:comment """
+      A knowledge Domain is the subject-matter area taught by an ITS.
+      It is structured by at least one Context, Depth level, and Curriculum.
+    """@en .
+
+<mt:DomainModel> rdfs:comment "Answers the question \"What to teach?\" in an educational system."@en .
+
+<mt:associatedDomain> rdfs:comment "Associates any resource with its knowledge domain."@en .
+
+<mt:desiredPoints> rdfs:comment "Target score or point threshold for a student performance goal."@en .
+
+<mt:domain> rdfs:comment "String label for the Domain (used alongside the IRI)."@en .
+
+<mt:hasDomains> rdfs:comment "Links a Competence to the Domains it covers."@en .
+
+<mt:hasEloRating> rdfs:comment "Elo rating associated with a domain entity (used for student modelling)."@en .
+
+<mt:hasLevel> rdfs:comment "Proficiency level associated with a domain entity."@en .
+
+<mt:hasSubDomain> rdfs:comment "Links a domain to one of its sub-domains."@en .
+
+<mt:isComposedByContext> rdfs:comment "Relates a Domain to the Contexts from which it can be viewed."@en .
+
+<mt:isComposedByCurriculum> rdfs:comment "Relates a Domain to its constituent Curriculum units."@en .
+
+<mt:isComposedByDepth> rdfs:comment "Relates a Domain to the Depth levels used to stratify its knowledge."@en .
+
+<mt:type> rdfs:comment "Classification type of the Domain (e.g. academic, professional, vocational)."@en .
+
+<mtcp:Context> rdfs:comment """
+      Represents a particular standpoint or interpretation of a knowledge domain.
+      Different Contexts yield different representations of the same knowledge object.
+    """@en .
+
+<mtcp:Curriculum> rdfs:comment """
+      A Curriculum node is a <Context, Depth> pair that groups a set of Pedagogical Units
+      defined according to teaching/learning objectives.
+    """@en .
+
+<mtcp:Depth> rdfs:comment """
+      Stratifies the epistemological levels of knowledge-object perception within a given Context.
+    """@en .
+
+<mtcp:hasContext> rdfs:comment "Associates an entity with its Context."@en .
+
+<mtcp:importanceLevel> rdfs:comment "Relative importance of this Curriculum node within the domain."@en .
+
+<mtcp:isChildOfCurriculum> rdfs:comment "Transitive child relationship between Curriculum nodes."@en .
+
+<mtcp:isComposedByContext> rdfs:comment "A Curriculum is composed by exactly one Context."@en .
+
+<mtcp:isComposedByDepth> rdfs:comment "A Curriculum is composed by exactly one Depth level."@en .
+
+<mtcp:isComposedByLaterality> rdfs:comment """
+      Relates a Curriculum to sibling Curricula that represent prerequisite knowledge
+      from a particular Context/Depth perspective.
+    """@en .
+
+<mtcp:isParentOfCurriculum> rdfs:comment "Transitive parent relationship between Curriculum nodes."@en .
+
+<mtcp:issue> rdfs:comment "Human-readable label / identifier for a Context, Curriculum or Depth node."@en .
+
+<mtcp:type> rdfs:comment "Classification type of a Context (e.g. formal, informal, professional)."@en .
+
+<mtcu:BehaviouralKnowledge> rdfs:comment """
+      Encodes the domain-specific inference rules or procedures a student should be able to perform.
+    """@en .
+
+<mtcu:Bug> rdfs:comment "A systematic procedural error in the student's behavioural knowledge."@en .
+
+<mtcu:Bug_Misconception> rdfs:comment "A catalogue entry that is simultaneously a Bug and a Misconception."@en .
+
+<mtcu:CKCurriculumInformation> rdfs:comment "Metadata linking a ConceptualKnowledge node to its Curriculum position (cluster, precedence)."@en .
+
+<mtcu:Catalogue> rdfs:comment "Abstract catalogue of known student difficulties (bugs, errors, misconceptions)."@en .
+
+<mtcu:ConceptualKnowledge> rdfs:comment """
+      Contains the definitions of concepts underlying the Behavioural Knowledge,
+      i.e. the concepts involved in an inference mechanism.
+    """@en .
+
+<mtcu:Error> rdfs:comment "A specific incorrect response or calculation error."@en .
+
+<mtcu:Error_Bug> rdfs:comment "A catalogue entry that is simultaneously a Bug and an Error."@en .
+
+<mtcu:Error_Misconception> rdfs:comment "A catalogue entry that is simultaneously an Error and a Misconception."@en .
+
+<mtcu:GenericOperator> rdfs:comment """
+      Defines how the system knowledge (Rs*k) and the bug/misconception catalogues
+      interact to create a diagnosis space.
+    """@en .
+
+<mtcu:KnowledgeUnit> rdfs:comment """
+      Groups support knowledge for problem-solving: concepts, results, examples, counter-examples,
+      hints, and analogous problems (from the same class).
+    """@en .
+
+<mtcu:Misconception> rdfs:comment "A faulty conceptual belief held by the student."@en .
+
+<mtcu:PedagogicalUnit> rdfs:comment """
+      A Pedagogical Unit (PU) corresponds to a set of problems and resources ordered
+      according to pedagogical criteria.
+    """@en .
+
+<mtcu:ResourceWeight> rdfs:comment "Associates a resource with its relative weight within a pedagogical unit."@en .
+
+<mtcu:UniversalGenericOperator> rdfs:comment """
+      Represents any Behavioural Knowledge associated with all bugs in the bug catalogue.
+    """@en .
+
+<mtcu:ckType> rdfs:comment "Classifies the type of conceptual knowledge (e.g. declarative, procedural)."@en .
+
+<mtcu:cluster> rdfs:comment "Cluster identifier grouping related ConceptualKnowledge nodes."@en .
+
+<mtcu:difficulty> rdfs:comment """
+      Represents how difficult the learning resource is for the typical target audience.
+    """@en .
+
+<mtcu:domain> rdfs:comment "String identifier of the knowledge domain (used when a full IRI reference is not available)."@en .
+
+<mtcu:hasBehaviouralKnowledge> rdfs:comment "Associates a knowledge entity with its Behavioural Knowledge definition."@en .
+
+<mtcu:hasCatalogue> rdfs:comment "Associates a knowledge entity with its bug/error/misconception Catalogue."@en .
+
+<mtcu:hasConceptualKnowledge> rdfs:comment "Associates a knowledge entity with its Conceptual Knowledge definition."@en .
+
+<mtcu:hasConsistency> rdfs:comment "Consistency indicator for a curriculum entity."@en .
+
+<mtcu:hasDiscrepancy> rdfs:comment "Records a discrepancy detected by a Generic Operator."@en .
+
+<mtcu:hasDomain> rdfs:comment "Links a ConceptualKnowledge node to its knowledge Domain."@en .
+
+<mtcu:hasExplanation> rdfs:comment "Links a knowledge entity to an explanatory Learning Object."@en .
+
+<mtcu:hasKnowledgeUnit> rdfs:comment "A Pedagogical Unit is associated with exactly one Knowledge Unit."@en .
+
+<mtcu:hasLO> rdfs:comment "Super-property grouping all Learning Object associations."@en .
+
+<mtcu:hasPG> rdfs:comment "BKT parameter: probability of a correct guess (P(G))."@en .
+
+<mtcu:hasPL0> rdfs:comment "BKT parameter: initial probability of knowledge (P(L0))."@en .
+
+<mtcu:hasPS> rdfs:comment "BKT parameter: probability of a slip / incorrect answer despite knowledge (P(S))."@en .
+
+<mtcu:hasPT> rdfs:comment "BKT parameter: probability of learning / transition (P(T))."@en .
+
+<mtcu:hasPedagogicalUnit> rdfs:comment "A Curriculum contains one or more Pedagogical Units."@en .
+
+<mtcu:hasSuperConceptualKnowledge> rdfs:comment "Points to the parent ConceptualKnowledge in a generalisation hierarchy."@en .
+
+<mtcu:hasTags> rdfs:comment "Free-text tags associated with a ConceptualKnowledge node."@en .
+
+<mtcu:has_Curriculum> rdfs:comment "Functional shortcut linking any entity to its single Curriculum."@en .
+
+<mtcu:has_MissConception> rdfs:comment "Links a Diagnosis to the ConceptualKnowledge node that represents the misconception."@en .
+
+<mtcu:isComposedByLaterality> rdfs:comment """
+      Relates a Knowledge Unit to prerequisite Curricula (lateral knowledge),
+      i.e. supportive knowledge from a given Context/Depth perspective.
+    """@en .
+
+<mtcu:isComposedByProblem> rdfs:comment "Relates a catalogue entry to the problem that triggers it."@en .
+
+<mtcu:issue> rdfs:comment "Human-readable label / identifier for a ConceptualKnowledge or PedagogicalUnit node."@en .
+
+<mtcu:precedence> rdfs:comment "Ordering precedence of a knowledge node within its curriculum."@en .
+
+<mtcu:rate> rdfs:comment "Frequency/probability rate of the bug, error, or misconception."@en .
+
+<mtcu:weight> rdfs:comment "Relative weight of a resource within a pedagogical unit."@en .
+
+<mtr:Activity> rdfs:comment "A student activity resource with defined start/end dates and weight."@en .
+
+<mtr:Comment> rdfs:comment "A peer or instructor comment attached to a Problem."@en .
+
+<mtr:CompositeResource> rdfs:comment "A resource composed of multiple atomic (non-composite) resources."@en .
+
+<mtr:Concept> rdfs:comment "A definitional concept resource presented to the student."@en .
+
+<mtr:Content> rdfs:comment "A content resource (e.g. lecture notes, video, reading material)."@en .
+
+<mtr:Diagnosis> rdfs:comment "A diagnostic result triggered by a student selecting a particular Option."@en .
+
+<mtr:DiscursiveProblem> rdfs:comment "A free-text / discursive problem requiring an open-ended written answer."@en .
+
+<mtr:EvaluationResource> rdfs:comment "Abstract superclass for all evaluation types."@en .
+
+<mtr:Exercise> rdfs:comment "A worked example or exercise resource."@en .
+
+<mtr:Form> rdfs:comment "A form-based evaluation containing survey Questions."@en .
+
+<mtr:Hint> rdfs:comment "A scaffolded hint provided to a student during problem-solving; hints form a tree."@en .
+
+<mtr:MatchColumnAnswer> rdfs:comment "Identifies the correct matching answer(s) in a MatchColumnProblem."@en .
+
+<mtr:MethodStep> rdfs:comment "An individual step within a ResolutionMethod."@en .
+
+<mtr:Option> rdfs:comment "Abstract superclass for all answer options."@en .
+
+<mtr:OptionAnswer> rdfs:comment "The correct answer value (\"true\" or \"false\") for a TrueOrFalseOption."@en .
+
+<mtr:Problem> rdfs:comment "Abstract superclass for all problem types."@en .
+
+<mtr:ProblemBasedEvaluation> rdfs:comment "An evaluation composed of a set of Problems."@en .
+
+<mtr:Question> rdfs:comment "A survey or form question linked to a Curriculum."@en .
+
+<mtr:Resolution> rdfs:comment "The worked solution associated with a Problem."@en .
+
+<mtr:ResolutionMethod> rdfs:comment "A named resolution strategy applicable to a problem class."@en .
+
+<mtr:ResourceList> rdfs:comment "Enumerates the atomic resources that compose a CompositeResource."@en .
+
+<mtr:Statement> rdfs:comment "The problem or activity statement presented to the student."@en .
+
+<mtr:URIResource> rdfs:comment "URI pointing to the actual content of a Resource."@en .
+
+<mtr:URIType> rdfs:comment "MIME type or format descriptor of the resource URI."@en .
+
+<mtr:WritingEvaluation> rdfs:comment "A free-text writing evaluation."@en .
+
+<mtr:context> rdfs:comment "Contextual information or scenario description for a Problem."@en .
+
+<mtr:corrected> rdfs:comment "Indicates whether the evaluation has been corrected / graded."@en .
+
+<mtr:developmentStatus> rdfs:comment "Development status of the problem (e.g. draft, reviewed, published)."@en .
+
+<mtr:difficulty> rdfs:comment "IRT difficulty parameter for a Problem."@en .
+
+<mtr:duration> rdfs:comment "Estimated duration of the content resource in minutes."@en .
+
+<mtr:enabled> rdfs:comment "Indicates whether a resource is currently available to students."@en .
+
+<mtr:error> rdfs:comment "Description of the diagnosed error."@en .
+
+<mtr:hasCalculations> rdfs:comment "Indicates whether the problem involves numerical calculations."@en .
+
+<mtr:hasOption> rdfs:comment "Generic option association; specialised by problem-type sub-properties."@en .
+
+<mtr:has_Answers> rdfs:comment "Accepted answer(s) for a fill-in-the-blanks option (pipe-separated if multiple)."@en .
+
+<mtr:has_Diagnosis> rdfs:comment "Links an Option to the Diagnosis it triggers when chosen."@en .
+
+<mtr:has_Epoch> rdfs:comment "Training epoch number associated with a problem-based evaluation (used in adaptive systems)."@en .
+
+<mtr:has_Knowledge> rdfs:comment "Knowledge component addressed by a form question."@en .
+
+<mtr:has_token> rdfs:comment "Access token or identifier for a specific problem instance."@en .
+
+<mtr:issue> rdfs:comment "Known issue or errata associated with a Content resource."@en .
+
+<mtr:item> rdfs:comment "The text content of an option presented to the student."@en .
+
+<mtr:level> rdfs:comment "Proficiency level required for an activity or problem."@en .
+
+<mtr:matched_To> rdfs:comment "Links a left-column option to its corresponding right-column match."@en .
+
+<mtr:multipleChoiceAnswer> rdfs:comment "Identifies the correct option(s) in a MultipleChoiceProblem."@en .
+
+<mtr:order> rdfs:comment "Display order of a hint or option within its problem."@en .
+
+<mtr:size> rdfs:comment "Number of problems included in an evaluation."@en .
+
+<mtr:subjects> rdfs:comment """
+      Identifies the subject(s) covered by a simple evaluation
+      (e.g. a specific domain, a specific curriculum, or all domains).
+    """@en .
+
+<mtr:superKC> rdfs:comment "Identifier of the parent knowledge component in the resource hierarchy."@en .
+
+<mtr:term> rdfs:comment "The canonical term label for a Concept resource."@en .
+
+<mtr:tokenized_statement> rdfs:comment "Tokenised (NLP-processed) version of the problem statement."@en .
+
+<mtr:type_Test> rdfs:comment """
+      Identifies whether an evaluation is simple (linked to a specific Domain or Curriculum)
+      or comprehensive (covering all domains).
+    """@en .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isChildOfCurriculum> a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    owl:inverseOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isParentOfCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isParentOfCurriculum> a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> ;
+    owl:inverseOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#isChildOfCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#BehaviouralKnowledge> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#UniversalGenericOperator> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#CompositeResource> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#DiscursiveOption> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#DiscursiveProblem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#FillBlanksProblem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Form> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#EvaluationResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#TrueOrFalseProblem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#isChildOfHint> a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> ;
+    owl:inverseOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#isParentOfHint> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#isParentOfHint> a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> ;
+    owl:inverseOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#isChildOfHint> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Competence> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#THINGDomain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#THINGDomain> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#DomainModel> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#isSubDomainOf> a owl:ObjectProperty ;
+    rdfs:domain <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug_Misconception> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Bug> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error_Misconception> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#GenericOperator> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasBehaviouralKnowledge> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#UniversalGenericOperator> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#BehaviouralKnowledge> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#FillBlanksOption> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceOption> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MultipleChoiceProblem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#TrueOrFalseOption> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#DomainModel> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#CKCurriculumInformation> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Error> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Catalogue> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ResourceWeight> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConceptualKnowledge> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Misconception> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Concept> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Diagnosis> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Exercise> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnProblem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resolution> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://surveys.nees.com.br/ontologies/its_domain.owl#Course> a owl:Class ;
+    rdfs:comment """
+      An ITS Course bundles a set of knowledge Domains and is delivered to enrolled students.
+    """@en .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Depth> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Bug> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasBehaviouralKnowledge> ],
+        <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Catalogue> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Catalogue> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Misconception> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConceptualKnowledge> ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConceptualKnowledge> ;
+            owl:someValuesFrom <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> ],
+        <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#Catalogue> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasLO> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> ) ] ;
+    rdfs:range <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Comment> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#EvaluationResource> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MethodStep> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Question> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ResolutionMethod> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#KnowledgeUnit> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasBehaviouralKnowledge> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#hasConceptualKnowledge> ],
+        <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#MatchColumnOption> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Context> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#PedagogicalUnit> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Activity> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Content> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#WritingEvaluation> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#EvaluationResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Hint> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ThingResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Option> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#ProblemBasedEvaluation> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#EvaluationResource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#ConceptualKnowledge> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#THINGCurriculum> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#Domain> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#DomainModel> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> a owl:Class .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Problem> a owl:Class ;
+    rdfs:subClassOf <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#Resource> .
+
+<http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#Curriculum> a owl:Class .
+

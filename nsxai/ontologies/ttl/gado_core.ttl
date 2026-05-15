@@ -1,0 +1,506 @@
+@prefix gc: <http://surveys.nees.com.br/ontologies/gado_core.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl> a owl:Ontology ;
+    rdfs:label "GADO Core Ontology"@en .
+
+gc:Game_Context a owl:Class ;
+    rdfs:comment "A broader context or environment where a game or gamified experience takes place."@en ;
+    rdfs:subClassOf gc:Gamification_Context .
+
+gc:affordsMotivation a owl:ObjectProperty ;
+    rdfs:comment "Relates a game design element or mechanic to the type of motivation it supports."@en ;
+    rdfs:domain gc:Game_Design_Element ;
+    rdfs:range gc:Motivation .
+
+gc:archetypeBehavior a owl:DatatypeProperty ;
+    rdfs:comment "Describes the typical behavior associated with a player archetype."@en ;
+    rdfs:range xsd:string .
+
+gc:archetypeBrainRegion a owl:DatatypeProperty ;
+    rdfs:comment "Describes the brain region or cognitive area associated with an archetype."@en ;
+    rdfs:range xsd:string .
+
+gc:archetypeChemicalMessenger a owl:DatatypeProperty ;
+    rdfs:comment "Describes the neurotransmitter or chemical messenger linked to an archetype."@en ;
+    rdfs:range xsd:string .
+
+gc:archetypeLikes a owl:DatatypeProperty ;
+    rdfs:comment "Describes what an archetype prefers, values, or is drawn to."@en ;
+    rdfs:range xsd:string .
+
+gc:autonomy a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to self-determination, choice, and control."@en .
+
+gc:business a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context where gamification applies to commercial or corporate settings."@en .
+
+gc:classifiesPlayer a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a player is assigned to a particular player model or type."@en ;
+    rdfs:domain gc:Player_Model ;
+    rdfs:range gc:Player ;
+    owl:inverseOf gc:isClassifiedBy .
+
+gc:composesDynamic a owl:ObjectProperty ;
+    rdfs:comment "Connects a game mechanic to the higher-level dynamic it composes."@en ;
+    rdfs:domain gc:GDE_Mechanic ;
+    rdfs:range gc:GDE_Dynamic .
+
+gc:computer-supported_cooperative_work a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context involving collaborative computer-mediated work."@en .
+
+gc:computer_science_and_engineering a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to STEM fields and engineering education."@en .
+
+gc:crowdsourcing a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context where tasks are distributed to a broad crowd of participants."@en .
+
+gc:describesPlayer a owl:ObjectProperty ;
+    rdfs:comment "Associates a player with descriptive characteristics or metadata."@en ;
+    rdfs:domain gc:Player_Type ;
+    rdfs:range gc:Player ;
+    owl:inverseOf gc:isDescribedByType .
+
+gc:describesType a owl:ObjectProperty ;
+    rdfs:comment "Links a type or model to the characteristics that describe it."@en ;
+    rdfs:domain gc:Player_Model ;
+    rdfs:range gc:Player_Type ;
+    owl:inverseOf gc:isDescribedByModel .
+
+gc:education a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to teaching and learning scenarios."@en .
+
+gc:facilitators a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context representing support actors or enabling services."@en .
+
+gc:financial a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to economic incentives or monetary systems."@en .
+
+gc:food a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to nutrition, meals, or food services."@en .
+
+gc:hasGamification a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a non-game context includes gamification elements."@en ;
+    rdfs:domain gc:Non-Game_Context ;
+    rdfs:range gc:Gamification ;
+    owl:inverseOf gc:isAppliedTo .
+
+gc:hasPlayerInteraction a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a gamification context provides a place for a player to interact."@en ;
+    rdfs:domain gc:Gamification_Context ;
+    rdfs:range gc:Player ;
+    owl:inverseOf gc:interactsIn .
+
+gc:health-care a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to health, medicine, and wellness."@en .
+
+gc:isComprisedOf a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a motivation or model is composed of smaller components."@en ;
+    rdfs:domain gc:Motivation ;
+    rdfs:range gc:Motivational_Component .
+
+gc:isUsedBy a owl:ObjectProperty ;
+    rdfs:comment "Identifies the higher-level element that uses the given game element."@en ;
+    rdfs:domain gc:Game_Design_Element,
+        gc:Motivation_And_Need_Theory ;
+    rdfs:range gc:Gamification ;
+    owl:inverseOf gc:makesUseOf .
+
+gc:marketing a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to customer engagement and promotion."@en .
+
+gc:mastery a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to competence and skill growth."@en .
+
+gc:orientation a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to onboarding and introductory processes."@en .
+
+gc:personal a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to individual or personal use cases."@en .
+
+gc:power a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to influence, control, and leadership."@en .
+
+gc:purpose a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to meaningful goals and contribution."@en .
+
+gc:research a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to scientific inquiry and studies."@en .
+
+gc:signal a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to recognition, reputation, and communication."@en .
+
+gc:social_networks a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to social media and online communities."@en .
+
+gc:spark a gc:Motivation,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to intrinsic interest and curiosity."@en .
+
+gc:sustainability a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to environmental sustainability and long-term impact."@en .
+
+gc:water a gc:Non-Game_Context,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to water resources and environmental water management."@en .
+
+gc:Achievements a owl:Class ;
+    rdfs:comment "Defined objectives"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Challenges gc:Win_States ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Avatars a owl:Class ;
+    rdfs:comment "A virtual representation of a player’s character in a game. Common in role-playing games in which the player might take on the role of a magical creature or a medieval warrior."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Feedback ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Badges a owl:Class ;
+    rdfs:comment "A visual token of a achievement. Usually designed to look like the real-world analogs, such as Boy Scout badges or the Good Housekeeping seal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Challenges gc:Feedback gc:Rewards ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Boss_Fights a owl:Class ;
+    rdfs:comment "A difficult fight against a high-level opponent, called a boss. Often marks the end of a level or a section of a game"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Challenges ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Chances a owl:Class ;
+    rdfs:comment "Elements of randomness"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Constraints gc:Emotions ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Collections a owl:Class ;
+    rdfs:comment "Set of items or badges to accumulate"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Resource_Acquisition ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Combat a owl:Class ;
+    rdfs:comment "A defined battle, typically short-lived"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Competition gc:Turns ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Content_Unlocking a owl:Class ;
+    rdfs:comment "Aspects available only when players reach objectives"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Rewards gc:Win_States ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Gifting a owl:Class ;
+    rdfs:comment "Opportunities to share resources with others"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Transactions ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Leaderboards a owl:Class ;
+    rdfs:comment "A ranked list of participants in a game, with the highest scores on top."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Competition gc:Feedback ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Levels a owl:Class ;
+    rdfs:comment "Defined steps in player progression"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Competition gc:Status ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Motivational_Component a owl:Class ;
+    rdfs:comment "A component of motivation that combines behavioral, affective, or cognitive drivers."@en .
+
+gc:Points a owl:Class ;
+    rdfs:comment "Numerical representations of game progression"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Competition gc:Resource_Acquisition gc:Rewards gc:Win_States ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Quests a owl:Class ;
+    rdfs:comment "A specific mission or challenge for players of a game. The quest will usually have a narrative and an objective and a reward for completion."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Challenges gc:Cooperation gc:Rewards gc:Story ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Social_Graph a owl:Class ;
+    rdfs:comment "The network of relationships among friends, such as the matrix of connections on Facebook or other social networking sites."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Cooperation ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Story a owl:Class ;
+    rdfs:comment "A narrative structure used to give meaning, context, and progression to gamified experiences."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Narrative ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Teams a owl:Class ;
+    rdfs:comment "Defined groups of players working together for a common goal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Competition gc:Cooperation ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Theme a owl:Class ;
+    rdfs:comment "A visual or conceptual setting that gives coherence to the gamified experience."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Narrative ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Time_Constraints a owl:Class ;
+    rdfs:comment "Restrictions on time that shape how players engage with the gamified experience."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Challenges gc:Competition gc:Win_States ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Virtual_Goods a owl:Class ;
+    rdfs:comment "Virtual items that have value or uniqueness within a game environment. Players may be able to purchase virtual goods with virtual currency, real money, or through achievements within the game. Also called virtual assets."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Component [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Resource_Acquisition gc:Transactions ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:interactsIn a owl:ObjectProperty ;
+    rdfs:comment "Specifies the gamification context in which a player interacts."@en ;
+    rdfs:domain gc:Player ;
+    rdfs:range gc:Gamification_Context .
+
+gc:isAppliedTo a owl:ObjectProperty ;
+    rdfs:comment "Identifies the object or context to which gamification is applied."@en ;
+    rdfs:domain gc:Gamification ;
+    rdfs:range gc:Non-Game_Context .
+
+gc:isClassifiedBy a owl:ObjectProperty ;
+    rdfs:comment "Indicates the model or classifier used to categorize a player."@en ;
+    rdfs:domain gc:Player ;
+    rdfs:range gc:Player_Model .
+
+gc:isDescribedByModel a owl:ObjectProperty ;
+    rdfs:comment "Specifies the player model that describes a particular player type."@en ;
+    rdfs:domain gc:Player_Type ;
+    rdfs:range gc:Player_Model .
+
+gc:isDescribedByType a owl:ObjectProperty ;
+    rdfs:comment "Specifies the player type that is used to describe a player."@en ;
+    rdfs:domain gc:Player ;
+    rdfs:range gc:Player_Type .
+
+gc:makesUseOf a owl:ObjectProperty ;
+    rdfs:comment "Indicates that one concept makes use of another for game behavior or motivation."@en ;
+    rdfs:domain gc:Gamification ;
+    rdfs:range gc:Game_Design_Element,
+        gc:Motivation_And_Need_Theory .
+
+gc:Motivation_And_Need_Theory a owl:Class ;
+    rdfs:comment "A theory that links motivation, needs, and game design principles to explain player engagement."@en .
+
+gc:Status a owl:Class ;
+    rdfs:comment "The rank or level of a player. Players are often motivated by trying to reach a higher level or status. "@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Emotions gc:Progression ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Turns a owl:Class ;
+    rdfs:comment "Sequential participation by alternating players"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Constraints gc:Progression ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:tiesComponent a owl:ObjectProperty ;
+    rdfs:comment "Specifies that a mechanic connects to or supports a game component."@en ;
+    rdfs:domain gc:GDE_Mechanic ;
+    rdfs:range gc:GDE_Component .
+
+gc:Narrative a owl:Class ;
+    rdfs:comment "A consistent, ongoing storyline"@en ;
+    rdfs:subClassOf gc:GDE_Dynamic .
+
+gc:Transactions a owl:Class ;
+    rdfs:comment "Trading between players, directly or through intermediaries"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Progression gc:Relationships ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Cooperation a owl:Class ;
+    rdfs:comment "Players must work together to achieve a shared goal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Relationships ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Emotions a owl:Class ;
+    rdfs:comment "Curiosity, competitiveness, frustration, happiness, and so on"@en ;
+    rdfs:subClassOf gc:GDE_Dynamic .
+
+gc:Feedback a owl:Class ;
+    rdfs:comment "Information about how the player is doing."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Progression ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Gamification a owl:Class ;
+    rdfs:comment "Use of game design elements in non-game contexts."@en .
+
+gc:Gamification_Context a owl:Class ;
+    rdfs:comment "Context of gamification refers to the core service or an activity being gamified"@en .
+
+gc:Player_Model a owl:Class ;
+    rdfs:comment "A conceptual model describing player characteristics, preferences, or behavior patterns."@en .
+
+gc:Player_Type a owl:Class ;
+    rdfs:comment "A classification of players based on behavior, motivation, or play style."@en .
+
+gc:Relationships a owl:Class ;
+    rdfs:comment "Social interactions generating feelings of camaraderie, status, altruism, and so on"@en ;
+    rdfs:subClassOf gc:GDE_Dynamic .
+
+gc:Resource_Acquisition a owl:Class ;
+    rdfs:comment "Obtaining useful or collectible items"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Progression ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Rewards a owl:Class ;
+    rdfs:comment "Benefits for some action or achievement"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Emotions gc:Progression ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Win_States a owl:Class ;
+    rdfs:comment "The outcomes of a game that constitute “winning”. Typically defined by the rules of the game and the game’s feedback or rewards mechanisms."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Constraints ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Challenges a owl:Class ;
+    rdfs:comment "Puzzles or other tasks that require effort to solve"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom gc:Constraints ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Constraints a owl:Class ;
+    rdfs:comment "Limitations or forced trade-offs"@en ;
+    rdfs:subClassOf gc:GDE_Dynamic .
+
+gc:GDE_Dynamic a owl:Class ;
+    rdfs:comment "The conceptual structures underlying a game, such as the narrative and rules (constraints) that shape the game. These are the most abstract game elements. Players feel their effects but do not engage with them directly."@en ;
+    rdfs:subClassOf gc:Game_Design_Element .
+
+gc:Game_Design_Element a owl:Class ;
+    rdfs:comment "A design pattern that can be incorporated into a game. Game elements are the pieces that a game designer assembles in creating an engaging experience"@en .
+
+gc:Player a owl:Class ;
+    rdfs:comment "An individual or entity that engages with gamified content, performing actions and receiving feedback."@en .
+
+gc:Competition a owl:Class ;
+    rdfs:comment "One player or group wins, and the other loses"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( gc:GDE_Mechanic [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( gc:Constraints gc:Relationships ) ] ;
+                        owl:onProperty gc:isTiedTo ] ) ] .
+
+gc:Progression a owl:Class ;
+    rdfs:comment "The player’s growth and development"@en ;
+    rdfs:subClassOf gc:GDE_Dynamic .
+
+gc:Motivation a owl:Class ;
+    rdfs:comment "Motivation is literally the desire to do things."@en .
+
+gc:GDE_Mechanic a owl:Class ;
+    rdfs:comment "The processes that drive forward the action in a game, such as feedback or turns. Game mechanics are the actions that implement higher-level game dynamics and manifest themselves in lower-level game components."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty gc:tiesComponent ;
+            owl:someValuesFrom gc:GDE_Component ],
+        gc:Game_Design_Element .
+
+gc:Non-Game_Context a owl:Class ;
+    rdfs:comment "A real-world or service context that is not inherently a game but can be enriched with gamification."@en ;
+    rdfs:subClassOf gc:Gamification_Context .
+
+gc:GDE_Component a owl:Class ;
+    rdfs:comment "A particular structure in a game, implementing the game’s mechanics and dynamics. Points and badges are examples of game components"@en ;
+    rdfs:subClassOf gc:Game_Design_Element .
+
+gc:isTiedTo a owl:ObjectProperty ;
+    rdfs:comment "Relates a game design element to the component or mechanic it supports."@en ;
+    rdfs:domain gc:GDE_Component ;
+    rdfs:range gc:GDE_Mechanic ;
+    owl:inverseOf gc:tiesComponent .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( gc:Challenges gc:Chances gc:Competition gc:Cooperation gc:Feedback gc:Resource_Acquisition gc:Rewards gc:Status gc:Theme gc:Transactions gc:Turns gc:Win_States ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( gc:Constraints gc:Emotions gc:Narrative gc:Progression gc:Relationships ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( gc:Achievements gc:Avatars gc:Badges gc:Boss_Fights gc:Collections gc:Combat gc:Content_Unlocking gc:Gifting gc:Leaderboards gc:Levels gc:Points gc:Quests gc:Social_Graph gc:Teams gc:Time_Constraints gc:Virtual_Goods ) .
+

@@ -19,6 +19,7 @@
     <Prefix name="mtr"  IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#"/>
     <Prefix name="its"  IRI="http://surveys.nees.com.br/ontologies/its_domain.owl#"/>
     <Import>http://surveys.nees.com.br/ontologies/its_domain.owl</Import>
+    <Import>http://meututor.com.br/Ontologies/MeuTutor.stub</Import>
         <Annotation><AnnotationProperty abbreviatedIRI="rdfs:label"/><Literal xml:lang="en">ITS Pedagogical Ontology</Literal></Annotation>
         <Annotation><AnnotationProperty abbreviatedIRI="rdfs:comment"/><Literal xml:lang="en">Defines pedagogical models for Intelligent Tutoring Systems: instructional plans, sequencing strategies, tactics, and curriculum units.</Literal></Annotation>
 

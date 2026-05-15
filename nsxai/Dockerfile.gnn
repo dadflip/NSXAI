@@ -1,0 +1,24 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Java pour HermiT local (fallback si service REST indisponible)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    default-jdk-headless \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY gnn/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY gnn/ ./gnn/
+
+ENV PYTHONUNBUFFERED=1
+ENV ONTOLOGY_DIR=/ontologies
+ENV OUTPUT_DIR=/output
+
+VOLUME ["/ontologies", "/output"]
+
+CMD ["python", "-m", "gnn.pipeline", \
+     "--ontology", "/ontologies/gato.owl", \
+     "--hermit", "http://hermit:7777", \
+     "--output", "/output"]

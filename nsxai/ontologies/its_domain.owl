@@ -17,6 +17,8 @@
     <Prefix name="mtcp" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#"/>
     <Prefix name="mtcu" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#"/>
     <Prefix name="mtr"  IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#"/>
+    <Import>http://meututor.com.br/Ontologies/MeuTutor.stub</Import>
+    <Import>http://rdfs.org/sioc/ns</Import>
         <Annotation><AnnotationProperty abbreviatedIRI="rdfs:label"/><Literal xml:lang="en">ITS Domain Ontology</Literal></Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -91,7 +93,7 @@
         <Declaration><ObjectProperty abbreviatedIRI="mtcp:isComposedByDepth"/></Declaration>
         <Declaration><ObjectProperty abbreviatedIRI="mtcp:isComposedByLaterality"/></Declaration>
         <Declaration><ObjectProperty abbreviatedIRI="mtcp:isParentOfCurriculum"/></Declaration>
-        <Declaration><ObjectProperty abbreviatedIRI="mtcu:difficulty"/></Declaration>
+        <Declaration><DataProperty abbreviatedIRI="mtcu:difficulty"/></Declaration>
         <Declaration><ObjectProperty abbreviatedIRI="mtcu:hasBehaviouralKnowledge"/></Declaration>
         <Declaration><ObjectProperty abbreviatedIRI="mtcu:hasBug"/></Declaration>
         <Declaration><ObjectProperty abbreviatedIRI="mtcu:hasCatalogue"/></Declaration>
@@ -324,7 +326,7 @@
         <InverseObjectProperties><ObjectProperty abbreviatedIRI="mtcp:isParentOfCurriculum"/><ObjectProperty abbreviatedIRI="mtcp:isChildOfCurriculum"/></InverseObjectProperties>
         <ObjectPropertyDomain><ObjectProperty abbreviatedIRI="mtcp:isParentOfCurriculum"/><Class abbreviatedIRI="mtcp:Curriculum"/></ObjectPropertyDomain>
         <ObjectPropertyRange><ObjectProperty abbreviatedIRI="mtcp:isParentOfCurriculum"/><Class abbreviatedIRI="mtcp:Curriculum"/></ObjectPropertyRange>
-        <ObjectPropertyDomain><ObjectProperty abbreviatedIRI="mtcu:difficulty"/><Class abbreviatedIRI="mtcu:PedagogicalUnit"/></ObjectPropertyDomain>
+        <DataPropertyDomain><DataProperty abbreviatedIRI="mtcu:difficulty"/><Class abbreviatedIRI="mtcu:PedagogicalUnit"/></DataPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty abbreviatedIRI="mtcu:hasBehaviouralKnowledge"/>
         <ObjectUnionOf>

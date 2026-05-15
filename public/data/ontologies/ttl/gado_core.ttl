@@ -1,0 +1,507 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://anonymous> a owl:Ontology .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl> a owl:Ontology ;
+    rdfs:label "GADO Core Ontology"@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Context> a owl:Class ;
+    rdfs:comment "A broader context or environment where a game or gamified experience takes place."@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification_Context> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#affordsMotivation> a owl:ObjectProperty ;
+    rdfs:comment "Relates a game design element or mechanic to the type of motivation it supports."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#archetypeBehavior> a owl:DatatypeProperty ;
+    rdfs:comment "Describes the typical behavior associated with a player archetype."@en ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#archetypeBrainRegion> a owl:DatatypeProperty ;
+    rdfs:comment "Describes the brain region or cognitive area associated with an archetype."@en ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#archetypeChemicalMessenger> a owl:DatatypeProperty ;
+    rdfs:comment "Describes the neurotransmitter or chemical messenger linked to an archetype."@en ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#archetypeLikes> a owl:DatatypeProperty ;
+    rdfs:comment "Describes what an archetype prefers, values, or is drawn to."@en ;
+    rdfs:range xsd:string .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#autonomy> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to self-determination, choice, and control."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#business> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context where gamification applies to commercial or corporate settings."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#classifiesPlayer> a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a player is assigned to a particular player model or type."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#isClassifiedBy> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#composesDynamic> a owl:ObjectProperty ;
+    rdfs:comment "Connects a game mechanic to the higher-level dynamic it composes."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#computer-supported_cooperative_work> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context involving collaborative computer-mediated work."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#computer_science_and_engineering> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to STEM fields and engineering education."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#crowdsourcing> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context where tasks are distributed to a broad crowd of participants."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#describesPlayer> a owl:ObjectProperty ;
+    rdfs:comment "Associates a player with descriptive characteristics or metadata."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#isDescribedByType> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#describesType> a owl:ObjectProperty ;
+    rdfs:comment "Links a type or model to the characteristics that describe it."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#isDescribedByModel> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#education> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to teaching and learning scenarios."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#facilitators> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context representing support actors or enabling services."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#financial> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to economic incentives or monetary systems."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#food> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to nutrition, meals, or food services."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#hasGamification> a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a non-game context includes gamification elements."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#isAppliedTo> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#hasPlayerInteraction> a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a gamification context provides a place for a player to interact."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification_Context> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#interactsIn> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#health-care> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to health, medicine, and wellness."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isComprisedOf> a owl:ObjectProperty ;
+    rdfs:comment "Indicates that a motivation or model is composed of smaller components."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivational_Component> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isUsedBy> a owl:ObjectProperty ;
+    rdfs:comment "Identifies the higher-level element that uses the given game element."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element>,
+        <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#makesUseOf> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#marketing> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to customer engagement and promotion."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#mastery> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to competence and skill growth."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#orientation> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to onboarding and introductory processes."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#personal> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to individual or personal use cases."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#power> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to influence, control, and leadership."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#purpose> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to meaningful goals and contribution."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#research> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to scientific inquiry and studies."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#signal> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to recognition, reputation, and communication."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#social_networks> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to social media and online communities."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#spark> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation>,
+        owl:NamedIndividual ;
+    rdfs:comment "A motivational construct related to intrinsic interest and curiosity."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#sustainability> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to environmental sustainability and long-term impact."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#water> a <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context>,
+        owl:NamedIndividual ;
+    rdfs:comment "A non-game context related to water resources and environmental water management."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Achievements> a owl:Class ;
+    rdfs:comment "Defined objectives"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Avatars> a owl:Class ;
+    rdfs:comment "A virtual representation of a player’s character in a game. Common in role-playing games in which the player might take on the role of a magical creature or a medieval warrior."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Badges> a owl:Class ;
+    rdfs:comment "A visual token of a achievement. Usually designed to look like the real-world analogs, such as Boy Scout badges or the Good Housekeeping seal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback> <http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Boss_Fights> a owl:Class ;
+    rdfs:comment "A difficult fight against a high-level opponent, called a boss. Often marks the end of a level or a section of a game"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Chances> a owl:Class ;
+    rdfs:comment "Elements of randomness"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> <http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Collections> a owl:Class ;
+    rdfs:comment "Set of items or badges to accumulate"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Resource_Acquisition> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Combat> a owl:Class ;
+    rdfs:comment "A defined battle, typically short-lived"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Turns> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Content_Unlocking> a owl:Class ;
+    rdfs:comment "Aspects available only when players reach objectives"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> <http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Gifting> a owl:Class ;
+    rdfs:comment "Opportunities to share resources with others"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Transactions> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards> a owl:Class ;
+    rdfs:comment "A ranked list of participants in a game, with the highest scores on top."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Levels> a owl:Class ;
+    rdfs:comment "Defined steps in player progression"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Status> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Motivational_Component> a owl:Class ;
+    rdfs:comment "A component of motivation that combines behavioral, affective, or cognitive drivers."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Points> a owl:Class ;
+    rdfs:comment "Numerical representations of game progression"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Resource_Acquisition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> <http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Quests> a owl:Class ;
+    rdfs:comment "A specific mission or challenge for players of a game. The quest will usually have a narrative and an objective and a reward for completion."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Cooperation> <http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> <http://surveys.nees.com.br/ontologies/gado_core.owl#Story> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Social_Graph> a owl:Class ;
+    rdfs:comment "The network of relationships among friends, such as the matrix of connections on Facebook or other social networking sites."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Cooperation> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Story> a owl:Class ;
+    rdfs:comment "A narrative structure used to give meaning, context, and progression to gamified experiences."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Teams> a owl:Class ;
+    rdfs:comment "Defined groups of players working together for a common goal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Cooperation> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Theme> a owl:Class ;
+    rdfs:comment "A visual or conceptual setting that gives coherence to the gamified experience."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Time_Constraints> a owl:Class ;
+    rdfs:comment "Restrictions on time that shape how players engage with the gamified experience."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Virtual_Goods> a owl:Class ;
+    rdfs:comment "Virtual items that have value or uniqueness within a game environment. Players may be able to purchase virtual goods with virtual currency, real money, or through achievements within the game. Also called virtual assets."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Resource_Acquisition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Transactions> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#interactsIn> a owl:ObjectProperty ;
+    rdfs:comment "Specifies the gamification context in which a player interacts."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification_Context> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isAppliedTo> a owl:ObjectProperty ;
+    rdfs:comment "Identifies the object or context to which gamification is applied."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isClassifiedBy> a owl:ObjectProperty ;
+    rdfs:comment "Indicates the model or classifier used to categorize a player."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isDescribedByModel> a owl:ObjectProperty ;
+    rdfs:comment "Specifies the player model that describes a particular player type."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isDescribedByType> a owl:ObjectProperty ;
+    rdfs:comment "Specifies the player type that is used to describe a player."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Player> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#makesUseOf> a owl:ObjectProperty ;
+    rdfs:comment "Indicates that one concept makes use of another for game behavior or motivation."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element>,
+        <http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation_And_Need_Theory> a owl:Class ;
+    rdfs:comment "A theory that links motivation, needs, and game design principles to explain player engagement."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Status> a owl:Class ;
+    rdfs:comment "The rank or level of a player. Players are often motivated by trying to reach a higher level or status. "@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions> <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Turns> a owl:Class ;
+    rdfs:comment "Sequential participation by alternating players"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#tiesComponent> a owl:ObjectProperty ;
+    rdfs:comment "Specifies that a mechanic connects to or supports a game component."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative> a owl:Class ;
+    rdfs:comment "A consistent, ongoing storyline"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Transactions> a owl:Class ;
+    rdfs:comment "Trading between players, directly or through intermediaries"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> <http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Cooperation> a owl:Class ;
+    rdfs:comment "Players must work together to achieve a shared goal"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions> a owl:Class ;
+    rdfs:comment "Curiosity, competitiveness, frustration, happiness, and so on"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback> a owl:Class ;
+    rdfs:comment "Information about how the player is doing."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification> a owl:Class ;
+    rdfs:comment "Use of game design elements in non-game contexts."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification_Context> a owl:Class ;
+    rdfs:comment "Context of gamification refers to the core service or an activity being gamified"@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Model> a owl:Class ;
+    rdfs:comment "A conceptual model describing player characteristics, preferences, or behavior patterns."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Player_Type> a owl:Class ;
+    rdfs:comment "A classification of players based on behavior, motivation, or play style."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships> a owl:Class ;
+    rdfs:comment "Social interactions generating feelings of camaraderie, status, altruism, and so on"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Resource_Acquisition> a owl:Class ;
+    rdfs:comment "Obtaining useful or collectible items"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> a owl:Class ;
+    rdfs:comment "Benefits for some action or achievement"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions> <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> a owl:Class ;
+    rdfs:comment "The outcomes of a game that constitute “winning”. Typically defined by the rules of the game and the game’s feedback or rewards mechanisms."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> a owl:Class ;
+    rdfs:comment "Puzzles or other tasks that require effort to solve"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> a owl:Class ;
+    rdfs:comment "Limitations or forced trade-offs"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> a owl:Class ;
+    rdfs:comment "The conceptual structures underlying a game, such as the narrative and rules (constraints) that shape the game. These are the most abstract game elements. Players feel their effects but do not engage with them directly."@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element> a owl:Class ;
+    rdfs:comment "A design pattern that can be incorporated into a game. Game elements are the pieces that a game designer assembles in creating an engaging experience"@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Player> a owl:Class ;
+    rdfs:comment "An individual or entity that engages with gamified content, performing actions and receiving feedback."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> a owl:Class ;
+    rdfs:comment "One player or group wins, and the other loses"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> [ a owl:Restriction ;
+                        owl:allValuesFrom [ a owl:Class ;
+                                owl:unionOf ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> <http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships> ) ] ;
+                        owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> ] ) ] .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> a owl:Class ;
+    rdfs:comment "The player’s growth and development"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Dynamic> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Motivation> a owl:Class ;
+    rdfs:comment "Motivation is literally the desire to do things."@en .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> a owl:Class ;
+    rdfs:comment "The processes that drive forward the action in a game, such as feedback or turns. Game mechanics are the actions that implement higher-level game dynamics and manifest themselves in lower-level game components."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://surveys.nees.com.br/ontologies/gado_core.owl#tiesComponent> ;
+            owl:someValuesFrom <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> ],
+        <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#Non-Game_Context> a owl:Class ;
+    rdfs:comment "A real-world or service context that is not inherently a game but can be enriched with gamification."@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#Gamification_Context> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> a owl:Class ;
+    rdfs:comment "A particular structure in a game, implementing the game’s mechanics and dynamics. Points and badges are examples of game components"@en ;
+    rdfs:subClassOf <http://surveys.nees.com.br/ontologies/gado_core.owl#Game_Design_Element> .
+
+<http://surveys.nees.com.br/ontologies/gado_core.owl#isTiedTo> a owl:ObjectProperty ;
+    rdfs:comment "Relates a game design element to the component or mechanic it supports."@en ;
+    rdfs:domain <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component> ;
+    rdfs:range <http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Mechanic> ;
+    owl:inverseOf <http://surveys.nees.com.br/ontologies/gado_core.owl#tiesComponent> .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Challenges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Chances> <http://surveys.nees.com.br/ontologies/gado_core.owl#Competition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Cooperation> <http://surveys.nees.com.br/ontologies/gado_core.owl#Feedback> <http://surveys.nees.com.br/ontologies/gado_core.owl#Resource_Acquisition> <http://surveys.nees.com.br/ontologies/gado_core.owl#Rewards> <http://surveys.nees.com.br/ontologies/gado_core.owl#Status> <http://surveys.nees.com.br/ontologies/gado_core.owl#Theme> <http://surveys.nees.com.br/ontologies/gado_core.owl#Transactions> <http://surveys.nees.com.br/ontologies/gado_core.owl#Turns> <http://surveys.nees.com.br/ontologies/gado_core.owl#Win_States> ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Achievements> <http://surveys.nees.com.br/ontologies/gado_core.owl#Avatars> <http://surveys.nees.com.br/ontologies/gado_core.owl#Badges> <http://surveys.nees.com.br/ontologies/gado_core.owl#Boss_Fights> <http://surveys.nees.com.br/ontologies/gado_core.owl#Collections> <http://surveys.nees.com.br/ontologies/gado_core.owl#Combat> <http://surveys.nees.com.br/ontologies/gado_core.owl#Content_Unlocking> <http://surveys.nees.com.br/ontologies/gado_core.owl#Gifting> <http://surveys.nees.com.br/ontologies/gado_core.owl#Leaderboards> <http://surveys.nees.com.br/ontologies/gado_core.owl#Levels> <http://surveys.nees.com.br/ontologies/gado_core.owl#Points> <http://surveys.nees.com.br/ontologies/gado_core.owl#Quests> <http://surveys.nees.com.br/ontologies/gado_core.owl#Social_Graph> <http://surveys.nees.com.br/ontologies/gado_core.owl#Teams> <http://surveys.nees.com.br/ontologies/gado_core.owl#Time_Constraints> <http://surveys.nees.com.br/ontologies/gado_core.owl#Virtual_Goods> ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( <http://surveys.nees.com.br/ontologies/gado_core.owl#Constraints> <http://surveys.nees.com.br/ontologies/gado_core.owl#Emotions> <http://surveys.nees.com.br/ontologies/gado_core.owl#Narrative> <http://surveys.nees.com.br/ontologies/gado_core.owl#Progression> <http://surveys.nees.com.br/ontologies/gado_core.owl#Relationships> ) .
+

@@ -23,6 +23,7 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://surveys.nees.com.br/ontologies/gado_full.owl</Import>
     <Import>http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl</Import>
+    <Import>http://meututor.com.br/Ontologies/MeuTutor.stub</Import>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <Literal xml:lang="en">

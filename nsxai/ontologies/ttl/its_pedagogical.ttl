@@ -1,0 +1,205 @@
+@prefix itsp: <http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl#> .
+@prefix mt: <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#> .
+@prefix mtcp: <http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#> .
+@prefix mtcu: <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#> .
+@prefix mtr: <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl> a owl:Ontology ;
+    rdfs:label "ITS Pedagogical Ontology"@en ;
+    rdfs:comment "Defines pedagogical models for Intelligent Tutoring Systems: instructional plans, sequencing strategies, tactics, and curriculum units."@en ;
+    owl:imports <http://meututor.com.br/Ontologies/MeuTutor.stub>,
+        <http://surveys.nees.com.br/ontologies/its_domain.owl> .
+
+itsp:Level a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:InstrutionalPlan ;
+    rdfs:range xsd:string .
+
+itsp:abilityScoreMean a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mt:Domain ;
+    rdfs:range xsd:float .
+
+itsp:abilityScoreStandardDeviation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain mt:Domain ;
+    rdfs:range xsd:float .
+
+itsp:has_Curriculum a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:CurriculumUnit ;
+    rdfs:range mtcp:Curriculum .
+
+itsp:has_PedagogicalUnit a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:InstrutionalPlan ;
+    rdfs:range mtcu:PedagogicalUnit .
+
+itsp:has_Problem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:ProblemUnit ;
+    rdfs:range mtr:Problem .
+
+itsp:has_ProblemNext a owl:ObjectProperty ;
+    rdfs:domain itsp:ProblemUnit ;
+    rdfs:range itsp:ProblemNext .
+
+itsp:has_Resource a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:ResourceUnit ;
+    rdfs:range mtr:Resource .
+
+itsp:has_Sequencing a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:InstrutionalPlan ;
+    rdfs:range itsp:Sequencing .
+
+itsp:has_domain a owl:FunctionalProperty,
+        owl:ObjectProperty .
+
+itsp:isExplained a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:ProblemUnit .
+
+itsp:next_Unit a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:ResourceUnit ;
+    rdfs:range itsp:ResourceUnit .
+
+itsp:previous_Unit a owl:ObjectProperty ;
+    rdfs:domain itsp:ResourceUnit ;
+    rdfs:range itsp:ResourceUnit .
+
+itsp:score_Max a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:ProblemNext ;
+    rdfs:range xsd:float .
+
+itsp:score_Min a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:ProblemNext ;
+    rdfs:range xsd:float .
+
+itsp:statement a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:ResourceUnit ;
+    rdfs:range xsd:string .
+
+itsp:strategicTutoring a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:comment "The strategy is alike a template with configuration to select tactics."@en ;
+    rdfs:range itsp:Strategy .
+
+itsp:strategy a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:Strategy ;
+    rdfs:range xsd:string .
+
+itsp:tactic a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:Tactic ;
+    rdfs:range xsd:string .
+
+itsp:time a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:float .
+
+itsp:type a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:ResourceUnit ;
+    rdfs:range xsd:string .
+
+itsp:typeAssessment a owl:DatatypeProperty ;
+    rdfs:domain itsp:Tactic ;
+    rdfs:range xsd:string .
+
+itsp:typeStrategy a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:Strategy ;
+    rdfs:range xsd:string .
+
+itsp:typeStrategyTutoring a owl:DatatypeProperty ;
+    rdfs:domain itsp:Strategy ;
+    rdfs:range xsd:string .
+
+itsp:typeTactic a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain itsp:Tactic ;
+    rdfs:range xsd:string .
+
+itsp:value a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:float .
+
+mtcp:Curriculum a owl:Class .
+
+itsp:THINGPedagogicalModel a owl:Class .
+
+itsp:isChildOf_Strategy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain itsp:Strategy ;
+    rdfs:range itsp:Strategy ;
+    owl:inverseOf itsp:isParentOf_Strategy .
+
+itsp:isChildOf_Tactic a owl:ObjectProperty ;
+    rdfs:domain itsp:Tactic ;
+    rdfs:range itsp:Tactic ;
+    owl:inverseOf itsp:isParentOf_Tactic .
+
+itsp:isParentOf_Strategy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain itsp:Strategy ;
+    rdfs:range itsp:Strategy ;
+    owl:inverseOf itsp:isChildOf_Strategy .
+
+itsp:isParentOf_Tactic a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain itsp:Tactic ;
+    rdfs:range itsp:Tactic ;
+    owl:inverseOf itsp:isChildOf_Tactic .
+
+itsp:next_Curriculum a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain itsp:CurriculumUnit ;
+    rdfs:range itsp:CurriculumUnit .
+
+itsp:CurriculumUnit a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty itsp:next_Curriculum ],
+        itsp:THINGInstrutionalPlan .
+
+itsp:InstrutionalPlan a owl:Class ;
+    rdfs:comment "Instructional Plan Strategy."@en ;
+    rdfs:subClassOf itsp:PedagogicalModel .
+
+itsp:PedagogicalModel a owl:Class ;
+    rdfs:comment "Answer the question: How to teach? in a educational system."@en .
+
+itsp:ProblemNext a owl:Class ;
+    rdfs:subClassOf itsp:THINGInstrutionalPlan .
+
+itsp:ProblemUnit a owl:Class ;
+    rdfs:subClassOf itsp:Sequencing .
+
+itsp:Sequencing a owl:Class ;
+    rdfs:comment "A Sequencing is a map that represents the intended use of the content through structured units of instruction (curriculum)."@en ;
+    rdfs:subClassOf itsp:THINGInstrutionalPlan .
+
+itsp:THINGInstrutionalPlan a owl:Class ;
+    rdfs:subClassOf itsp:THINGPedagogicalModel .
+
+itsp:ResourceUnit a owl:Class ;
+    rdfs:subClassOf itsp:Sequencing .
+
+itsp:Tactic a owl:Class ;
+    rdfs:comment "Represents all the actions the educational system can do in order to teach."@en ;
+    rdfs:subClassOf itsp:PedagogicalModel .
+
+itsp:Strategy a owl:Class ;
+    rdfs:comment "Represents the teaching  mechanism in the instrutional plan."@en ;
+    rdfs:subClassOf itsp:PedagogicalModel .
+
