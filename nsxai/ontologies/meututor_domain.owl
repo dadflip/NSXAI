@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+    xml:base="http://meututor.com.br/Ontologies/meututor_domain.owl"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    ontologyIRI="http://meututor.com.br/Ontologies/meututor_domain.owl">
+
+    <Prefix name="mt"
+        IRI="http://meututor.com.br/Ontologies/meututor_domain.owl#"/>
+
+    <!-- Classes -->
+    <Declaration><Class IRI="#Competence"/></Declaration>
+    <Declaration><Class IRI="#Domain"/></Declaration>
+    <Declaration><Class IRI="#DomainModel"/></Declaration>
+    <Declaration><Class IRI="#THINGDomain"/></Declaration>
+
+    <!-- Object Properties -->
+    <Declaration><ObjectProperty IRI="#associatedDomain"/></Declaration>
+    <Declaration><AnnotationProperty IRI="#hasDomain"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasDomains"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasEloRating"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasLevel"/></Declaration>
+    <Declaration><ObjectProperty IRI="#hasSubDomain"/></Declaration>
+    <Declaration><ObjectProperty IRI="#has_Domain"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isComposedByContext"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isComposedByCurriculum"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isComposedByDepth"/></Declaration>
+    <Declaration><ObjectProperty IRI="#isSubDomainOf"/></Declaration>
+
+    <!-- Data Properties -->
+    <Declaration><DataProperty IRI="#desiredPoints"/></Declaration>
+    <Declaration><DataProperty IRI="#domain"/></Declaration>
+    <Declaration><DataProperty IRI="#type"/></Declaration>
+    <Declaration><DataProperty IRI="#value"/></Declaration>
+
+</Ontology>

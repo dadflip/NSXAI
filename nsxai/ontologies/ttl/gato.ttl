@@ -1,10 +1,10 @@
 @prefix gato: <http://surveys.nees.com.br/ontologies/gato.owl#> .
 @prefix gc: <http://surveys.nees.com.br/ontologies/gado_core.owl#> .
 @prefix gf: <http://surveys.nees.com.br/ontologies/gado_full.owl#> .
-@prefix itsp: <http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl#> .
-@prefix mt: <http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#> .
-@prefix mtcu: <http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#> .
-@prefix mtr: <http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#> .
+@prefix itsp: <http://surveys.nees.com.br/ontologies/its/its_pedagogical.owl#> .
+@prefix mt: <http://meututor.com.br/Ontologies/meututor_domain.owl#> .
+@prefix mtcu: <http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl#> .
+@prefix mtr: <http://meututor.com.br/Ontologies/meututor_domain_resource.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -16,9 +16,8 @@
             to model a complete Gamified Intelligent Tutoring System.
             Defines GamifiedITS and StudentModel, and reuses GamificationModel from GADO Full.
         """@en ;
-    owl:imports <http://meututor.com.br/Ontologies/MeuTutor.stub>,
-        <http://surveys.nees.com.br/ontologies/gado_full.owl>,
-        <http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl> ;
+    owl:imports <http://surveys.nees.com.br/ontologies/gado_full.owl>,
+        <http://surveys.nees.com.br/ontologies/its/its_pedagogical.owl> ;
     owl:versionIRI <http://surveys.nees.com.br/ontologies/gato.owl/1.0> ;
     owl:versionInfo "1.0-fixed"^^xsd:string .
 

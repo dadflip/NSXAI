@@ -1,0 +1,215 @@
+@prefix mtr: <http://meututor.com.br/Ontologies/meututor_domain_resource.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://meututor.com.br/Ontologies/meututor_domain_resource.owl> a owl:Ontology .
+
+mtr:Activity a owl:Class .
+
+mtr:Comment a owl:Class .
+
+mtr:CompositeResource a owl:Class .
+
+mtr:Concept a owl:Class .
+
+mtr:Content a owl:Class .
+
+mtr:Diagnosis a owl:Class .
+
+mtr:DiscursiveOption a owl:Class .
+
+mtr:DiscursiveProblem a owl:Class .
+
+mtr:EvaluationResource a owl:Class .
+
+mtr:Exercise a owl:Class .
+
+mtr:FillBlanksOption a owl:Class .
+
+mtr:FillBlanksProblem a owl:Class .
+
+mtr:Form a owl:Class .
+
+mtr:Hint a owl:Class .
+
+mtr:LeftColumn a owl:Class .
+
+mtr:MatchColumnAnswer a owl:Class .
+
+mtr:MatchColumnOption a owl:Class .
+
+mtr:MatchColumnProblem a owl:Class .
+
+mtr:MethodStep a owl:Class .
+
+mtr:MultipleChoiceOption a owl:Class .
+
+mtr:MultipleChoiceProblem a owl:Class .
+
+mtr:Option a owl:Class .
+
+mtr:OptionAnswer a owl:DatatypeProperty .
+
+mtr:Problem a owl:Class .
+
+mtr:ProblemBasedEvaluation a owl:Class .
+
+mtr:Question a owl:Class .
+
+mtr:Resolution a owl:Class .
+
+mtr:ResolutionMethod a owl:Class .
+
+mtr:Resource a owl:Class .
+
+mtr:ResourceList a owl:Class .
+
+mtr:RightColumn a owl:Class .
+
+mtr:Statement a owl:Class .
+
+mtr:ThingResource a owl:Class .
+
+mtr:TrueOrFalseOption a owl:Class .
+
+mtr:TrueOrFalseProblem a owl:Class .
+
+mtr:URIResource a owl:Class .
+
+mtr:URIType a owl:Class .
+
+mtr:WritingEvaluation a owl:Class .
+
+mtr:comment a owl:DatatypeProperty .
+
+mtr:context a owl:DatatypeProperty .
+
+mtr:corrected a owl:DatatypeProperty .
+
+mtr:currentOperation a owl:DatatypeProperty .
+
+mtr:description a owl:DatatypeProperty .
+
+mtr:developmentStatus a owl:DatatypeProperty .
+
+mtr:difficulty a owl:DatatypeProperty .
+
+mtr:duration a owl:DatatypeProperty .
+
+mtr:enabled a owl:DatatypeProperty .
+
+mtr:endDate a owl:DatatypeProperty .
+
+mtr:error a owl:DatatypeProperty .
+
+mtr:exercise a owl:DatatypeProperty .
+
+mtr:fillBlanksHasOption a owl:ObjectProperty .
+
+mtr:hasCalculations a owl:DatatypeProperty .
+
+mtr:hasEvaluation a owl:ObjectProperty .
+
+mtr:hasResource a owl:ObjectProperty .
+
+mtr:hasSuggestedTags a owl:DatatypeProperty .
+
+mtr:has_Answers a owl:DatatypeProperty .
+
+mtr:has_Context a owl:ObjectProperty .
+
+mtr:has_Depth a owl:ObjectProperty .
+
+mtr:has_Diagnosis a owl:ObjectProperty .
+
+mtr:has_Domain a owl:ObjectProperty .
+
+mtr:has_Epoch a owl:DatatypeProperty .
+
+mtr:has_Knowledge a owl:DatatypeProperty .
+
+mtr:has_MethodStep a owl:ObjectProperty .
+
+mtr:has_Problems a owl:ObjectProperty .
+
+mtr:has_Questions a owl:ObjectProperty .
+
+mtr:has_Resolution a owl:ObjectProperty .
+
+mtr:has_ResolutionMethod a owl:ObjectProperty .
+
+mtr:has_comments a owl:ObjectProperty .
+
+mtr:has_discursiveOption a owl:ObjectProperty .
+
+mtr:has_hint a owl:ObjectProperty .
+
+mtr:has_token a owl:DatatypeProperty .
+
+mtr:hint a owl:DatatypeProperty .
+
+mtr:isChildOfHint a owl:ObjectProperty .
+
+mtr:isParentOfHint a owl:ObjectProperty .
+
+mtr:issue a owl:DatatypeProperty .
+
+mtr:item a owl:DatatypeProperty .
+
+mtr:level a owl:DatatypeProperty .
+
+mtr:matched_To a owl:ObjectProperty .
+
+mtr:methodDescription a owl:DatatypeProperty .
+
+mtr:methodStep a owl:DatatypeProperty .
+
+mtr:methodname a owl:DatatypeProperty .
+
+mtr:multipleChoiceAnswer a owl:DatatypeProperty .
+
+mtr:multipleChoiceHasOption a owl:ObjectProperty .
+
+mtr:numberOfFavorites a owl:DatatypeProperty .
+
+mtr:numberOfViews a owl:DatatypeProperty .
+
+mtr:order a owl:DatatypeProperty .
+
+mtr:posting_date a owl:DatatypeProperty .
+
+mtr:posting_hour a owl:DatatypeProperty .
+
+mtr:question a owl:DatatypeProperty .
+
+mtr:related_Curriculum a owl:ObjectProperty .
+
+mtr:resolution a owl:DatatypeProperty .
+
+mtr:size a owl:DatatypeProperty .
+
+mtr:startDate a owl:DatatypeProperty .
+
+mtr:stepName a owl:DatatypeProperty .
+
+mtr:stepOrder a owl:DatatypeProperty .
+
+mtr:subjects a owl:DatatypeProperty .
+
+mtr:submmitedDate a owl:DatatypeProperty .
+
+mtr:superKC a owl:DatatypeProperty .
+
+mtr:term a owl:DatatypeProperty .
+
+mtr:title a owl:DatatypeProperty .
+
+mtr:tokenized_statement a owl:DatatypeProperty .
+
+mtr:trueOrFalseHasOption a owl:ObjectProperty .
+
+mtr:type a owl:DatatypeProperty .
+
+mtr:type_Test a owl:DatatypeProperty .
+
+mtr:weight a owl:DatatypeProperty .
+

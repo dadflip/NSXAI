@@ -1,0 +1,31 @@
+@prefix mtcp: <http://meututor.com.br/Ontologies/meututor_domain_cp.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://meututor.com.br/Ontologies/meututor_domain_cp.owl> a owl:Ontology .
+
+mtcp:Context a owl:Class .
+
+mtcp:Curriculum a owl:Class .
+
+mtcp:Depth a owl:Class .
+
+mtcp:description a owl:DatatypeProperty .
+
+mtcp:hasContext a owl:ObjectProperty .
+
+mtcp:importanceLevel a owl:DatatypeProperty .
+
+mtcp:isChildOfCurriculum a owl:ObjectProperty .
+
+mtcp:isComposedByContext a owl:ObjectProperty .
+
+mtcp:isComposedByDepth a owl:ObjectProperty .
+
+mtcp:isComposedByLaterality a owl:ObjectProperty .
+
+mtcp:isParentOfCurriculum a owl:ObjectProperty .
+
+mtcp:issue a owl:DatatypeProperty .
+
+mtcp:type a owl:DatatypeProperty .
+

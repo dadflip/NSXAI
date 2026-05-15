@@ -496,11 +496,11 @@ gc:isTiedTo a owl:ObjectProperty ;
     owl:inverseOf gc:tiesComponent .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( gc:Challenges gc:Chances gc:Competition gc:Cooperation gc:Feedback gc:Resource_Acquisition gc:Rewards gc:Status gc:Theme gc:Transactions gc:Turns gc:Win_States ) .
-
-[] a owl:AllDisjointClasses ;
     owl:members ( gc:Constraints gc:Emotions gc:Narrative gc:Progression gc:Relationships ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( gc:Achievements gc:Avatars gc:Badges gc:Boss_Fights gc:Collections gc:Combat gc:Content_Unlocking gc:Gifting gc:Leaderboards gc:Levels gc:Points gc:Quests gc:Social_Graph gc:Teams gc:Time_Constraints gc:Virtual_Goods ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( gc:Challenges gc:Chances gc:Competition gc:Cooperation gc:Feedback gc:Resource_Acquisition gc:Rewards gc:Status gc:Theme gc:Transactions gc:Turns gc:Win_States ) .
 

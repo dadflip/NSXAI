@@ -8,8 +8,6 @@ sioc:Container a owl:Class .
 
 sioc:Item a owl:Class .
 
-sioc:User a owl:Class .
-
 sioc:UserAccount a owl:Class ;
     rdfs:comment "A user account in an online community site (stub from SIOC vocabulary)."@en .
 

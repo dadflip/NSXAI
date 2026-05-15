@@ -1,44 +1,29 @@
 <?xml version="1.0"?>
-<!--
-  sioc_stub.owl
-  Stub covering the sioc:UserAccount class referenced in its_domain.owl.
-  Source vocabulary: http://rdfs.org/sioc/ns (Semantically-Interlinked Online Communities)
--->
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://rdfs.org/sioc/ns"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     ontologyIRI="http://rdfs.org/sioc/ns">
+    xml:base="http://rdfs.org/sioc/ns"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    ontologyIRI="http://rdfs.org/sioc/ns">
 
-  <Prefix name="sioc" IRI="http://rdfs.org/sioc/ns#"/>
-  <Prefix name="owl"  IRI="http://www.w3.org/2002/07/owl#"/>
-  <Prefix name="rdf"  IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-  <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="sioc" IRI="http://rdfs.org/sioc/ns#"/>
+    <Prefix name="owl"  IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf"  IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
 
-  <Declaration>
-    <Class IRI="http://rdfs.org/sioc/ns#UserAccount"/>
-  </Declaration>
-  <AnnotationAssertion>
-    <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-    <IRI>http://rdfs.org/sioc/ns#UserAccount</IRI>
-    <Literal xml:lang="en">A user account in an online community site (stub from SIOC vocabulary).</Literal>
-  </AnnotationAssertion>
+    <!-- Classes -->
+    <Declaration><Class IRI="#UserAccount"/></Declaration>
+    <Declaration><Class IRI="#Item"/></Declaration>
+    <Declaration><Class IRI="#Container"/></Declaration>
 
-  <Declaration>
-    <Class IRI="http://rdfs.org/sioc/ns#User"/>
-  </Declaration>
-  <Declaration>
-    <Class IRI="http://rdfs.org/sioc/ns#Item"/>
-  </Declaration>
-  <Declaration>
-    <Class IRI="http://rdfs.org/sioc/ns#Container"/>
-  </Declaration>
-  <Declaration>
-    <ObjectProperty IRI="http://rdfs.org/sioc/ns#account_of"/>
-  </Declaration>
-  <Declaration>
-    <ObjectProperty IRI="http://rdfs.org/sioc/ns#has_member"/>
-  </Declaration>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UserAccount</IRI>
+        <Literal xml:lang="en">A user account in an online community site (stub from SIOC vocabulary).</Literal>
+    </AnnotationAssertion>
+
+    <!-- Object Properties -->
+    <Declaration><ObjectProperty IRI="#account_of"/></Declaration>
+    <Declaration><ObjectProperty IRI="#has_member"/></Declaration>
 
 </Ontology>

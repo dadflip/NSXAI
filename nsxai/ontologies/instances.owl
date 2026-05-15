@@ -9,9 +9,7 @@
     <Prefix name="" IRI="http://nsxai.org/instances#"/>
     <Prefix name="gc" IRI="http://surveys.nees.com.br/ontologies/gado_core.owl#"/>
     <Prefix name="gf" IRI="http://surveys.nees.com.br/ontologies/gado_full.owl#"/>
-    <Prefix name="mt" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.owl#"/>
     <Prefix name="its" IRI="http://surveys.nees.com.br/ontologies/its_domain.owl#"/>
-    <Prefix name="mtr" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.Resource.owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -19,8 +17,10 @@
     <Prefix name="gato" IRI="http://surveys.nees.com.br/ontologies/gato.owl#"/>
     <Prefix name="inst" IRI="http://nsxai.org/instances#"/>
     <Prefix name="itsp" IRI="http://surveys.nees.com.br/ontologies/its/its.pedagogical.owl#"/>
-    <Prefix name="mtcp" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.CP.owl#"/>
-    <Prefix name="mtcu" IRI="http://meututor.com.br/Ontologies/MeuTutor.Domain.Curriculum.owl#"/>
+    <Prefix name="mt"   IRI="http://meututor.com.br/Ontologies/meututor_domain.owl#"/>
+    <Prefix name="mtcp" IRI="http://meututor.com.br/Ontologies/meututor_domain_cp.owl#"/>
+    <Prefix name="mtcu" IRI="http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl#"/>
+    <Prefix name="mtr"  IRI="http://meututor.com.br/Ontologies/meututor_domain_resource.owl#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://surveys.nees.com.br/ontologies/gato.owl</Import>
     <Annotation>
