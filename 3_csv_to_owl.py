@@ -172,10 +172,15 @@ def declare_extra_properties(
                     pname,
                     (owl.ObjectProperty,),
                 )
-                if domain_cls:
-                    new_prop.domain = [domain_cls]
-                if range_cls:
-                    new_prop.range  = [range_cls]
+                # owlready2 >= 0.40: domain/range must be set via list append
+                # to avoid AttributeError on annotation-only properties
+                try:
+                    if domain_cls:
+                        new_prop.domain.append(domain_cls)
+                    if range_cls:
+                        new_prop.range.append(range_cls)
+                except Exception:
+                    pass
                 op_idx[pname]             = new_prop
                 op_idx[pname.lower()]     = new_prop
                 print(f"  [DECLARE-OP] {pname}")
@@ -187,9 +192,12 @@ def declare_extra_properties(
                     pname,
                     (owl.DataProperty,),
                 )
-                if domain_cls:
-                    new_prop.domain = [domain_cls]
-                new_prop.range          = [range_type]
+                try:
+                    if domain_cls:
+                        new_prop.domain.append(domain_cls)
+                except Exception:
+                    pass
+                # Skip range assignment for data properties (type is handled at value injection)
                 dp_idx[pname]           = new_prop
                 dp_idx[pname.lower()]   = new_prop
                 print(f"  [DECLARE-DP] {pname}")
