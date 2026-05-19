@@ -128,6 +128,31 @@ def _build_nx(rdf_graph, log) -> tuple["nx.DiGraph", list[dict], list[dict]]:
         if str(p) == _TYPE and isinstance(o, rdflib.URIRef):
             subject_types[s_iri].add(str(o))
 
+    # ── Passe 1b : collecter les littéraux (data properties) ──────────────
+    # Stockés comme dict {iri → {prop_local → valeur}} pour enrichir nodes.csv.
+    # Seules les propriétés sémantiquement utiles pour le GNN sont retenues.
+    _LITERAL_WHITELIST = {
+        "metricValue", "metricExpectedValue", "metricDescription",
+        "difficulty", "level", "loopQuality", "loopStatus", "loopDifficulty",
+        "archetypeBehavior", "archetypeBrainRegion", "archetypeLikes",
+        "masteryScore", "engagementIndex", "gdeCompatibilityScore",
+        "numberOfViews", "numberOfFavorites",
+        "score_Max", "score_Min", "rate", "value", "weight",
+    }
+    subject_literals: dict[str, dict[str, str]] = {}
+    for s, p, o in rdf_graph:
+        if not isinstance(s, rdflib.URIRef) or not isinstance(o, rdflib.Literal):
+            continue
+        prop_local = _short(str(p))
+        if prop_local not in _LITERAL_WHITELIST:
+            continue
+        s_iri = str(s)
+        if s_iri not in subject_literals:
+            subject_literals[s_iri] = {}
+        # Keep first value only (no multi-value expansion in CSV)
+        if prop_local not in subject_literals[s_iri]:
+            subject_literals[s_iri][prop_local] = str(o)
+
     # ── Passe 2 : nœuds ──────────────────────────────────────────────────
     seen_nodes: set[str] = set()
 
@@ -135,9 +160,12 @@ def _build_nx(rdf_graph, log) -> tuple["nx.DiGraph", list[dict], list[dict]]:
         nid = _short(iri)
         if iri not in seen_nodes:
             seen_nodes.add(iri)
-            ntype = _node_type(subject_types.get(iri, set()))
-            G.add_node(nid, iri=iri, type=ntype)
-            node_rows.append({"id": nid, "label": nid, "type": ntype, "iri": iri})
+            ntype    = _node_type(subject_types.get(iri, set()))
+            literals = subject_literals.get(iri, {})
+            G.add_node(nid, iri=iri, type=ntype, **literals)
+            row = {"id": nid, "label": nid, "type": ntype, "iri": iri}
+            row.update(literals)
+            node_rows.append(row)
         return nid
 
     for iri in subject_types:
@@ -192,6 +220,7 @@ def _export_csv(
 
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # nodes: union of all keys (literal columns vary per node type)
     nodes_df = pd.DataFrame(node_rows).drop_duplicates(subset="id")
     edges_df = pd.DataFrame(edge_rows).drop_duplicates(subset=["source", "target", "relation"])
 
@@ -200,7 +229,7 @@ def _export_csv(
     nodes_df.to_csv(nodes_path, index=False)
     edges_df.to_csv(edges_path, index=False)
 
-    log(1, f"  Exporté → {nodes_path.name} ({len(nodes_df)} lignes)")
+    log(1, f"  Exporté → {nodes_path.name} ({len(nodes_df)} lignes, {len(nodes_df.columns)} colonnes)")
     log(1, f"  Exporté → {edges_path.name} ({len(edges_df)} lignes)")
     return nodes_path, edges_path
 
