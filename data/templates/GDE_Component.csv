@@ -1,0 +1,138 @@
+# CLASS: GDE_Component
+# IRI: http://surveys.nees.com.br/ontologies/gado_core.owl#GDE_Component
+# COLUMNS:
+#   id: id — Unique identifier, e.g. gDEComponent_0001
+#   archetypeBehavior: data — str
+#   archetypeBrainRegion: data — str
+#   archetypeChemicalMessenger: data — str
+#   archetypeLikes: data — str
+#   time: data — float
+#   value: data — float
+#   desiredPoints: data — str
+#   domain: data — str
+#   description: data — str
+#   importanceLevel: data — str
+#   issue: data — str
+#   hasPG: data — str
+#   hasPS: data — str
+#   hasPT: data — str
+#   ckType: data — str
+#   cluster: data — str
+#   difficulty: data — str
+#   precedence: data — str
+#   rate: data — str
+#   totalWeight: data — str
+#   weight: data — str
+#   hasCalculations: data — str
+#   hasSuggestedTags: data — str
+#   has_Answers: data — str
+#   has_Epoch: data — str
+#   has_Knowledge: data — str
+#   has_token: data — str
+#   superKC: data — str
+#   OptionAnswer: data — str
+#   comment: data — str
+#   context: data — str
+#   corrected: data — str
+#   currentOperation: data — str
+#   developmentStatus: data — str
+#   duration: data — str
+#   enabled: data — str
+#   endDate: data — str
+#   error: data — str
+#   exercise: data — str
+#   hint: data — str
+#   item: data — str
+#   level: data — str
+#   methodDescription: data — str
+#   methodStep: data — str
+#   methodname: data — str
+#   multipleChoiceAnswer: data — str
+#   numberOfFavorites: data — str
+#   numberOfViews: data — str
+#   order: data — str
+#   posting_date: data — str
+#   posting_hour: data — str
+#   question: data — str
+#   resolution: data — str
+#   size: data — str
+#   startDate: data — str
+#   stepName: data — str
+#   stepOrder: data — str
+#   subjects: data — str
+#   submmitedDate: data — str
+#   term: data — str
+#   title: data — str
+#   tokenized_statement: data — str
+#   type_Test: data — str
+#   REF_account_of: object — Ref to ['?']
+#   REF_has_member: object — Ref to ['?']
+#   REF_affordsMotivation: object — Ref to ['Motivation', 'Motivation']
+#   REF_isTiedTo: object — Ref to ['GDE_Mechanic', 'GDE_Mechanic']
+#   REF_isUsedBy: object — Ref to ['Gamification', 'Gamification']
+#   REF_isPartOfEngagementLoop: object — Ref to ['Engagement_Loop', 'Engagement_Loop']
+#   REF_has_domain: object — Ref to ['?']
+#   REF_strategicTutoring: object — Ref to ['Strategy', 'Strategy']
+#   REF_associatedDomain: object — Ref to ['?']
+#   REF_hasDomains: object — Ref to ['?']
+#   REF_hasEloRating: object — Ref to ['?']
+#   REF_hasLevel: object — Ref to ['?']
+#   REF_hasSubDomain: object — Ref to ['?']
+#   REF_has_Domain: object — Ref to ['?']
+#   REF_isComposedByContext: object — Ref to ['?']
+#   REF_isComposedByCurriculum: object — Ref to ['?']
+#   REF_isComposedByDepth: object — Ref to ['?']
+#   REF_isSubDomainOf: object — Ref to ['?']
+#   REF_hasContext: object — Ref to ['?']
+#   REF_isChildOfCurriculum: object — Ref to ['?']
+#   REF_isComposedByLaterality: object — Ref to ['?']
+#   REF_isParentOfCurriculum: object — Ref to ['?']
+#   REF_hasBug: object — Ref to ['?']
+#   REF_hasCatalogue: object — Ref to ['?']
+#   REF_hasConcept: object — Ref to ['?']
+#   REF_hasConceptualKnowledge: object — Ref to ['?']
+#   REF_hasConsistency: object — Ref to ['?']
+#   REF_hasContent: object — Ref to ['?']
+#   REF_hasCurriculum: object — Ref to ['?']
+#   REF_hasCurriculumInformation: object — Ref to ['?']
+#   REF_hasDiscrepancy: object — Ref to ['?']
+#   REF_hasDomain: object — Ref to ['?']
+#   REF_hasError: object — Ref to ['?']
+#   REF_hasExample: object — Ref to ['?']
+#   REF_hasExplanation: object — Ref to ['?']
+#   REF_hasKnowledgeUnit: object — Ref to ['?']
+#   REF_hasLO: object — Ref to ['?']
+#   REF_hasMisconception: object — Ref to ['?']
+#   REF_hasPL: object — Ref to ['?']
+#   REF_hasPedagogicalUnit: object — Ref to ['?']
+#   REF_hasResource: object — Ref to ['?']
+#   REF_hasSuperConceptualKnowledge: object — Ref to ['?']
+#   REF_hasTags: object — Ref to ['?']
+#   REF_has_MissConception: object — Ref to ['?']
+#   REF_isComposedByProblem: object — Ref to ['?']
+#   REF_fillBlanksHasOption: object — Ref to ['?']
+#   REF_hasEvaluation: object — Ref to ['?']
+#   REF_has_Context: object — Ref to ['?']
+#   REF_has_Depth: object — Ref to ['?']
+#   REF_has_Diagnosis: object — Ref to ['?']
+#   REF_has_MethodStep: object — Ref to ['?']
+#   REF_has_Problems: object — Ref to ['?']
+#   REF_has_Questions: object — Ref to ['?']
+#   REF_has_Resolution: object — Ref to ['?']
+#   REF_has_ResolutionMethod: object — Ref to ['?']
+#   REF_has_comments: object — Ref to ['?']
+#   REF_has_discursiveOption: object — Ref to ['?']
+#   REF_has_hint: object — Ref to ['?']
+#   REF_isChildOfHint: object — Ref to ['?']
+#   REF_isParentOfHint: object — Ref to ['?']
+#   REF_matched_To: object — Ref to ['?']
+#   REF_multipleChoiceHasOption: object — Ref to ['?']
+#   REF_related_Curriculum: object — Ref to ['?']
+#   REF_trueOrFalseHasOption: object — Ref to ['?']
+# ─── Data rows below (delete this line) ───────────────────────
+id,archetypeBehavior,archetypeBrainRegion,archetypeChemicalMessenger,archetypeLikes,time,value,desiredPoints,domain,description,importanceLevel,issue,hasPG,hasPS,hasPT,ckType,cluster,difficulty,precedence,rate,totalWeight,weight,hasCalculations,hasSuggestedTags,has_Answers,has_Epoch,has_Knowledge,has_token,superKC,OptionAnswer,comment,context,corrected,currentOperation,developmentStatus,duration,enabled,endDate,error,exercise,hint,item,level,methodDescription,methodStep,methodname,multipleChoiceAnswer,numberOfFavorites,numberOfViews,order,posting_date,posting_hour,question,resolution,size,startDate,stepName,stepOrder,subjects,submmitedDate,term,title,tokenized_statement,type_Test,REF_account_of,REF_has_member,REF_affordsMotivation,REF_isTiedTo,REF_isUsedBy,REF_isPartOfEngagementLoop,REF_has_domain,REF_strategicTutoring,REF_associatedDomain,REF_hasDomains,REF_hasEloRating,REF_hasLevel,REF_hasSubDomain,REF_has_Domain,REF_isComposedByContext,REF_isComposedByCurriculum,REF_isComposedByDepth,REF_isSubDomainOf,REF_hasContext,REF_isChildOfCurriculum,REF_isComposedByLaterality,REF_isParentOfCurriculum,REF_hasBug,REF_hasCatalogue,REF_hasConcept,REF_hasConceptualKnowledge,REF_hasConsistency,REF_hasContent,REF_hasCurriculum,REF_hasCurriculumInformation,REF_hasDiscrepancy,REF_hasDomain,REF_hasError,REF_hasExample,REF_hasExplanation,REF_hasKnowledgeUnit,REF_hasLO,REF_hasMisconception,REF_hasPL,REF_hasPedagogicalUnit,REF_hasResource,REF_hasSuperConceptualKnowledge,REF_hasTags,REF_has_MissConception,REF_isComposedByProblem,REF_fillBlanksHasOption,REF_hasEvaluation,REF_has_Context,REF_has_Depth,REF_has_Diagnosis,REF_has_MethodStep,REF_has_Problems,REF_has_Questions,REF_has_Resolution,REF_has_ResolutionMethod,REF_has_comments,REF_has_discursiveOption,REF_has_hint,REF_isChildOfHint,REF_isParentOfHint,REF_matched_To,REF_multipleChoiceHasOption,REF_related_Curriculum,REF_trueOrFalseHasOption
+gDEComponent_0001,achiever,hippocampus,dopamine,History,60.89,41.65,desiredPoints_value_26,Calculus,attempt_count,hard,Formula inversion,hasPG_value_578,hasPS_value_25,hasPT_value_383,typeA,cluster_5,hard,precedence_value_659,0.644,0.741,0.658,hasCalculations_value_90,hasSuggestedTags_value_487,has_Answers_value_767,has_Epoch_value_939,has_Knowledge_value_15,has_token_value_937,superKC_value_266,OptionAnswer_value_129,Good explanation,context_value_778,corrected_value_290,currentOperation_value_491,completed,112,enabled_value_23,2023-09-27,Formula inversion,exercise_value_573,Sample hint text #557,item_value_842,expert,attempt_count,methodStep_value_951,methodname_17,multipleChoiceAnswer_value_396,numberOfFavorites_value_230,numberOfViews_value_165,6,2023-12-17,2023-05-10,Sample question text #119,resolution_value_239,size_value_237,2023-11-07,stepName_42,18,Statistics,2023-01-28,chemistry,Research Methods,Sample tokenized_statement text #945,typeA,,,motivation_0004,,gamification_0003|gamification_0001,engagementLoop_0005,,strategy_0014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+gDEComponent_0002,exploratory,cerebellum,serotonin,Biology,33.06,85.87,desiredPoints_value_25,Literature,completion_rate,expert,Unit confusion,hasPG_value_686,hasPS_value_85,hasPT_value_760,typeB,cluster_4,easy,precedence_value_916,0.508,0.858,0.816,hasCalculations_value_207,hasSuggestedTags_value_172,has_Answers_value_520,has_Epoch_value_403,has_Knowledge_value_874,has_token_value_37,superKC_value_271,OptionAnswer_value_99,Very clear,context_value_103,corrected_value_320,currentOperation_value_231,pending,112,enabled_value_287,2023-04-26,Causal reversal,exercise_value_312,Sample hint text #599,item_value_932,easy,xp_earned,methodStep_value_771,methodname_83,multipleChoiceAnswer_value_723,numberOfFavorites_value_516,numberOfViews_value_587,5,2023-05-27,2023-06-22,Sample question text #323,resolution_value_464,size_value_747,2023-05-21,stepName_54,10,Data Science,2023-04-07,biology,Introduction to Physics,Sample tokenized_statement text #279,typeA,,,motivation_0001,,gamification_0001|gamification_0004|gamification_0002,engagementLoop_0004|engagementLoop_0002|engagementLoop_0007,,strategy_0016|strategy_0002,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+gDEComponent_0003,competitive,striatum,serotonin,Philosophy,15.2,95.1,desiredPoints_value_549,Statistics,error_rate,hard,Concept conflation,hasPG_value_65,hasPS_value_989,hasPT_value_584,typeC,cluster_3,medium,precedence_value_454,0.935,0.238,0.067,hasCalculations_value_834,hasSuggestedTags_value_855,has_Answers_value_630,has_Epoch_value_893,has_Knowledge_value_210,has_token_value_714,superKC_value_544,OptionAnswer_value_391,Could be improved,context_value_881,corrected_value_877,currentOperation_value_362,pending,56,enabled_value_795,2023-09-11,Causal reversal,exercise_value_61,Sample hint text #877,item_value_161,medium,error_rate,methodStep_value_654,methodname_69,multipleChoiceAnswer_value_19,numberOfFavorites_value_384,numberOfViews_value_195,18,2023-12-10,2023-08-27,Sample question text #691,resolution_value_692,size_value_591,2023-12-05,stepName_58,20,Geography,2023-02-07,calculus,Introduction to Geography,Sample tokenized_statement text #979,typeC,,,motivation_0002|motivation_0001,,gamification_0004,engagementLoop_0002,,strategy_0007|strategy_0017|strategy_0008,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+gDEComponent_0004,competitive,prefrontal,dopamine,Physics,73.02,4.06,desiredPoints_value_465,Philosophy,mastery_level,medium,Unit confusion,hasPG_value_19,hasPS_value_6,hasPT_value_461,typeB,cluster_1,expert,precedence_value_647,0.06,0.736,0.562,hasCalculations_value_824,hasSuggestedTags_value_751,has_Answers_value_226,has_Epoch_value_795,has_Knowledge_value_113,has_token_value_875,superKC_value_951,OptionAnswer_value_452,Needs more examples,context_value_317,corrected_value_853,currentOperation_value_622,paused,30,enabled_value_180,2023-02-12,Unit confusion,exercise_value_227,Sample hint text #667,item_value_780,medium,progress_ratio,methodStep_value_806,methodname_60,multipleChoiceAnswer_value_885,numberOfFavorites_value_949,numberOfViews_value_329,7,2023-02-16,2023-06-05,Sample question text #837,resolution_value_958,size_value_845,2023-09-13,stepName_13,6,Statistics,2023-03-09,mathematics,Advanced Literature,Sample tokenized_statement text #687,typeA,,,motivation_0003,,gamification_0005|gamification_0004,engagementLoop_0001|engagementLoop_0008,,strategy_0015,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+gDEComponent_0005,cooperative,amygdala,dopamine,Statistics,4.51,14.54,desiredPoints_value_485,Data Science,hint_usage,easy,Causal reversal,hasPG_value_544,hasPS_value_606,hasPT_value_503,typeB,cluster_4,hard,precedence_value_891,0.136,0.229,0.081,hasCalculations_value_575,hasSuggestedTags_value_960,has_Answers_value_690,has_Epoch_value_39,has_Knowledge_value_725,has_token_value_855,superKC_value_164,OptionAnswer_value_824,Very clear,context_value_319,corrected_value_186,currentOperation_value_114,pending,79,enabled_value_143,2023-09-23,Concept conflation,exercise_value_305,Sample hint text #75,item_value_397,medium,xp_earned,methodStep_value_286,methodname_37,multipleChoiceAnswer_value_503,numberOfFavorites_value_480,numberOfViews_value_666,19,2023-03-16,2023-11-20,Sample question text #427,resolution_value_627,size_value_806,2023-12-28,stepName_26,20,Statistics,2023-03-01,geography,Introduction to Data Science,Sample tokenized_statement text #849,typeA,,,motivation_0003|motivation_0001,,gamification_0001|gamification_0004,engagementLoop_0008|engagementLoop_0001|engagementLoop_0010,,strategy_0017,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

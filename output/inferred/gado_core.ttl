@@ -499,12 +499,12 @@ gc:isTiedTo a owl:ObjectProperty ;
     owl:members ( gc:Achievements gc:Avatars gc:Badges gc:Boss_Fights gc:Collections gc:Combat gc:Content_Unlocking gc:Gifting gc:Leaderboards gc:Levels gc:Points gc:Quests gc:Social_Graph gc:Teams gc:Time_Constraints gc:Virtual_Goods ) .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( gc:Constraints gc:Emotions gc:Narrative gc:Progression gc:Relationships ) .
-
-[] a owl:AllDisjointClasses ;
     owl:members ( gc:Challenges gc:Chances gc:Competition gc:Cooperation gc:Feedback gc:Resource_Acquisition gc:Rewards gc:Status gc:Theme gc:Transactions gc:Turns gc:Win_States ) .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:52:51Z (152 triplet(s)) ------------------------------
+[] a owl:AllDisjointClasses ;
+    owl:members ( gc:Constraints gc:Emotions gc:Narrative gc:Progression gc:Relationships ) .
+
+# -- INFERRED BY HermiT - 2026-05-19T02:27:18Z (152 triplet(s)) ------------------------------
 gc:Achievements rdfs:subClassOf owl:Thing .
 gc:Avatars rdfs:subClassOf owl:Thing .
 gc:Badges rdfs:subClassOf owl:Thing .

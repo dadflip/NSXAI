@@ -114,7 +114,7 @@ mtcu:totalWeight a owl:DatatypeProperty .
 
 mtcu:weight a owl:DatatypeProperty .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (32 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (32 triplet(s)) ------------------------------
 mtcu:BehaviouralKnowledge rdfs:subClassOf owl:Thing .
 mtcu:Bug rdfs:subClassOf owl:Thing .
 mtcu:Bug_Misconception rdfs:subClassOf owl:Thing .

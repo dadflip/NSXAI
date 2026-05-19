@@ -15,7 +15,7 @@ sioc:account_of a owl:ObjectProperty .
 
 sioc:has_member a owl:ObjectProperty .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (8 triplet(s)) ------------------------------
 sioc:Container rdfs:subClassOf owl:Thing .
 sioc:Item rdfs:subClassOf owl:Thing .
 sioc:UserAccount rdfs:subClassOf owl:Thing .

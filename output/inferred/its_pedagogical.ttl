@@ -202,7 +202,7 @@ itsp:Strategy a owl:Class ;
     rdfs:comment "Represents the teaching  mechanism in the instrutional plan."@en ;
     rdfs:subClassOf itsp:PedagogicalModel .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (8 triplet(s)) ------------------------------
 mtcp:Curriculum rdfs:subClassOf owl:Thing .
 itsp:PedagogicalModel rdfs:subClassOf owl:Thing .
 itsp:THINGPedagogicalModel rdfs:subClassOf owl:Thing .

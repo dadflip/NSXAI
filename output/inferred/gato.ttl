@@ -56,7 +56,7 @@ gato:StudentModel a owl:Class .
 
 gato:GamifiedITS a owl:Class .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:52:52Z (4 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:18Z (4 triplet(s)) ------------------------------
 gato:GamifiedITS rdfs:subClassOf owl:Thing .
 gato:StudentModel rdfs:subClassOf owl:Thing .
 # -- END INFERRED ------------------------------------------------------------------

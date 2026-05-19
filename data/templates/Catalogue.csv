@@ -1,0 +1,135 @@
+# CLASS: Catalogue
+# IRI: http://meututor.com.br/Ontologies/meututor_domain_curriculum.owl#Catalogue
+# COLUMNS:
+#   id: id — Unique identifier, e.g. catalogue_0001
+#   archetypeBehavior: data — str
+#   archetypeBrainRegion: data — str
+#   archetypeChemicalMessenger: data — str
+#   archetypeLikes: data — str
+#   time: data — float
+#   value: data — float
+#   desiredPoints: data — str
+#   domain: data — str
+#   description: data — str
+#   importanceLevel: data — str
+#   issue: data — str
+#   hasPG: data — str
+#   hasPS: data — str
+#   hasPT: data — str
+#   ckType: data — str
+#   cluster: data — str
+#   difficulty: data — str
+#   precedence: data — str
+#   rate: data — str
+#   totalWeight: data — str
+#   weight: data — str
+#   hasCalculations: data — str
+#   hasSuggestedTags: data — str
+#   has_Answers: data — str
+#   has_Epoch: data — str
+#   has_Knowledge: data — str
+#   has_token: data — str
+#   superKC: data — str
+#   OptionAnswer: data — str
+#   comment: data — str
+#   context: data — str
+#   corrected: data — str
+#   currentOperation: data — str
+#   developmentStatus: data — str
+#   duration: data — str
+#   enabled: data — str
+#   endDate: data — str
+#   error: data — str
+#   exercise: data — str
+#   hint: data — str
+#   item: data — str
+#   level: data — str
+#   methodDescription: data — str
+#   methodStep: data — str
+#   methodname: data — str
+#   multipleChoiceAnswer: data — str
+#   numberOfFavorites: data — str
+#   numberOfViews: data — str
+#   order: data — str
+#   posting_date: data — str
+#   posting_hour: data — str
+#   question: data — str
+#   resolution: data — str
+#   size: data — str
+#   startDate: data — str
+#   stepName: data — str
+#   stepOrder: data — str
+#   subjects: data — str
+#   submmitedDate: data — str
+#   term: data — str
+#   title: data — str
+#   tokenized_statement: data — str
+#   type_Test: data — str
+#   REF_account_of: object — Ref to ['?']
+#   REF_has_member: object — Ref to ['?']
+#   REF_isPartOfEngagementLoop: object — Ref to ['Engagement_Loop', 'Engagement_Loop']
+#   REF_has_domain: object — Ref to ['?']
+#   REF_strategicTutoring: object — Ref to ['Strategy', 'Strategy']
+#   REF_associatedDomain: object — Ref to ['?']
+#   REF_hasDomains: object — Ref to ['?']
+#   REF_hasEloRating: object — Ref to ['?']
+#   REF_hasLevel: object — Ref to ['?']
+#   REF_hasSubDomain: object — Ref to ['?']
+#   REF_has_Domain: object — Ref to ['?']
+#   REF_isComposedByContext: object — Ref to ['?']
+#   REF_isComposedByCurriculum: object — Ref to ['?']
+#   REF_isComposedByDepth: object — Ref to ['?']
+#   REF_isSubDomainOf: object — Ref to ['?']
+#   REF_hasContext: object — Ref to ['?']
+#   REF_isChildOfCurriculum: object — Ref to ['?']
+#   REF_isComposedByLaterality: object — Ref to ['?']
+#   REF_isParentOfCurriculum: object — Ref to ['?']
+#   REF_hasBug: object — Ref to ['?']
+#   REF_hasCatalogue: object — Ref to ['?']
+#   REF_hasConcept: object — Ref to ['?']
+#   REF_hasConceptualKnowledge: object — Ref to ['?']
+#   REF_hasConsistency: object — Ref to ['?']
+#   REF_hasContent: object — Ref to ['?']
+#   REF_hasCurriculum: object — Ref to ['?']
+#   REF_hasCurriculumInformation: object — Ref to ['?']
+#   REF_hasDiscrepancy: object — Ref to ['?']
+#   REF_hasDomain: object — Ref to ['?']
+#   REF_hasError: object — Ref to ['?']
+#   REF_hasExample: object — Ref to ['?']
+#   REF_hasExplanation: object — Ref to ['?']
+#   REF_hasKnowledgeUnit: object — Ref to ['?']
+#   REF_hasLO: object — Ref to ['?']
+#   REF_hasMisconception: object — Ref to ['?']
+#   REF_hasPL: object — Ref to ['?']
+#   REF_hasPedagogicalUnit: object — Ref to ['?']
+#   REF_hasResource: object — Ref to ['?']
+#   REF_hasSuperConceptualKnowledge: object — Ref to ['?']
+#   REF_hasTags: object — Ref to ['?']
+#   REF_has_MissConception: object — Ref to ['?']
+#   REF_isComposedByProblem: object — Ref to ['?']
+#   REF_fillBlanksHasOption: object — Ref to ['?']
+#   REF_hasEvaluation: object — Ref to ['?']
+#   REF_has_Context: object — Ref to ['?']
+#   REF_has_Depth: object — Ref to ['?']
+#   REF_has_Diagnosis: object — Ref to ['?']
+#   REF_has_MethodStep: object — Ref to ['?']
+#   REF_has_Problems: object — Ref to ['?']
+#   REF_has_Questions: object — Ref to ['?']
+#   REF_has_Resolution: object — Ref to ['?']
+#   REF_has_ResolutionMethod: object — Ref to ['?']
+#   REF_has_comments: object — Ref to ['?']
+#   REF_has_discursiveOption: object — Ref to ['?']
+#   REF_has_hint: object — Ref to ['?']
+#   REF_isChildOfHint: object — Ref to ['?']
+#   REF_isParentOfHint: object — Ref to ['?']
+#   REF_matched_To: object — Ref to ['?']
+#   REF_multipleChoiceHasOption: object — Ref to ['?']
+#   REF_related_Curriculum: object — Ref to ['?']
+#   REF_trueOrFalseHasOption: object — Ref to ['?']
+# ─── Data rows below (delete this line) ───────────────────────
+id,archetypeBehavior,archetypeBrainRegion,archetypeChemicalMessenger,archetypeLikes,time,value,desiredPoints,domain,description,importanceLevel,issue,hasPG,hasPS,hasPT,ckType,cluster,difficulty,precedence,rate,totalWeight,weight,hasCalculations,hasSuggestedTags,has_Answers,has_Epoch,has_Knowledge,has_token,superKC,OptionAnswer,comment,context,corrected,currentOperation,developmentStatus,duration,enabled,endDate,error,exercise,hint,item,level,methodDescription,methodStep,methodname,multipleChoiceAnswer,numberOfFavorites,numberOfViews,order,posting_date,posting_hour,question,resolution,size,startDate,stepName,stepOrder,subjects,submmitedDate,term,title,tokenized_statement,type_Test,REF_account_of,REF_has_member,REF_isPartOfEngagementLoop,REF_has_domain,REF_strategicTutoring,REF_associatedDomain,REF_hasDomains,REF_hasEloRating,REF_hasLevel,REF_hasSubDomain,REF_has_Domain,REF_isComposedByContext,REF_isComposedByCurriculum,REF_isComposedByDepth,REF_isSubDomainOf,REF_hasContext,REF_isChildOfCurriculum,REF_isComposedByLaterality,REF_isParentOfCurriculum,REF_hasBug,REF_hasCatalogue,REF_hasConcept,REF_hasConceptualKnowledge,REF_hasConsistency,REF_hasContent,REF_hasCurriculum,REF_hasCurriculumInformation,REF_hasDiscrepancy,REF_hasDomain,REF_hasError,REF_hasExample,REF_hasExplanation,REF_hasKnowledgeUnit,REF_hasLO,REF_hasMisconception,REF_hasPL,REF_hasPedagogicalUnit,REF_hasResource,REF_hasSuperConceptualKnowledge,REF_hasTags,REF_has_MissConception,REF_isComposedByProblem,REF_fillBlanksHasOption,REF_hasEvaluation,REF_has_Context,REF_has_Depth,REF_has_Diagnosis,REF_has_MethodStep,REF_has_Problems,REF_has_Questions,REF_has_Resolution,REF_has_ResolutionMethod,REF_has_comments,REF_has_discursiveOption,REF_has_hint,REF_isChildOfHint,REF_isParentOfHint,REF_matched_To,REF_multipleChoiceHasOption,REF_related_Curriculum,REF_trueOrFalseHasOption
+catalogue_0001,achiever,cerebellum,dopamine,Geography,77.3,76.02,desiredPoints_value_441,Literature,mastery_level,medium,Unit confusion,hasPG_value_568,hasPS_value_145,hasPT_value_387,typeC,cluster_5,expert,precedence_value_164,0.388,0.459,0.015,hasCalculations_value_240,hasSuggestedTags_value_553,has_Answers_value_444,has_Epoch_value_572,has_Knowledge_value_569,has_token_value_533,superKC_value_920,OptionAnswer_value_651,Challenging but rewarding,context_value_122,corrected_value_484,currentOperation_value_542,paused,105,enabled_value_630,2023-02-12,Off-by-one error,exercise_value_380,Sample hint text #823,item_value_606,expert,completion_rate,methodStep_value_372,methodname_59,multipleChoiceAnswer_value_865,numberOfFavorites_value_80,numberOfViews_value_584,15,2023-07-01,2023-12-20,Sample question text #243,resolution_value_130,size_value_23,2023-02-05,stepName_56,12,Computer Science,2023-11-17,philosophy,Advanced Biology,Sample tokenized_statement text #851,typeA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+catalogue_0002,social,hippocampus,norepinephrine,Physics,55.33,0.58,desiredPoints_value_967,Philosophy,attempt_count,medium,Off-by-one error,hasPG_value_803,hasPS_value_473,hasPT_value_370,typeB,cluster_5,hard,precedence_value_995,0.957,0.461,0.457,hasCalculations_value_724,hasSuggestedTags_value_93,has_Answers_value_688,has_Epoch_value_766,has_Knowledge_value_142,has_token_value_500,superKC_value_304,OptionAnswer_value_395,Challenging but rewarding,context_value_190,corrected_value_803,currentOperation_value_77,active,74,enabled_value_690,2023-11-18,Sign error,exercise_value_288,Sample hint text #95,item_value_624,expert,completion_rate,methodStep_value_447,methodname_35,multipleChoiceAnswer_value_182,numberOfFavorites_value_167,numberOfViews_value_145,20,2023-08-11,2023-09-19,Sample question text #77,resolution_value_461,size_value_55,2023-12-09,stepName_93,12,History,2023-03-04,calculus,Advanced Biology,Sample tokenized_statement text #355,typeC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+catalogue_0003,exploratory,amygdala,acetylcholine,Calculus,83.5,31.9,desiredPoints_value_799,Economics,completion_rate,easy,Concept conflation,hasPG_value_145,hasPS_value_130,hasPT_value_865,typeB,cluster_4,easy,precedence_value_728,0.575,0.938,0.05,hasCalculations_value_648,hasSuggestedTags_value_409,has_Answers_value_225,has_Epoch_value_948,has_Knowledge_value_722,has_token_value_921,superKC_value_351,OptionAnswer_value_420,Too abstract,context_value_974,corrected_value_55,currentOperation_value_471,completed,32,enabled_value_848,2023-03-09,Formula inversion,exercise_value_182,Sample hint text #516,item_value_167,hard,xp_earned,methodStep_value_907,methodname_36,multipleChoiceAnswer_value_6,numberOfFavorites_value_60,numberOfViews_value_92,16,2023-09-21,2023-09-06,Sample question text #165,resolution_value_706,size_value_269,2023-12-15,stepName_31,3,Chemistry,2023-07-03,literature,Advanced Biology,Sample tokenized_statement text #947,typeB,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+catalogue_0004,competitive,striatum,dopamine,Mathematics,78.63,94.3,desiredPoints_value_657,Data Science,error_rate,easy,Off-by-one error,hasPG_value_589,hasPS_value_381,hasPT_value_999,typeA,cluster_5,medium,precedence_value_865,0.464,0.807,0.981,hasCalculations_value_673,hasSuggestedTags_value_89,has_Answers_value_323,has_Epoch_value_191,has_Knowledge_value_438,has_token_value_83,superKC_value_766,OptionAnswer_value_902,Good explanation,context_value_762,corrected_value_372,currentOperation_value_233,paused,11,enabled_value_841,2023-10-05,Sign error,exercise_value_45,Sample hint text #34,item_value_474,easy,correct_answers,methodStep_value_608,methodname_41,multipleChoiceAnswer_value_697,numberOfFavorites_value_16,numberOfViews_value_5,16,2023-05-23,2023-11-03,Sample question text #899,resolution_value_517,size_value_588,2023-05-18,stepName_92,11,Data Science,2023-05-08,algebra,Advanced Literature,Sample tokenized_statement text #145,typeC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+catalogue_0005,achiever,striatum,acetylcholine,Philosophy,55.53,21.33,desiredPoints_value_879,Literature,attempt_count,medium,Concept conflation,hasPG_value_264,hasPS_value_286,hasPT_value_980,typeB,cluster_1,expert,precedence_value_857,0.733,0.959,0.793,hasCalculations_value_528,hasSuggestedTags_value_948,has_Answers_value_145,has_Epoch_value_486,has_Knowledge_value_208,has_token_value_825,superKC_value_319,OptionAnswer_value_831,Challenging but rewarding,context_value_85,corrected_value_219,currentOperation_value_924,active,9,enabled_value_265,2023-06-02,Sign error,exercise_value_361,Sample hint text #794,item_value_575,expert,time_on_task,methodStep_value_702,methodname_24,multipleChoiceAnswer_value_71,numberOfFavorites_value_480,numberOfViews_value_914,10,2023-04-26,2023-12-12,Sample question text #449,resolution_value_263,size_value_537,2023-04-11,stepName_20,14,Economics,2023-01-13,calculus,Introduction to Economics,Sample tokenized_statement text #559,typeB,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

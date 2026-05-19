@@ -42,7 +42,7 @@ mt:type a owl:DatatypeProperty .
 
 mt:value a owl:DatatypeProperty .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (8 triplet(s)) ------------------------------
 mt:Competence rdfs:subClassOf owl:Thing .
 mt:Domain rdfs:subClassOf owl:Thing .
 mt:DomainModel rdfs:subClassOf owl:Thing .

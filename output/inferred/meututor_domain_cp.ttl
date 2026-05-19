@@ -30,7 +30,7 @@ mtcp:issue a owl:DatatypeProperty .
 
 mtcp:type a owl:DatatypeProperty .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (8 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (8 triplet(s)) ------------------------------
 mtcp:Context rdfs:subClassOf owl:Thing .
 mtcp:Curriculum rdfs:subClassOf owl:Thing .
 mtcp:Depth rdfs:subClassOf owl:Thing .

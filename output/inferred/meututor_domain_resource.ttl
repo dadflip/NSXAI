@@ -214,7 +214,7 @@ mtr:type_Test a owl:DatatypeProperty .
 
 mtr:weight a owl:DatatypeProperty .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:03Z (74 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:34Z (74 triplet(s)) ------------------------------
 mtr:Activity rdfs:subClassOf owl:Thing .
 mtr:Comment rdfs:subClassOf owl:Thing .
 mtr:CompositeResource rdfs:subClassOf owl:Thing .

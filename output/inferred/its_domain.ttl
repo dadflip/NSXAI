@@ -326,7 +326,7 @@ its:Course a owl:Class ;
       An ITS Course bundles a set of knowledge Domains and is delivered to enrolled students.
     """@en .
 
-# -- INFERRED BY HermiT - 2026-05-15T20:53:02Z (6 triplet(s)) ------------------------------
+# -- INFERRED BY HermiT - 2026-05-19T02:27:33Z (6 triplet(s)) ------------------------------
 sioc:UserAccount rdfs:subClassOf owl:Thing .
 its:Course rdfs:subClassOf owl:Thing .
 # -- END INFERRED ------------------------------------------------------------------
