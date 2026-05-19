@@ -4,7 +4,7 @@ import logging
 import pathlib
 import sys
 from dataclasses import dataclass
-from typing import Any, Dict, Optional, Literal
+from typing import Any, Dict, List, Optional, Literal
 
 import networkx as nx
 import numpy as np
@@ -12,22 +12,45 @@ import pandas as pd
 
 log = logging.getLogger(__name__)
 
-# --- Types publics ---
+# ── Types publics ─────────────────────────────────────────────────────────────
+
 @dataclass
 class GNNResult:
     """Résultat de la génération d'embeddings."""
-    node_profiles: Dict[str, Any]  # Profils interprétables des nœuds
-    embeddings: np.ndarray          # Embeddings numériques
-    node_ids: list[str]             # Ordre des nœuds dans `embeddings`
-    out_dir: Optional[pathlib.Path] = None
-    backend: str = "unknown"        # Backend utilisé (pyg/sklearn)
-    embedding_dim: int = 0         # Dimension des embeddings
-    n_nodes: int = 0                # Nombre de nœuds
-    success: bool = False           # Succès de l'exécution
-    error: Optional[str] = None     # Erreur éventuelle
+    node_profiles: Dict[str, Any]
+    embeddings:    np.ndarray
+    node_ids:      List[str]
+    out_dir:       Optional[pathlib.Path] = None
+    backend:       str = "unknown"
+    embedding_dim: int = 0
+    n_nodes:       int = 0
+    success:       bool = False
+    error:         Optional[str] = None
 
-# --- Constantes ---
+# ── Constantes ────────────────────────────────────────────────────────────────
+
 _NODE_TYPES = ["class", "individual", "object_property", "datatype_property", "resource"]
+
+# Colonnes littérales injectées par kg_builder (data properties du KG)
+_LITERAL_FLOAT_COLS = [
+    "metricValue", "metricExpectedValue", "loopQuality", "loopDifficulty",
+    "masteryScore", "engagementIndex", "gdeCompatibilityScore",
+    "numberOfViews", "numberOfFavorites", "rate", "value", "weight",
+]
+_LITERAL_CAT_COLS = [
+    "difficulty", "level", "loopStatus",
+    "archetypeBehavior", "archetypeBrainRegion",
+]
+
+# Valeurs connues pour l'encodage ordinal/one-hot des littéraux catégoriels
+_CAT_VOCAB: Dict[str, List[str]] = {
+    "difficulty":         ["easy", "medium", "hard", "expert"],
+    "level":              ["easy", "medium", "hard", "expert"],
+    "loopStatus":         ["pending", "active", "paused", "completed"],
+    "archetypeBehavior":  ["survivor", "social", "cooperative", "exploratory", "achiever", "competitive"],
+    "archetypeBrainRegion": ["cerebellum", "hippocampus", "prefrontal", "amygdala", "striatum"],
+}
+
 _EXPORT_FORMATS = Literal["csv", "json", "parquet", "numpy"]
 
 # --- Chargement du graphe ---
@@ -56,22 +79,60 @@ def _load_graph(nodes_csv: pathlib.Path, edges_csv: pathlib.Path, log_fn: callab
     log_fn(1, f"Graphe chargé : {G.number_of_nodes()} nœuds / {G.number_of_edges()} arêtes")
     return G
 
-# --- Construction de la matrice de features ---
-def _build_feature_matrix(G: nx.DiGraph) -> tuple[np.ndarray, list[str]]:
-    """Construit une matrice de features pour les nœuds du graphe."""
-    nodes = list(G.nodes())
-    n = len(nodes)
-    X = np.zeros((n, 2 + len(_NODE_TYPES)), dtype=np.float32)
+# ── Construction de la matrice de features ────────────────────────────────────
 
-    max_in = max((G.in_degree(v) for v in nodes), default=1) or 1
-    max_out = max((G.out_degree(v) for v in nodes), default=1) or 1
+def _build_feature_matrix(G: nx.DiGraph) -> tuple[np.ndarray, list[str]]:
+    """
+    Construit une matrice de features pour les nœuds du graphe.
+
+    Features incluses :
+      - in_degree / out_degree (normalisés)
+      - one-hot du type de nœud (5 catégories)
+      - littéraux flottants du KG (metricValue, masteryScore, etc.)
+      - encodage ordinal des littéraux catégoriels (difficulty, archetypeBehavior…)
+    """
+    nodes  = list(G.nodes())
+    n      = len(nodes)
     type2idx = {t: i for i, t in enumerate(_NODE_TYPES)}
 
+    max_in  = max((G.in_degree(v)  for v in nodes), default=1) or 1
+    max_out = max((G.out_degree(v) for v in nodes), default=1) or 1
+
+    n_float_feats = len(_LITERAL_FLOAT_COLS)
+    n_cat_feats   = sum(len(v) for v in _CAT_VOCAB.values())
+    n_cols        = 2 + len(_NODE_TYPES) + n_float_feats + n_cat_feats
+
+    X = np.zeros((n, n_cols), dtype=np.float32)
+
     for i, node in enumerate(nodes):
-        X[i, 0] = G.in_degree(node) / max_in
+        attrs = G.nodes[node]
+
+        # Degree features
+        X[i, 0] = G.in_degree(node)  / max_in
         X[i, 1] = G.out_degree(node) / max_out
-        node_type = G.nodes[node].get("type", "resource")
-        X[i, 2 + type2idx.get(node_type, len(_NODE_TYPES) - 1)] = 1.0
+
+        # Node-type one-hot
+        ntype = attrs.get("type", "resource")
+        X[i, 2 + type2idx.get(ntype, len(_NODE_TYPES) - 1)] = 1.0
+
+        col = 2 + len(_NODE_TYPES)
+
+        # Float literal features
+        for fname in _LITERAL_FLOAT_COLS:
+            raw = attrs.get(fname)
+            if raw is not None:
+                try:
+                    X[i, col] = float(raw)
+                except (ValueError, TypeError):
+                    pass
+            col += 1
+
+        # Categorical literal features (one-hot per vocab)
+        for cname, vocab in _CAT_VOCAB.items():
+            raw = attrs.get(cname, "")
+            if raw and raw in vocab:
+                X[i, col + vocab.index(raw)] = 1.0
+            col += len(vocab)
 
     return X, nodes
 
