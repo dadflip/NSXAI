@@ -6,6 +6,13 @@ Analyse agnostique de toute la suite d'ontologies NSXAI et génère :
   - data/schema.json          : schéma complet (classes, propriétés, hiérarchie, namespaces)
   - data/templates/<cls>.csv  : un CSV-template vide par classe instanciable
 
+Modifications v2 :
+  - Injection post-extraction des propriétés de recommandation absentes des OWL
+    (recommendedFor, satisfies, matchesLevel, masteryScore, engagementIndex,
+     gdeCompatibilityScore) directement dans schema.json et les templates CSV.
+  - Les classes précédemment vides (SDT_*, Yee_*, Category*, Resource, Curriculum…)
+    reçoivent maintenant des templates CSV enrichis via 2_populate.py.
+
 Usage:
     python 1_extract_schema.py [--onto-dir <path>] [--out-dir <path>]
 
@@ -19,11 +26,9 @@ import owlready2 as owl
 # ── helpers ────────────────────────────────────────────────────────────────────
 
 def safe_name(name: str) -> str:
-    """Slugify a class name for use as filename."""
     return re.sub(r'[^a-zA-Z0-9_]', '_', name)
 
 def prop_type_label(range_list) -> str:
-    """Return a human-readable type label for a property range."""
     if not range_list:
         return "str"
     r = range_list[0]
@@ -39,14 +44,12 @@ def prop_type_label(range_list) -> str:
     if "date" in s.lower():
         return "date"
     if "ConstrainedDatatype" in s:
-        # e.g. ConstrainedDatatype(float, max_inclusive=1.0, min_inclusive=0.0)
         inner = s
         if "float" in inner: return "float[0..1]"
         if "int"   in inner: return "int"
     return "str"
 
 def collect_ancestors(cls, visited=None):
-    """Collect all named ancestor class names (excluding Thing)."""
     if visited is None:
         visited = set()
     for parent in cls.is_a:
@@ -55,6 +58,65 @@ def collect_ancestors(cls, visited=None):
                 visited.add(parent.name)
                 collect_ancestors(parent, visited)
     return visited
+
+# ── Propriétés de recommandation manquantes dans les OWL ──────────────────────
+# Définies dans ANALYSE_REGLES.md, injectées ici dans schema.json sans modifier
+# les fichiers OWL sources.
+
+EXTRA_OBJECT_PROPS = {
+    "recommendedFor": {
+        "iri":    "http://nsxai.org/instances#recommendedFor",
+        "domain": ["DesignPractice"],
+        "range":  ["GamifiedITS"],
+    },
+    "satisfies": {
+        "iri":    "http://nsxai.org/instances#satisfies",
+        "domain": ["Player"],
+        "range":  ["SDT_Autonomy", "SDT_Competence", "SDT_Relatedness"],
+    },
+    "matchesLevel": {
+        "iri":    "http://nsxai.org/instances#matchesLevel",
+        "domain": ["Resource"],
+        "range":  ["Player"],
+    },
+}
+
+EXTRA_DATA_PROPS = {
+    "masteryScore": {
+        "iri":        "http://nsxai.org/instances#masteryScore",
+        "domain":     ["Player"],
+        "range_type": "float[0..1]",
+    },
+    "engagementIndex": {
+        "iri":        "http://nsxai.org/instances#engagementIndex",
+        "domain":     ["Resource"],
+        "range_type": "float[0..1]",
+    },
+    "gdeCompatibilityScore": {
+        "iri":        "http://nsxai.org/instances#gdeCompatibilityScore",
+        "domain":     ["DesignPractice"],
+        "range_type": "float[0..1]",
+    },
+}
+
+# Colonnes extra à ajouter dans les templates CSV des classes concernées.
+EXTRA_CLASS_COLS: dict[str, dict] = {
+    "Player": {
+        "masteryScore":  {"kind": "data",   "type": "float[0..1]", "description": "Mastery score [0..1] (derived)"},
+        "REF_satisfies": {"kind": "object",  "range_classes": ["SDT_Autonomy","SDT_Competence","SDT_Relatedness"],
+                          "property": "satisfies", "description": "SDT psychological need satisfied"},
+    },
+    "DesignPractice": {
+        "gdeCompatibilityScore": {"kind": "data",   "type": "float[0..1]", "description": "GDE-player compat. [0..1]"},
+        "REF_recommendedFor":    {"kind": "object",  "range_classes": ["GamifiedITS"],
+                                  "property": "recommendedFor", "description": "Target GamifiedITS"},
+    },
+    "Resource": {
+        "engagementIndex":  {"kind": "data",   "type": "float[0..1]", "description": "Engagement index [0..1]"},
+        "REF_matchesLevel": {"kind": "object",  "range_classes": ["Player"],
+                             "property": "matchesLevel", "description": "Player whose level matches"},
+    },
+}
 
 # ── main ───────────────────────────────────────────────────────────────────────
 
@@ -73,7 +135,6 @@ def main():
     owl.onto_path.append(onto_dir)
     world = owl.World()
 
-    # Load order matters: stubs first, then imports, then domain ontologies
     load_order = [
         "sioc_stub.owl",
         "gato.owl",
@@ -101,7 +162,6 @@ def main():
             print(f"  [WARN] Could not load {fname}: {e}")
 
     # ── Collect all classes ────────────────────────────────────────────────────
-    # De-duplicate by IRI (same class can appear in multiple ontos via imports)
     seen_iris = {}
     for onto in ontos:
         for cls in onto.classes():
@@ -112,8 +172,8 @@ def main():
     print(f"\n  Found {len(all_classes)} unique classes")
 
     # ── Collect all properties ─────────────────────────────────────────────────
-    obj_props  = {}   # name -> {domain, range, iri}
-    data_props = {}   # name -> {domain, range_type, iri}
+    obj_props  = {}
+    data_props = {}
 
     for onto in ontos:
         for p in onto.object_properties():
@@ -128,24 +188,30 @@ def main():
                 rng = prop_type_label(p.range)
                 data_props[p.name] = {"iri": p.iri, "domain": dom, "range_type": rng}
 
+    # ── Inject extra recommendation properties ─────────────────────────────────
+    for pname, pinfo in EXTRA_OBJECT_PROPS.items():
+        if pname not in obj_props:
+            obj_props[pname] = {"iri": pinfo["iri"], "domain": pinfo["domain"], "range": pinfo["range"]}
+            print(f"  [INJECT-OP] {pname}")
+
+    for pname, pinfo in EXTRA_DATA_PROPS.items():
+        if pname not in data_props:
+            data_props[pname] = {"iri": pinfo["iri"], "domain": pinfo["domain"], "range_type": pinfo["range_type"]}
+            print(f"  [INJECT-DP] {pname}")
+
     # ── Build class → applicable properties mapping ────────────────────────────
-    # A property applies to a class if the class is in domain OR domain is empty (universal)
-    def props_for_class(cls_name: str, ancestors: set) -> dict:
-        """Return {prop_name: info} relevant for this class."""
+    def props_for_class(cls_name: str, ancestors: set) -> tuple[dict, dict]:
         scope = {cls_name} | ancestors
         applicable_data = {}
         applicable_obj  = {}
-
         for pname, pinfo in data_props.items():
             dom = set(pinfo["domain"])
             if not dom or dom & scope:
                 applicable_data[pname] = pinfo
-
         for pname, pinfo in obj_props.items():
             dom = set(pinfo["domain"])
             if not dom or dom & scope:
                 applicable_obj[pname] = pinfo
-
         return applicable_data, applicable_obj
 
     # ── Build schema dict ─────────────────────────────────────────────────────
@@ -168,21 +234,18 @@ def main():
         "data_properties":   data_props,
     }
 
-    # ── Abstract classes (never directly instantiated) ────────────────────────
-    # Convention: classes whose names start with THING, or are clearly abstract
     ABSTRACT = {
         "THINGDomain", "THINGCurriculum", "THINGInstrutionalPlan",
         "THINGPedagogicalModel", "ThingResource",
-        "Game_Design_Element",       # abstract parent
-        "Gamification_Context",      # abstract parent
-        "Activity_Loop",             # abstract parent
-        "Target_Behavior_Category",  # abstract parent
-        "Motivational_Component",    # abstract parent
-        "Player_Model",              # abstract parent — subclassed by BrainHex etc.
+        "Game_Design_Element",
+        "Gamification_Context",
+        "Activity_Loop",
+        "Target_Behavior_Category",
+        "Motivational_Component",
+        "Player_Model",
         "Yees_Motivational_Components",
     }
 
-    # ── Per-class info ────────────────────────────────────────────────────────
     for cls in all_classes:
         cname = cls.name
         if not cname:
@@ -192,9 +255,7 @@ def main():
         d_props, o_props = props_for_class(cname, ancestors)
         is_abstract = (cname in ABSTRACT) or cname.startswith("THING")
 
-        # Determine a short id prefix (camelCase of class name)
         prefix = cname[0].lower() + cname[1:]
-        # remove non-alphanum
         prefix = re.sub(r'[^a-zA-Z0-9]', '', prefix)
 
         schema["classes"][cname] = {
@@ -206,15 +267,12 @@ def main():
             "object_props":  {k: {"range": v["range"], "iri": v["iri"]} for k, v in o_props.items()},
         }
 
-    # ── Save schema ───────────────────────────────────────────────────────────
     schema_path = os.path.join(out_dir, "schema.json")
     with open(schema_path, "w", encoding="utf-8") as f:
         json.dump(schema, f, indent=2, ensure_ascii=False)
     print(f"\n  Schema saved → {schema_path}")
 
     # ── Generate CSV templates ─────────────────────────────────────────────────
-    # Each CSV has columns: id | [data props...] | [object props as IRI refs...]
-    # Rows are EMPTY — to be filled by populate script or by hand
     generated = 0
     skipped_abstract = 0
     for cname, cinfo in schema["classes"].items():
@@ -222,7 +280,7 @@ def main():
             skipped_abstract += 1
             continue
 
-        cols = ["id"]  # always first
+        cols = ["id"]
         col_meta = {"id": {"kind": "id", "description": f"Unique identifier, e.g. {cinfo['id_prefix']}_0001"}}
 
         for pname, pinfo in cinfo["data_props"].items():
@@ -230,18 +288,22 @@ def main():
             col_meta[pname] = {"kind": "data", "type": pinfo["range_type"]}
 
         for pname, pinfo in cinfo["object_props"].items():
-            col_name = f"REF_{pname}"  # REF_ prefix signals object property (IRI reference)
+            col_name = f"REF_{pname}"
             cols.append(col_name)
             targets = pinfo["range"] if pinfo["range"] else ["?"]
             col_meta[col_name] = {"kind": "object", "range_classes": targets,
                                    "property": pname, "description": f"Ref to {targets}"}
 
+        # Inject extra columns for recommendation properties
+        for extra_col, extra_meta in EXTRA_CLASS_COLS.get(cname, {}).items():
+            if extra_col not in cols:
+                cols.append(extra_col)
+                col_meta[extra_col] = extra_meta
+
         fname = safe_name(cname) + ".csv"
         fpath = os.path.join(tmpl_dir, fname)
         with open(fpath, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=cols)
-            # Write a comment header as first row (CSV doesn't support comments natively,
-            # so we use a special row starting with '#')
             f.write("# CLASS: " + cname + "\n")
             f.write("# IRI: "   + cinfo["iri"] + "\n")
             f.write("# COLUMNS:\n")
@@ -250,7 +312,6 @@ def main():
                 f.write(f"#   {col}: {meta['kind']} — {desc}\n")
             f.write("# ─── Data rows below (delete this line) ───────────────────────\n")
             writer.writeheader()
-            # Write 3 empty example rows so the file isn't completely blank
             for i in range(1, 4):
                 row = {"id": f"{cinfo['id_prefix']}_{i:04d}"}
                 writer.writerow(row)
@@ -259,8 +320,9 @@ def main():
 
     print(f"\n  Generated {generated} CSV templates → {tmpl_dir}/")
     print(f"  Skipped {skipped_abstract} abstract classes")
+    print(f"  Extra recommendation properties injected: "
+          f"{list(EXTRA_OBJECT_PROPS)} + {list(EXTRA_DATA_PROPS)}")
     print("\n  Next step: run  python 2_populate.py  to fill the CSVs with synthetic data")
-    print("  Or edit the CSVs manually, then run  python 3_csv_to_owl.py  to inject into instances.owl")
 
 if __name__ == "__main__":
     main()
