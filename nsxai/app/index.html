@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NSXAI Learning Architecture</title>
+    <script>
+      (function() {
+        try {
+          const original = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return original; },
+            set: function(v) { console.warn("Interception of window.fetch ignored."); },
+            configurable: true
+          });
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

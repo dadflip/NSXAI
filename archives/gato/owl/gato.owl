@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#includes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gado_full.owl#Engagement_Loop"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gado_full.owl#Progressive_Loop"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gado_full.owl#Player_Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#PedagogicalModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGPedagogicalModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasInstructionalPlan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#PedagogicalModel"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasGamificationModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamifiedITS"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamificationModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="its/its_pedagogical.owl"/>
+    <owl:imports rdf:resource="gado_full.owl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#makesUseOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gado_full.owl#Player_Action"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasPedagogicalModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamifiedITS"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#PedagogicalModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasResources">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Curriculum"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasCurriculum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#DomainModel"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Curriculum"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasActivityLoops">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamificationModel"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gado_full.owl#Activity_Loop"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamificationModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasDomainModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamifiedITS"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#DomainModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasBehaviouralKnowledge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#StudentModel"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#BehaviouralKnowledge"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#hasStudentModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamifiedITS"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#StudentModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#GamifiedITS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/gato.owl#StudentModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

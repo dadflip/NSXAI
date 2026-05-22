@@ -1,0 +1,6 @@
+{
+  "name": "NSXAI Learning Architecture",
+  "description": "A semantic data management studio built on the GA-TO ontology, specializing in real-time ABox graph navigation and contextual instance creation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

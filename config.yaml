@@ -1,23 +1,56 @@
-# config.yaml — Configuration centrale du pipeline NSXAI
-# ========================================================
-# Tous les scripts lisent ce fichier. Aucun chemin n'est
-# passé en argument : tout est résolu depuis ici.
+# =============================================================================
+# NSXAI - Configuration centrale
+# Tous les scripts Python lisent ce fichier via config.py
+# =============================================================================
 
-# Dossier racine des sources OWL (relatif à ce fichier)
-owl_dir: ontologies
+# --- Apache Jena Fuseki standalone ---
+# Package léger : embarque uniquement fuseki-server (pas riot/tdbloader/sparql)
+jena:
+  version: "5.1.0"
+  # Dossier d'installation (relatif a la racine du projet)
+  install_dir: triplestore
+  # URL de telechargement — {version} est remplace automatiquement
+  download_url: "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-{version}.zip"
+  # Nom du dossier extrait du zip — {version} est remplace automatiquement
+  # Fuseki standalone : apache-jena-fuseki-{version}
+  # Jena complet      : apache-jena-{version}
+  extracted_dir: "apache-jena-fuseki-{version}"
+  # Chemins des exécutables relatifs a extracted_dir — {version} est remplace automatiquement
+  # Fuseki standalone : a la racine
+  # Jena complet      : bat/fuseki-server.bat  et  bin/fuseki-server
+  fuseki_bat: "fuseki-server.bat"
+  fuseki_sh:  "fuseki-server"
+  # Repertoire de travail Fuseki (FUSEKI_BASE) relatif a extracted_dir
+  run_dir: "run"
 
-# Catalog Protégé (relatif à owl_dir ; null = auto-détection)
-catalog: catalog-v001.xml
+# --- Fuseki (triplestore) ---
+fuseki:
+  url: http://localhost:3030
+  dataset: nsxai
+  timeout: 30
 
-# Dossier de travail : toutes les sorties y sont rangées
-work_dir: output
+# --- Frontend Vite (React) ---
+frontend:
+  host: localhost
+  port: 5173
+  dir: nsxai/app
 
-# Sous-dossiers générés (relatifs à work_dir)
-dirs:
-  ttl:      ttl        # owl2ttl      -> output/ttl/
-  inferred: inferred   # hermit_infer -> output/inferred/
-  kg:       kg         # kg_builder   -> output/kg/
+# --- API Python (FastAPI) ---
+api:
+  host: localhost
+  port: 8000
+  debug: true
+  cors_origins:
+    - http://localhost:5173
+    - http://localhost:3000
 
-# Options globales
+# --- Ontologies ---
+ontologies:
+  # Fichiers sources OWL (relatif a la racine)
+  owl_dir: ontologies/owl
+  # Fichier de config Fuseki source (versionne dans le depot)
+  fuseki_config: scripts/config/fuseki_config.ttl
+
+# --- Options globales ---
 verbose: false
-quiet:   false
+quiet: false

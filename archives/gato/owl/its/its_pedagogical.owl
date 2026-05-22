@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:Curriculum="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.curriculum.owl#"
+    xmlns:Resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.resource.owl#"
+    xmlns:Pedagogical="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#"
+    xml:base="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl">
+
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="its/its_domain.owl"/>
+  </owl:Ontology>
+
+  <!-- ================================================================
+       EXTERNAL CLASS REFERENCE
+       ================================================================ -->
+
+  <rdfs:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.cp.owl#Curriculum"/>
+
+  <!-- ================================================================
+       NAMED RESTRICTION CLASSES
+       (remplace le seul owl:Restriction anonyme de CurriculumUnit)
+       ================================================================ -->
+
+  <!-- next_Curriculum maxCardinality 1 -->
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Restriction_next_Curriculum_max1">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#next_Curriculum"/>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:maxCardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <!-- ================================================================
+       OBJECT PROPERTIES
+       ================================================================ -->
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_Sequencing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#InstrutionalPlan"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Sequencing"/>
+    <rdfs:comment xml:lang="pt">Mostra que seqüenciamento está ligado à esse plano instrucional.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isParentOf_Tactic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isChildOf_Tactic"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isChildOf_Tactic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isParentOf_Tactic"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_Curriculum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#CurriculumUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.cp.owl#Curriculum"/>
+    <rdfs:comment xml:lang="pt">Liga o plano institucional à um currículo.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_Resource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.resource.owl#Resource"/>
+    <rdfs:comment xml:lang="pt">Aponta para o recurso que está sendo usado. Não pode ser do tipo problema.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isParentOf_Strategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isChildOf_Strategy"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isChildOf_Strategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <owl:inverseOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isParentOf_Strategy"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_PedagogicalUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#InstrutionalPlan"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.curriculum.owl#PedagogicalUnit"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_domain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_ProblemNext">
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemNext"/>
+    <rdfs:comment xml:lang="pt">Vai apontar para a classe ProblemNext, nela é que vai conter a unidade que esse problema aponta. Essa propriedade possiu restrição de cardinalidade pois como cada problema se divide em 5 nível de "acerto", pode haver até 5 caminhos para seguir após o problema.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#next_Unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aponta pra a próxima unidade. Pode ser problema ou outro recurso.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#previous_Unit">
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aponta para unidade anterior.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#next_Curriculum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#CurriculumUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#CurriculumUnit"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#strategicTutoring">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+    <rdfs:comment xml:lang="pt">A estratégia é como um modelo com configurações para selecionar táticas.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The strategy is alike a template with configuration to select tactics.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#has_Problem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemUnit"/>
+    <rdfs:range rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its.domain.resource.owl#Problem"/>
+    <rdfs:comment xml:lang="pt">Aponta para um recurso do tipo problema.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- ================================================================
+       DATATYPE PROPERTIES
+       ================================================================ -->
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#statement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#strategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#isExplained">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemUnit"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#score_Max">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemNext"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Porcentagem máxima de acerto no problema.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#score_Min">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemNext"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment xml:lang="pt">Porcentagem mínima de acerto no problema.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#tactic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#InstrutionalPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="pt">Vai definir o nível. Pode ser: básico, intermediário, avançado.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#typeTactic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#typeStrategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#time">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Represent the time (time represented in minutes) spended or necessary in each problem solving process.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#typeStrategyTutoring">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#typeAssessment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <!-- Combined FunctionalProperty + DatatypeProperty declarations -->
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#abilityScoreStandardDeviation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Domain"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#abilityScoreMean">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_domain.owl#Domain"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+
+  <!-- ================================================================
+       DOMAIN CLASSES
+       ================================================================ -->
+
+  <!-- Racines abstraites -->
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGPedagogicalModel"/>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGPedagogicalModel"/>
+  </owl:Class>
+
+  <!-- PedagogicalModel et ses sous-classes -->
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#PedagogicalModel">
+    <rdfs:comment xml:lang="en">Answer the question: How to teach? in a educational system.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">Responde a questão: Como ensinar? em um sistema educacional.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#InstrutionalPlan">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#PedagogicalModel"/>
+    <rdfs:comment xml:lang="en">Instructional Plan Strategy.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">Estratégia do plano instrucional</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cada unidade pedagogica tem q pertencer ao curriculo!!!!!!!!!!!!!</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Tactic">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#PedagogicalModel"/>
+    <rdfs:comment xml:lang="en">Represents all the actions the educational system can do in order to teach.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">Representa todas as ações que o sistema educacional pode tomar objetivando o ensino.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Strategy">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#PedagogicalModel"/>
+    <rdfs:comment xml:lang="en">Represents the teaching mechanism in the instrutional plan.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">Representa o mecanismo de ensino no planejamento instrucional.</rdfs:comment>
+  </owl:Class>
+
+  <!-- Sequencing et ses sous-classes -->
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Sequencing">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan"/>
+    <rdfs:comment xml:lang="en">A Sequencing is a map that represents the intended use of the content through structured units of instruction (curriculum).</rdfs:comment>
+    <rdfs:comment xml:lang="pt">O seqüenciamento é um mapa que representa a estrutura em que o conteúdo será utilizado.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">garantir que a unidade não aponta para ela mesmo!!!!!!!!!!!!!!!!!!!!!!!!!!!!</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Não pode ser instanciada!!!!</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Deve existir pelo menos um item que aponte para o null.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ResourceUnit">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Sequencing"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemUnit">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Sequencing"/>
+  </owl:Class>
+
+  <!-- CurriculumUnit — subClassOf nommés (dont la restriction nommée) -->
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#CurriculumUnit">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan"/>
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#Restriction_next_Curriculum_max1"/>
+  </owl:Class>
+
+  <!-- ProblemNext -->
+
+  <owl:Class rdf:about="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#ProblemNext">
+    <rdfs:subClassOf rdf:resource="https://lms.flipova.fr/nsxai/v1/ontologies/its/its_pedagogical.owl#THINGInstrutionalPlan"/>
+  </owl:Class>
+
+</rdf:RDF>

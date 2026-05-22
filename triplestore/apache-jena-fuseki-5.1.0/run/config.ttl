@@ -1,0 +1,30 @@
+# =============================================================================
+# Fuseki configuration - NSXAI
+# Editer ce fichier pour changer le dataset, les endpoints, ou le port.
+# Il sera copie dans triplestore/apache-jena-X.X.X/run/config.ttl
+# lors de l'installation (install_fuseki.py).
+# =============================================================================
+
+@prefix :        <#> .
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix tdb2:    <http://jena.apache.org/2016/tdb#> .
+
+[] rdf:type fuseki:Server .
+
+:service_nsxai rdf:type fuseki:Service ;
+    fuseki:name "nsxai" ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ;  fuseki:name "sparql" ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:update ; fuseki:name "update" ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:gsp-r ;  fuseki:name "get"    ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:gsp-rw ; fuseki:name "data"   ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:update ] ;
+    fuseki:dataset :dataset_nsxai ;
+    .
+
+:dataset_nsxai rdf:type tdb2:DatasetTDB2 ;
+    tdb2:location "databases/nsxai" ;
+    .

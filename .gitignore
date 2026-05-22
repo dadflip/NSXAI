@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Outputs
+output/
+data/templates/*.csv
+
+# Triplestore
+triplestore/apache-jena-fuseki-*/run/databases/
+triplestore/apache-jena-fuseki-*/run/system/
+triplestore/*.zip
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node.js (frontend uniquement)
+node_modules/
+app/nsxai/node_modules/
+app/nsxai/dist/
+app/nsxai/.vite/
+
+# Logs
+*.log
+logs/
