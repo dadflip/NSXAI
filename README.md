@@ -1,274 +1,258 @@
-# **NSXAI**
+# NSXAI
 
-**Semantic Analysis Pipeline for Knowledge Graph Embeddings**
+Pipeline sémantique pour transformer des ontologies OWL/RDF en graphe de connaissances, avec triplestore Fuseki, API FastAPI et interface React pour exploration, requêtes SPARQL avancées et export ML.
 
----
-
-## 📌 **About NSXAI**
-
-**NSXAI** is a modular pipeline designed to transform **OWL ontologies** into **knowledge graphs (KG)** and generate **node embeddings** for machine learning tasks. It supports:
-
-- **Extraction and conversion** of OWL ontologies to Turtle (TTL) format.
-- **Inference** of implicit knowledge using semantic reasoning.
-- **Knowledge graph construction** from TTL files.
-- **Embedding generation** for nodes, compatible with ML models (RandomForest, XGBoost, SVM, GNNs, etc.).
-
-The pipeline is optimized for **scalability**, **flexibility**, and **ease of integration** into larger projects.
+> **🎉 Version 2.0** - Interface refondée avec éditeur SPARQL intelligent et design uniformisé
 
 ---
 
+## 🚀 Nouveautés de la version 2.0
+
+### ✨ Éditeur SPARQL amélioré
+- **Autocomplétion intelligente** : Suggestions de mots-clés, classes, propriétés et individus
+- **Bibliothèque de modèles** : 6 requêtes prêtes à l'emploi
+- **Raccourcis clavier** : Ctrl+Enter pour exécuter, navigation au clavier
+- **Interface moderne** : Design cohérent et intuitif
+
+### 🎨 Design uniformisé
+- Interface simplifiée (3 onglets au lieu de 4)
+- Palette de couleurs cohérente
+- Meilleure accessibilité
+
+### 📚 Documentation complète
+- **[INDEX_DOCUMENTATION.md](INDEX_DOCUMENTATION.md)** - Guide de navigation dans la documentation
+- **[RESUME_MODIFICATIONS.md](RESUME_MODIFICATIONS.md)** - Résumé des changements en français
+- **[nsxai/app/GUIDE_SPARQL.md](nsxai/app/GUIDE_SPARQL.md)** - Guide de l'éditeur SPARQL
+
 ---
 
-## 🚀 **Installation**
+## Prérequis
 
-### **1. Prerequisites**
-
-- Python **3.9+** (recommended: 3.10 or 3.11).
-- `pip` (usually included with Python).
-- **Operating System**: Linux, macOS, or Windows (WSL recommended for Windows).
+- Python 3.10 ou 3.11
+- Node.js 18+ (frontend)
+- Java 11+ (Apache Jena Fuseki, installé automatiquement au premier lancement)
 
 ---
 
-### **2. Clone the Repository**
+## Démarrage rapide
+
+### 1. Environnement Python
 
 ```bash
-git clone https://github.com/your-org/nsxai.git
-cd nsxai
-```
-
----
-
-### **3. Create a Virtual Environment (`venv`)**
-
-To avoid conflicts between the project's dependencies and your system-wide Python packages, it is **highly recommended** to use a virtual environment.
-
-#### **Create the `venv**`
-
-```bash
-# Create a virtual environment in a `venv` folder
+git clone https://github.com/your-org/NSXAI.git
+cd NSXAI
 python -m venv venv
 ```
 
-#### **Activate the `venv**`
-
-- **Linux/macOS**:
-  ```bash
-  source venv/bin/activate
-  ```
-- **Windows (PowerShell)**:
-  ```powershell
-  .\venv\Scripts\activate
-  ```
-- **Windows (CMD)**:
-  ```cmd
-  venv\Scripts\activate.bat
-  ```
-
-> ✅ **Verification**: Once activated, your terminal prompt should show `(venv)` at the beginning.
-
-#### **Deactivate the `venv**`
+**Linux / macOS**
 
 ```bash
-deactivate
-```
-
-> 💡 **Tip**:
->
-> - **Never commit** the `venv/` folder to Git (it is already ignored via `.gitignore`).
-> - For more advanced environment management, consider using `[pipenv](https://pipenv.pypa.io/)` or `[conda](https://docs.conda.io/)`.
-
----
-
-### **4. Install Dependencies**
-
-Once the `venv` is activated, install the dependencies with `pip`:
-
-#### **Option 1: Basic Installation (scikit-learn backend)**
-
-```bash
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> ⚠️ **Note**: This uses **scikit-learn** for embeddings (centrality-based methods: PageRank, betweenness, etc.).
+**Windows (PowerShell)**
 
-#### **Option 2: With PyTorch Geometric (Full GNN Support)**
-
-If you want to use **Graph Neural Networks (GNNs)** like GraphSAGE or GAT, uncomment the `torch` and `torch-geometric` lines in `requirements.txt`, then:
-
-```bash
+```powershell
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-> ⚡ **Recommended** for better performance on large graphs (requires a GPU for optimal results).
+### 2. Lancer la plateforme
+
+**Linux / macOS**
+
+```bash
+chmod +x nsxai.sh
+./nsxai.sh start
+```
+
+**Windows**
+
+```cmd
+nsxai.bat start
+```
+
+Au premier `start`, Jena Fuseki est téléchargé si nécessaire, le dataset est initialisé depuis `ontologies/owl/`, puis démarrent l’API et le frontend.
+
+| Service   | URL par défaut              |
+|-----------|-----------------------------|
+| Frontend  | http://localhost:5173       |
+| API       | http://localhost:8000     |
+| Fuseki    | http://localhost:3030/nsxai |
+
+### 3. Commandes CLI utiles
+
+Le projet utilise un gestionnaire CLI unifié écrit en Python (`nsxai_cli.py`) qui gère nativement le cycle de vie de tous les processus, de manière 100% portable sur Windows, Linux et macOS.
+
+**Exemples complets :**
+
+```bash
+# Lancer tous les services (Fuseki + API + Frontend)
+./nsxai.sh dev       # Sous Linux / macOS
+nsxai.bat dev        # Sous Windows
+
+# Gérer les services individuellement
+./nsxai.sh start fuseki     # Démarrer uniquement Fuseki
+./nsxai.sh start api        # Démarrer uniquement l'API
+./nsxai.sh start frontend   # Démarrer uniquement le frontend Vite
+./nsxai.sh stop frontend    # Arrêter le frontend
+./nsxai.sh stop all         # Arrêter tous les processus en cours
+./nsxai.sh status           # Voir l'état des différents services
+./nsxai.sh reset            # Réinitialiser les bases de données TDB de Fuseki
+```
+
+**Avantages du CLI Python :**
+- Pas de dépendance à des scripts `.bat` ou `.sh` fragiles avec chemins absolus
+- Graceful shutdown des processus (géré avec `psutil`)
+- Interface unifiée et facile à maintenir
 
 ---
 
-### **5. Configuration**
+## Interface : mode triplet
 
-The pipeline uses a `**config.yaml**` file to define paths and parameters. Example:
+L’onglet **Explorer** affiche une **arborescence unifiée** en cascade S-P-O :
+
+- Un seul arbre (plus de sections « class / individual / property »).
+- Chaque nœud et liaison conserve un **badge de type** (classe, propriété, individu, littéral).
+- Les racines sont les sujets non référencés comme objets IRI dans le graphe.
+
+Le bouton **Nouveau parcours** ouvre le modal **Node vers ontologie** :
+
+1. Sujet racine (existant ou instanciation).
+2. Enchaînement de triplets : prédicats proposés par requêtes SPARQL (`domain`, topologie, assertions).
+3. Objets : sélection dans le graphe, instanciation, littéral, ou prédicat externe (ontologies RDF/XML importées).
+
+Endpoints API associés :
+
+- `GET /api/ontology/predicates/{subject}`
+- `GET /api/ontology/objects/{subject}/{predicate}`
+- `POST /api/ontology/path` — persistance du parcours
+
+---
+
+## Configuration
+
+Fichier central : `config.yaml` (lu par `config.py` et `nsxai_cli.py`).
+
+| Section      | Rôle |
+|-------------|------|
+| `jena`      | Version, chemins Fuseki, répertoire `run/` |
+| `fuseki`    | URL, nom du dataset, timeout |
+| `frontend`  | Hôte/port Vite, répertoire `nsxai/app` |
+| `api`       | Hôte/port FastAPI, CORS |
+| `ontologies`| Répertoire OWL source, config Fuseki |
+
+### Exemple minimal
 
 ```yaml
-# config.yaml
-owl_dir: ./data/ontologies      # Directory containing .owl files
-catalog: ./catalog.xml          # Catalog file for OWL (optional)
-dirs:
-  ttl: ./output/ttl             # Output for owl2ttl
-  inferred: ./output/inferred  # Output for infer
-  kg: ./output/kg               # Output for kg (nodes.csv, edges.csv)
-  embeddings: ./output/embeddings # Output for gnn (optional)
-verbose: false                  # Verbose mode
-quiet: false                    # Quiet mode
+fuseki:
+  url: http://localhost:3030
+  dataset: nsxai
+
+api:
+  host: localhost
+  port: 8000
+
+frontend:
+  port: 5173
 ```
 
-> 💡 **Tip**: Use a `.env` file to override paths if needed (e.g., `DATA_DIR=/absolute/path`).
+### Options avancées
 
----
+**Changer le dataset Fuseki**
 
----
+```yaml
+fuseki:
+  url: http://localhost:3030
+  dataset: mon_dataset
+  timeout: 60
+```
 
-## 🎯 **Usage**
+Adapter `scripts/config/fuseki_config.ttl` et relancer `./nsxai.sh restart`.
 
-### **1. Run a Specific Step**
+**CORS pour un frontend distant**
+
+```yaml
+api:
+  cors_origins:
+    - http://localhost:5173
+    - https://mon-domaine.example
+```
+
+**Ontologies sources**
+
+```yaml
+ontologies:
+  owl_dir: ontologies/owl
+  fuseki_config: scripts/config/fuseki_config.ttl
+```
+
+Placer les fichiers `.owl` / `.ttl` sous `owl_dir`, puis :
 
 ```bash
-# Convert OWL to TTL
-python main.py --step owl2ttl
-
-# Apply inferences
-python main.py --step infer
-
-# Build the knowledge graph
-python main.py --step kg
-
-# Generate embeddings (dimension 32)
-python main.py --step gnn --dim 32
+./nsxai.sh restart
+# ou POST /api/ontology/reset depuis l’UI
 ```
 
-### **2. Run the Full Pipeline**
+**Version Jena / chemin d’installation**
+
+```yaml
+jena:
+  version: "5.1.0"
+  install_dir: triplestore
+  download_url: "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-{version}.zip"
+```
+
+**Frontend en production**
+
+Construire avec l’URL de l’API :
+
+```bash
+cd nsxai/app
+VITE_API_BASE=http://localhost:8000 npm run build
+```
+
+**Pipeline ML (hors UI)**
 
 ```bash
 python main.py --step all --dim 64
 ```
 
-> ⚠️ **Note**: The `--dim` argument is only used for the `gnn` step.
+Voir `config.yaml` à la racine pour `owl_dir`, `dirs.ttl`, `dirs.kg`, etc. (pipeline d’embeddings).
 
 ---
 
-### **Full Example with `venv**`
+## Structure du dépôt
+
+```
+NSXAI/
+├── config.yaml           # Configuration services + ontologies
+├── config.py             # Loader de configuration central
+├── requirements.txt      # Dépendances globales unifiées
+├── nsxai_cli.py          # Orchestration Fuseki / API / frontend 100% Python
+├── nsxai.sh / nsxai.bat  # Raccourcis CLI
+├── nsxai/
+│   ├── api/              # FastAPI + routes ontology/sparql/export
+│   └── app/              # React (Explorer triplet, graphe, SPARQL, ETL)
+├── ontologies/owl/       # Sources OWL
+└── scripts/              # Scripts d'installation et chargement (install_fuseki, load_ontologies)
+```
+
+---
+
+## Développement
 
 ```bash
-# Activate the virtual environment
-source venv/bin/activate  # Linux/macOS
-# or
-.\venv\Scripts\activate   # Windows
+# API seule
+cd nsxai/api && uvicorn main:app --reload --port 8000
 
-# Run the full pipeline
-python main.py --step all --dim 64 -v
-
-# Deactivate the virtual environment when done
-deactivate
+# Frontend seule (proxy /api → 8000)
+cd nsxai/app && npm install && npm run dev
 ```
 
 ---
 
----
+## Licence
 
-## 📂 **Project Structure**
-
-```
-nsxai/
-├── main.py                  # Pipeline orchestrator
-├── config.yaml             # Default configuration
-├── requirements.txt        # Python dependencies
-├── .gitignore              # Ignores venv/, output/, etc.
-├── nsxai/
-│   ├── semantic/           # Modules for owl2ttl and infer
-│   │   ├── owl2ttl.py      # OWL → TTL conversion
-│   │   └── hermit_infer.py # Inference with HermiT
-│   ├── kg/                 # Modules for knowledge graph construction
-│   │   └── kg_builder.py   # Generates nodes.csv and edges.csv
-│   └── gnn/                # Modules for embeddings
-│       └── gnn_model.py    # Embedding generation (PyG/sklearn)
-└── output/                 # Output directory (auto-created)
-    ├── ttl/                # TTL files
-    ├── inferred/           # Enriched TTL files
-    ├── kg/                 # nodes.csv + edges.csv
-    └── embeddings/          # Embeddings (CSV/JSON/Parquet/NumPy)
-```
-
----
-
----
-
-## 🔍 **Step Details**
-
-*(See the previous version for full details on the `owl2ttl`, `infer`, `kg`, and `gnn` steps.)*
-
----
-
----
-
-## 🤝 **Contributing**
-
-Contributions are welcome! Here’s how you can help:
-
-### **1. Report a Bug**
-
-- Open an **issue** on GitHub with:
-  - A clear description of the problem.
-  - Steps to reproduce.
-  - Error logs (if applicable).
-
-### **2. Suggest a Feature**
-
-- Open an **issue** to discuss the new feature before coding.
-- Fork the repository and submit a **Pull Request**.
-
-### **3. Local Development**
-
-1. Clone the repository:
-  ```bash
-   git clone https://github.com/your-org/nsxai.git
-  ```
-2. Create and activate a `venv`:
-  ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/macOS
-  ```
-3. Install development dependencies:
-  ```bash
-   pip install -r requirements.txt -r requirements-dev.txt
-  ```
-4. Run tests:
-  ```bash
-   pytest
-  ```
-
----
-
----
-
-## 📜 **License**
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
-
----
-
-## 🙌 **Acknowledgments**
-
-- **Owlready2** and **RDFLib** for ontology manipulation.
-- **NetworkX** and **PyTorch Geometric** for graph processing and GNNs.
-- **scikit-learn** for fallback embedding methods.
-
----
-
----
-
-## 📞 **Contact**
-
-For questions or suggestions, contact:
-
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
-- **GitHub**: [@your-username](https://github.com/your-username)
+MIT — voir [LICENSE](LICENSE).

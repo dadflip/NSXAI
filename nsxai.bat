@@ -1,6 +1,12 @@
 @echo off
-REM Raccourci Windows pour nsxai_cli.py
-REM Utilise le venv si present, sinon le Python systeme
+REM NSXAI - Lanceur Windows
+REM
+REM Usage:
+REM   nsxai.bat dev       Demarre Fuseki, API et frontend Vite
+REM   nsxai.bat start     Demarre Fuseki et l'API
+REM   nsxai.bat stop      Arrete tous les services
+REM   nsxai.bat status    Affiche l'etat
+REM   nsxai.bat reset     Reinitialise la base de donnees
 
 set "SCRIPT_DIR=%~dp0"
 
@@ -8,6 +14,5 @@ if exist "%SCRIPT_DIR%venv\Scripts\python.exe" (
     "%SCRIPT_DIR%venv\Scripts\python.exe" "%SCRIPT_DIR%nsxai_cli.py" %*
 ) else (
     echo [WARN] venv non trouve - utilisation du Python systeme
-    echo        Lancez d'abord : python scripts\windows\setup_venv.bat
     python "%SCRIPT_DIR%nsxai_cli.py" %*
 )

@@ -32,12 +32,13 @@ app.add_middleware(
 app.include_router(sparql.router)
 
 # Import des autres routes
-from .routes import ontology, export, shacl, reasoner
+from .routes import ontology, export, shacl, reasoner, predict
 app.include_router(ontology.router)
 app.include_router(export.router)
 app.include_router(export.router_g)
 app.include_router(shacl.router)
 app.include_router(reasoner.router)
+app.include_router(predict.router)
 
 
 @app.get("/")

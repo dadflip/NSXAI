@@ -1,6 +1,16 @@
 # =============================================================================
 # NSXAI - Configuration centrale
-# Tous les scripts Python lisent ce fichier via config.py
+# Lu par config.py, nsxai_cli.py et les scripts d'installation.
+#
+# Quick start:
+#   ./nsxai.sh start   (ou nsxai.bat start sous Windows)
+#   UI: http://localhost:5173  |  API: http://localhost:8000
+#
+# Avance:
+#   - fuseki.dataset : nom du dataset TDB (aligner fuseki_config.ttl)
+#   - ontologies.owl_dir : repertoires OWL/TTL sources
+#   - api.cors_origins : origines autorisees pour le frontend distant
+#   - jena.version / install_dir : version et chemin Apache Jena Fuseki
 # =============================================================================
 
 # --- Apache Jena Fuseki standalone ---
@@ -50,6 +60,15 @@ ontologies:
   owl_dir: ontologies/owl
   # Fichier de config Fuseki source (versionne dans le depot)
   fuseki_config: scripts/config/fuseki_config.ttl
+
+# --- Pipeline ML (main.py, hors UI) ---
+# Decommenter et adapter si vous utilisez owl2ttl / kg / gnn en CLI
+# owl_dir: ./data/ontologies
+# dirs:
+#   ttl: ./output/ttl
+#   inferred: ./output/inferred
+#   kg: ./output/kg
+#   embeddings: ./output/embeddings
 
 # --- Options globales ---
 verbose: false

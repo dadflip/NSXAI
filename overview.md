@@ -47,3 +47,7 @@ Ce que le ML va apprendre
 En entraînant un réseau de neurones sur le graphe de l'ontologie + les scénarios simulés, l'objectif probable est de recommander les bons éléments de gamification (GameElement à associer à une GamifiedResource) étant donné un profil enseignant + un profil audience. Les scénarios fournissent les exemples positifs/négatifs pour cet apprentissage.
 
 Tu veux qu'on attaque la suite — par exemple structurer le format de stockage JSON des interactions et scénarios, ou visualiser le graphe de l'ontologie ?
+
+
+
+améliorer le deign de la barre et intégrer directement dans la zonz principale audessus de tout, (topzone), il faut assiter à la rédaction de la requete (un peu comme aide à la rédaction, de sorte à aider à bien créer les éléments dans le respect de l'ontologie, pour les sippet ce doit etere des snippet génériques qui s'adaptent dynamiquement à l'ontologie, gérer aussi pour des snippets de génération en masse (boucle et écritures)... déplacer aussi le bouton de génération de masse et de reset dans la barre. il ne doit rester que les stats dans le panel droit. et enfin en mode édition il faut pouvoit ajouter (ce qui est déjà le cas) mais aussi modifier. 

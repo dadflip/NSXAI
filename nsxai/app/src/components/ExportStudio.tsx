@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Download, PlugZap, CheckCircle2, Server, FileJson, FileSpreadsheet, Share2, Database, Activity, BrainCircuit, FileText, GitBranch, BarChart2, Layers, AlignLeft } from 'lucide-react';
-import { apiUrl } from '../lib/api';
+import { apiUrl } from '../config';
+import { fetchApi } from '../lib/apiClient';
+import { CONFIG } from '../config';
 
 interface ExportOption {
     title: string;
@@ -20,31 +22,31 @@ interface ExportCardProps {
 }
 
 const ExportCard: React.FC<ExportCardProps> = ({ option, exporting, onExport, onReadme }) => (
-    <div className="bg-neutral-900/40 p-4 rounded-2xl border border-neutral-800/50 flex flex-col justify-between gap-3 hover:bg-neutral-900/70 transition-colors">
-        <div className="flex items-start gap-3">
-            <div className={`w-9 h-9 rounded-lg flex flex-shrink-0 items-center justify-center bg-${option.color}-500/10 border border-${option.color}-500/20`}>
+    <div className="group bg-white/[0.02] hover:bg-white/[0.04] p-5 rounded-2xl border border-white/[0.05] flex flex-col justify-between gap-4 transition-all duration-300">
+        <div className="flex items-start gap-3.5">
+            <div className="w-10 h-10 rounded-xl flex flex-shrink-0 items-center justify-center bg-white/[0.03] border border-white/[0.05] text-neutral-400 group-hover:text-neutral-200 transition-colors">
                 {option.icon}
             </div>
             <div>
-                <h3 className="text-neutral-200 font-medium font-mono text-xs break-all">{option.title}</h3>
-                <p className="text-neutral-500 text-[12px] mt-1 leading-relaxed">{option.description}</p>
+                <h3 className="text-neutral-200 font-medium font-mono text-[13px] tracking-tight">{option.title}</h3>
+                <p className="text-neutral-500 text-[12px] mt-1.5 leading-relaxed">{option.description}</p>
             </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 pt-2 border-t border-white/[0.05]">
             <button
                 onClick={() => onExport(option.endpoint, option.filename)}
                 disabled={exporting}
-                className="flex-1 py-1.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded-xl text-xs transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+                className="flex-1 py-2 bg-white/5 hover:bg-white/10 text-neutral-300 rounded-xl text-[12px] font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
             >
                 <Download className="w-3.5 h-3.5" />
                 {exporting ? 'Génération…' : 'Télécharger'}
             </button>
             <button
                 onClick={() => onReadme(option)}
-                className="px-2.5 py-1.5 bg-neutral-800/50 hover:bg-neutral-700/50 text-neutral-400 hover:text-neutral-200 rounded-xl text-xs transition-colors flex items-center justify-center border border-neutral-700/50"
-                title="README"
+                className="p-2 bg-transparent hover:bg-white/5 text-neutral-500 hover:text-neutral-300 rounded-xl transition-colors flex items-center justify-center border border-transparent hover:border-white/[0.05]"
+                title="Consulter le README"
             >
-                <FileText className="w-3.5 h-3.5" />
+                <FileText className="w-4 h-4" />
             </button>
         </div>
     </div>
@@ -68,15 +70,109 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ icon, title, description 
 
 export const ExportStudio: React.FC = () => {
     const [exportingState, setExportingState] = useState<Record<string, boolean>>({});
-    const [isConnecting, setIsConnecting] = useState(false);
     const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-    const [modelEndpoint, setModelEndpoint] = useState('http://localhost:5000/predict');
+    
+    // ML Status
+    const [mlStatus, setMlStatus] = useState<{ status: string; active_model: string; model_type: string; nodes_loaded: number; expected_features?: number } | null>(null);
+    const [isSyncing, setIsSyncing] = useState(false);
+    
+    // ML Test
+    const [testSourceUri, setTestSourceUri] = useState<string>("http://nsxai.org/Patient/P_42");
+    const [testRecommendations, setTestRecommendations] = useState<any[] | null>(null);
+    const [isTesting, setIsTesting] = useState(false);
+    
+    // ML Training Results
+    const [trainingResults, setTrainingResults] = useState<any[]>([]);
+
+    const aggregatedResults = useMemo(() => {
+        if (!trainingResults || trainingResults.length === 0) return [];
+        const map = new Map();
+        for (const r of trainingResults) {
+            if (!r.model || r.model === "LR CrossVal") continue;
+            if (!map.has(r.model)) map.set(r.model, { roc: [], ap: [], f1: [] });
+            map.get(r.model).roc.push(r.roc_auc || 0);
+            map.get(r.model).ap.push(r.average_precision || 0);
+            map.get(r.model).f1.push(r.f1 || 0);
+        }
+        const agg = Array.from(map.entries()).map(([model, data]: any) => {
+            const mean = (arr: number[]) => arr.reduce((a,b)=>a+b,0)/Math.max(1, arr.length);
+            return {
+                model,
+                roc: mean(data.roc),
+                ap: mean(data.ap),
+                f1: mean(data.f1)
+            };
+        });
+        return agg.sort((a,b) => b.roc - a.roc);
+    }, [trainingResults]);
+
+    const fetchMlStatus = async () => {
+        try {
+            const res = await fetchApi('/api/predict/status');
+            if (res.ok) {
+                const data = await res.json();
+                setMlStatus(data);
+            }
+        } catch (e) {
+            console.error("Failed to fetch ML status", e);
+        }
+    };
+    
+    const fetchTrainingResults = async () => {
+        try {
+            const res = await fetchApi('/api/predict/training-results');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.status === 'ok') {
+                    setTrainingResults(data.data);
+                }
+            }
+        } catch (e) {
+            console.error("Failed to fetch training results", e);
+        }
+    };
+
+    useEffect(() => {
+        fetchMlStatus();
+        fetchTrainingResults();
+    }, []);
+
+    const modelFileNameMap: Record<string, string> = {
+        "GCN": "GCN_LP.pt",
+        "GraphSAGE": "GraphSAGE_LP.pt",
+        "MLP": "MLP_LP.pt",
+        "Random Forest": "Random_Forest.pkl",
+        "XGBoost": "XGBoost.json"
+    };
+
+    const handleActivateModel = async (modelName: string) => {
+        const filename = modelFileNameMap[modelName];
+        if (!filename) return;
+        
+        setMessage(null);
+        try {
+            const res = await fetchApi('/api/predict/select-model', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ model_name: filename })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setMessage({ type: 'success', text: `Modèle ${filename} activé avec succès.` });
+                fetchMlStatus();
+            } else {
+                throw new Error(data.detail || "Erreur d'activation");
+            }
+        } catch (e: any) {
+            setMessage({ type: 'error', text: e.message });
+        }
+    };
 
     const handleExport = async (endpoint: string, filename: string) => {
         setExportingState(prev => ({ ...prev, [filename]: true }));
         setMessage(null);
         try {
-            const res = await fetch(apiUrl(endpoint));
+            const res = await fetchApi(endpoint);
             if (!res.ok) throw new Error(`Erreur lors de l'export de ${filename}`);
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
@@ -95,13 +191,41 @@ export const ExportStudio: React.FC = () => {
         }
     };
 
-    const handleConnectModel = () => {
-        setIsConnecting(true);
+    const handleSyncGraph = async () => {
+        setIsSyncing(true);
         setMessage(null);
-        setTimeout(() => {
-            setIsConnecting(false);
-            setMessage({ type: 'success', text: `Modèle connecté avec succès sur ${modelEndpoint}` });
-        }, 1500);
+        try {
+            await fetchApi('/api/predict/sync', { method: 'POST' });
+            setMessage({ type: 'success', text: "Synchronisation du graphe lancée en arrière-plan." });
+            setTimeout(fetchMlStatus, 2000);
+        } catch (e: any) {
+            setMessage({ type: 'error', text: "Erreur lors du lancement de la synchro." });
+        } finally {
+            setIsSyncing(false);
+        }
+    };
+
+    const handleTestModel = async () => {
+        if (!testSourceUri) return;
+        setIsTesting(true);
+        setTestRecommendations(null);
+        try {
+            const res = await fetchApi('/api/predict/recommendations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ source_uri: testSourceUri, top_k: 5 })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setTestRecommendations(data.recommendations);
+            } else {
+                setMessage({ type: 'error', text: data.detail || "Erreur de prédiction" });
+            }
+        } catch (e: any) {
+            setMessage({ type: 'error', text: e.message });
+        } finally {
+            setIsTesting(false);
+        }
     };
 
     const handleReadmeDownload = (option: any) => {
@@ -394,87 +518,155 @@ OUTILS : Gephi, yEd, NetworkX (read_graphml), igraph`,
 
 
     return (
-        <div className="max-w-4xl mx-auto py-8 space-y-10 animate-in fade-in duration-500">
+        <div className="h-full flex flex-col p-8 border border-white/10 bg-[#0a0a0a]/80 backdrop-blur-2xl rounded-[2rem] shadow-2xl ring-1 ring-white/5 overflow-y-auto custom-scrollbar animate-in fade-in duration-500">
+            <div className="max-w-4xl mx-auto w-full space-y-10">
 
-            {message && (
-                <div className={`p-3.5 rounded-xl border text-sm flex items-start gap-2.5 ${message.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-red-500/10 border-red-500/20 text-red-400'}`}>
-                    {message.type === 'success' ? <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" /> : <span className="font-bold flex-shrink-0">!</span>}
-                    {message.text}
-                </div>
-            )}
+                {message && (
+                    <div className={`p-3.5 rounded-xl border text-sm flex items-start gap-2.5 ${message.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-red-500/10 border-red-500/20 text-red-400'}`}>
+                        {message.type === 'success' ? <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" /> : <span className="font-bold flex-shrink-0">!</span>}
+                        {message.text}
+                    </div>
+                )}
 
-            {/* ── ML Exports ── */}
-            <section className="space-y-4">
-                <SectionHeader
-                    icon={<BrainCircuit className="w-5 h-5 text-neutral-500" />}
-                    title="Exports ML — Entraînement"
-                    description="Fichiers TSV optimisés pour les modèles KGE (TransE, RotatE, ComplEx), GNN (R-GCN, GraphSAGE) et l'apprentissage contrastif."
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {ML_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
-                </div>
-            </section>
+                {/* ── ML Exports ── */}
+                <section className="space-y-4">
+                    <SectionHeader
+                        icon={<BrainCircuit className="w-5 h-5 text-neutral-500" />}
+                        title="Exports ML — Entraînement"
+                        description="Fichiers TSV optimisés pour les modèles KGE (TransE, RotatE, ComplEx), GNN (R-GCN, GraphSAGE) et l'apprentissage contrastif."
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {ML_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
+                    </div>
+                </section>
 
-            {/* ── Reference files ── */}
-            <section className="space-y-4 pt-6 border-t border-neutral-800/40">
-                <SectionHeader
-                    icon={<FileJson className="w-5 h-5 text-neutral-500" />}
-                    title="Référence & Statistiques"
-                    description="Métadonnées indispensables pour décoder les indices, vérifier la qualité du graphe et construire des splits d'entraînement équilibrés."
-                />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {REFERENCE_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
-                </div>
-            </section>
+                {/* ── Reference files ── */}
+                <section className="space-y-4 pt-6 border-t border-neutral-800/40">
+                    <SectionHeader
+                        icon={<FileJson className="w-5 h-5 text-neutral-500" />}
+                        title="Référence & Statistiques"
+                        description="Métadonnées indispensables pour décoder les indices, vérifier la qualité du graphe et construire des splits d'entraînement équilibrés."
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        {REFERENCE_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
+                    </div>
+                </section>
 
-            {/* ── Graph Exports ── */}
-            <section className="space-y-4 pt-6 border-t border-neutral-800/40">
-                <SectionHeader
-                    icon={<Share2 className="w-5 h-5 text-neutral-500" />}
-                    title="Exports Graphe — Visualisation"
-                    description="Formats pour Gephi, NetworkX et Neo4j. Nœuds et arêtes enrichis avec degrés, types et poids sémantiques."
-                />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {GRAPH_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
-                </div>
-            </section>
+                {/* ── Graph Exports ── */}
+                <section className="space-y-4 pt-6 border-t border-neutral-800/40">
+                    <SectionHeader
+                        icon={<Share2 className="w-5 h-5 text-neutral-500" />}
+                        title="Exports Graphe — Visualisation"
+                        description="Formats pour Gephi, NetworkX et Neo4j. Nœuds et arêtes enrichis avec degrés, types et poids sémantiques."
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        {GRAPH_EXPORTS.map(o => <ExportCard key={o.filename} option={o} exporting={!!exportingState[o.filename]} onExport={handleExport} onReadme={handleReadmeDownload} />)}
+                    </div>
+                </section>
 
-            {/* ── Model Connection ── */}
-            <section className="space-y-4 pt-6 border-t border-neutral-800/40">
-                <SectionHeader
-                    icon={<PlugZap className="w-5 h-5 text-neutral-500" />}
-                    title="Connexion au Modèle"
-                    description="Une fois votre modèle entraîné, connectez son endpoint d'inférence pour enrichir les recommandations dans l'écosystème."
-                />
-                <div className="bg-neutral-900/40 p-5 rounded-2xl border border-neutral-800/50 space-y-4">
-                    <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-neutral-400">Endpoint API</label>
-                        <div className="relative">
-                            <Server className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                {/* ── Test Model (Replacing Status) ── */}
+                <section className="space-y-4 pt-6 border-t border-neutral-800/40">
+                    <SectionHeader
+                        icon={<BrainCircuit className="w-5 h-5 text-neutral-500" />}
+                        title="Tester le Modèle Actif"
+                        description={`Vérifiez concrètement les prédictions du modèle en temps réel. Modèle actuel : ${mlStatus?.active_model || 'Aucun'} ${mlStatus?.expected_features ? `(${mlStatus.expected_features} features attendues)` : ''}`}
+                    />
+                    <div className="bg-white/[0.02] p-6 rounded-2xl border border-white/[0.05] space-y-4">
+                        <div className="flex gap-3">
                             <input
                                 type="text"
-                                value={modelEndpoint}
-                                onChange={e => setModelEndpoint(e.target.value)}
-                                className="w-full bg-neutral-950 border border-neutral-800 rounded-xl py-2.5 pl-10 pr-4 text-sm text-neutral-200 focus:outline-none focus:border-neutral-600 transition-colors"
-                                placeholder="https://api.mon-modele.com/predict"
+                                value={testSourceUri}
+                                onChange={(e) => setTestSourceUri(e.target.value)}
+                                placeholder="URI du nœud (ex: http://nsxai.org/Patient/P_42)"
+                                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-neutral-200 outline-none focus:border-emerald-500/50 transition-colors"
                             />
+                            <button
+                                onClick={handleTestModel}
+                                disabled={isTesting || mlStatus?.status !== 'ready'}
+                                className="px-6 py-2.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 rounded-xl text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isTesting ? 'Calcul...' : 'Prédire'}
+                            </button>
                         </div>
-                        <p className="text-[11px] text-neutral-600">
-                            POST avec l'URI de l'entité en JSON → liste de recommandations qualifiées.
-                        </p>
+                        
+                        {testRecommendations && (
+                            <div className="mt-4 space-y-2">
+                                <h4 className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-3">Top 5 Liens Suggérés</h4>
+                                {testRecommendations.length === 0 ? (
+                                    <p className="text-sm text-neutral-500">Aucune recommandation trouvée.</p>
+                                ) : (
+                                    <div className="grid grid-cols-1 gap-2">
+                                        {testRecommendations.map((r: any, idx: number) => (
+                                            <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
+                                                <span className="text-sm text-neutral-300 font-mono truncate">{r.target_uri}</span>
+                                                <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg">
+                                                    {(r.probability * 100).toFixed(1)}%
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
-                    <div className="flex justify-end">
-                        <button
-                            onClick={handleConnectModel}
-                            disabled={isConnecting}
-                            className="px-5 py-2 bg-neutral-100 hover:bg-white text-neutral-900 rounded-xl text-sm font-medium transition-colors flex items-center gap-2 disabled:opacity-50"
-                        >
-                            <PlugZap className="w-4 h-4" />
-                            {isConnecting ? 'Connexion…' : 'Connecter le Modèle'}
-                        </button>
-                    </div>
-                </div>
-            </section>
+                </section>
+                
+                {/* ── Training Results Leaderboard ── */}
+                {aggregatedResults.length > 0 && (
+                    <section className="space-y-4 pt-6 border-t border-neutral-800/40">
+                        <SectionHeader
+                            icon={<BarChart2 className="w-5 h-5 text-neutral-500" />}
+                            title="Résultats d'Entraînement ML (Colab)"
+                            description="Performances moyennes (ROC-AUC) des modèles entraînés sur vos données."
+                        />
+                        <div className="bg-white/[0.02] p-5 rounded-2xl border border-white/[0.05] overflow-x-auto">
+                            <table className="w-full text-sm text-left">
+                                <thead className="text-xs text-neutral-400 uppercase bg-white/[0.02]">
+                                    <tr>
+                                        <th className="px-4 py-3 font-medium">Modèle</th>
+                                        <th className="px-4 py-3 font-medium">ROC-AUC</th>
+                                        <th className="px-4 py-3 font-medium">Avg Precision</th>
+                                        <th className="px-4 py-3 font-medium">F1 Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {aggregatedResults.map((res, i) => {
+                                        const filename = modelFileNameMap[res.model];
+                                        const isActive = mlStatus?.active_model === filename;
+                                        return (
+                                        <tr key={res.model} className="border-b border-white/[0.05] last:border-0 hover:bg-white/[0.02]">
+                                            <td className="px-4 py-3 font-medium text-neutral-200 flex items-center gap-2">
+                                                {i === 0 && <span className="w-2 h-2 rounded-full bg-emerald-500" title="Meilleur modèle" />}
+                                                {res.model}
+                                            </td>
+                                            <td className="px-4 py-3 text-neutral-300 font-mono">{(res.roc * 100).toFixed(1)}%</td>
+                                            <td className="px-4 py-3 text-neutral-400 font-mono">{(res.ap * 100).toFixed(1)}%</td>
+                                            <td className="px-4 py-3 text-neutral-400 font-mono">{(res.f1 * 100).toFixed(1)}%</td>
+                                            <td className="px-4 py-3 text-right">
+                                                {filename ? (
+                                                    <button
+                                                        onClick={() => handleActivateModel(res.model)}
+                                                        disabled={isActive}
+                                                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                                                            isActive 
+                                                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 cursor-default' 
+                                                                : 'bg-white/5 hover:bg-white/10 text-neutral-300 border border-white/5 hover:border-white/10'
+                                                        }`}
+                                                    >
+                                                        {isActive ? 'Actif' : 'Activer'}
+                                                    </button>
+                                                ) : (
+                                                    <span className="text-xs text-neutral-600">Non exporté</span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    )})}
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                )}
+            </div>
         </div>
     );
 };
