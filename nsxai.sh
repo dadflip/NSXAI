@@ -2,8 +2,8 @@
 # NSXAI - Lanceur Linux/macOS
 #
 # Usage:
-#   ./nsxai.sh dev       Demarre Fuseki, API et frontend Vite
-#   ./nsxai.sh start     Demarre Fuseki et l'API
+#   ./nsxai.sh dev       Demarre Fuseki, API et frontend Vite (superviseur au premier plan)
+#   ./nsxai.sh start     Demarre Fuseki et l'API en arriere-plan
 #   ./nsxai.sh stop      Arrete tous les services
 #   ./nsxai.sh status    Affiche l'etat
 #   ./nsxai.sh reset     Reinitialise la base de donnees

@@ -1,8 +1,0 @@
-model,roc_auc_mean,roc_auc_std,average_precision_mean,average_precision_std,accuracy_mean,accuracy_std,f1_mean,f1_std
-MLP Link Predictor,0.7038,0.1885,0.6371,0.2237,0.6889,0.1449,0.0,0.0
-Logistic Regression,0.6014,0.2948,0.5738,0.2921,0.4444,0.1925,0.4691,0.1955
-LR CrossVal,0.5975,0.0169,0.5975,0.0169,0.0,0.0,0.0,0.0
-GCN Link Prediction,0.5837,0.1469,0.4852,0.247,0.5778,0.1648,0.05,0.1118
-GraphSAGE Link Prediction,0.5639,0.2956,0.5192,0.3281,0.6444,0.1826,0.0571,0.1278
-XGBoost,0.4737,0.1521,0.3972,0.2297,0.4667,0.1449,0.44,0.1658
-Random Forest,0.4008,0.1795,0.3598,0.1943,0.4889,0.0609,0.386,0.252

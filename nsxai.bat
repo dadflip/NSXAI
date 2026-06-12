@@ -2,8 +2,8 @@
 REM NSXAI - Lanceur Windows
 REM
 REM Usage:
-REM   nsxai.bat dev       Demarre Fuseki, API et frontend Vite
-REM   nsxai.bat start     Demarre Fuseki et l'API
+REM   nsxai.bat dev       Demarre Fuseki, API et frontend Vite (superviseur au premier plan)
+REM   nsxai.bat start     Demarre Fuseki et l'API (et optionnellement le frontend) en arriere-plan
 REM   nsxai.bat stop      Arrete tous les services
 REM   nsxai.bat status    Affiche l'etat
 REM   nsxai.bat reset     Reinitialise la base de donnees

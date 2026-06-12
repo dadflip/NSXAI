@@ -48,7 +48,7 @@ frontend:
 # --- API Python (FastAPI) ---
 api:
   host: localhost
-  port: 8000
+  port: 8001
   debug: true
   cors_origins:
     - http://localhost:5173
@@ -61,14 +61,18 @@ ontologies:
   # Fichier de config Fuseki source (versionne dans le depot)
   fuseki_config: scripts/config/fuseki_config.ttl
 
-# --- Pipeline ML (main.py, hors UI) ---
-# Decommenter et adapter si vous utilisez owl2ttl / kg / gnn en CLI
-# owl_dir: ./data/ontologies
-# dirs:
-#   ttl: ./output/ttl
-#   inferred: ./output/inferred
-#   kg: ./output/kg
-#   embeddings: ./output/embeddings
+# --- MLOps (Inference) ---
+mlops:
+  artifact_path: nsxai/api/artifacts/task4_explanations.csv
+  columns:
+    source: source
+    target: target
+    score: neurosymbolic_score
+    probability: probability_mean
+    confidence: symbolic_confidence
+    label: confidence_label
+    explanation: explanation
+    is_validated: known_positive
 
 # --- Options globales ---
 verbose: false

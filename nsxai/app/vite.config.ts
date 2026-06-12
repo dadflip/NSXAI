@@ -18,7 +18,7 @@ export default defineConfig(() => {
       // Proxy all /api/* requests to the Python FastAPI backend
       proxy: {
         '/api': {
-          target: 'http://localhost:8000',
+          target: 'http://localhost:8001',
           changeOrigin: true,
         },
       },

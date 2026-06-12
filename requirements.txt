@@ -26,13 +26,13 @@ SPARQLWrapper==2.0.0     # Requêtes SPARQL vers Fuseki
 python-dotenv==1.0.0     # Gestion des variables d'environnement (.env)
 PyYAML==6.0.2            # Parsing YAML (pour les configs)
 psutil                   # Gestion avancée des processus OS (utilisé par le CLI)
+matplotlib               # Visualisation (utilisé par le pipeline)
+seaborn                  # Visualisation (utilisé par le pipeline)
 papermill
 
 # =============================================================================
-# 5. OPTIONNEL : GNN (PyTorch Geometric) — À décommenter si besoin
+# 5. MACHINE LEARNING AVANCÉ (GNN, XGBoost)
 # =============================================================================
-# Dépendances pour le backend PyG (GraphSAGE, GAT, etc.).
-# Sans ces lignes, le code utilise sklearn (PageRank + centralité).
-#
-# torch==2.1.0
+torch==2.12.0
+xgboost
 # torch-geometric==2.4.0

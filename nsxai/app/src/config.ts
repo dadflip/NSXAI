@@ -11,15 +11,13 @@ export const CONFIG = {
       import.meta.env.VITE_API_BASE ||
       (import.meta.env.DEV ? '' : import.meta.env.VITE_API_BASE ?? 'http://localhost:8000'),
     endpoints: {
-      architecture: import.meta.env.VITE_API_ENDPOINT_ARCHITECTURE || '/api/ontology/architecture',
-      triples: import.meta.env.VITE_API_ENDPOINT_TRIPLES || '/api/ontology/triples',
       sparql: import.meta.env.VITE_API_ENDPOINT_SPARQL || '/api/sparql',
-      suggestions: import.meta.env.VITE_API_ENDPOINT_SUGGESTIONS || '/api/ontology/suggestions',
-      instances: import.meta.env.VITE_API_ENDPOINT_INSTANCES || '/api/ontology/instances',
-      objects: import.meta.env.VITE_API_ENDPOINT_OBJECTS || '/api/ontology/objects',
-      create: import.meta.env.VITE_API_ENDPOINT_CREATE || '/api/ontology/create',
-      predicates: import.meta.env.VITE_API_ENDPOINT_PREDICATES || '/api/ontology/predicates',
-      reset: import.meta.env.VITE_API_ENDPOINT_RESET || '/api/ontology/reset',
+      topics: import.meta.env.VITE_API_ENDPOINT_TOPICS || '/api/ml/sources',
+      elements: import.meta.env.VITE_API_ENDPOINT_ELEMENTS || '/api/elements',
+      predict: import.meta.env.VITE_API_ENDPOINT_PREDICT || '/api/ml/predict',
+      predict_new: import.meta.env.VITE_API_ENDPOINT_PREDICT_NEW || '/api/ml/predict_new',
+      stats: import.meta.env.VITE_API_ENDPOINT_STATS || '/api/sparql/stats',
+      reset: '/api/ontology/reset',
     }
   },
   ontology: {

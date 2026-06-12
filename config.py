@@ -1,127 +1,84 @@
 """
 config.py - Loader de configuration centrale NSXAI
 Lit config.yaml depuis la racine du projet.
-
-Usage dans n'importe quel script :
-    from config import cfg
-    print(cfg.fuseki.url)
-    print(cfg.jena.dir)
-    print(cfg.ontologies.owl_dir)
 """
-from __future__ import annotations
 from pathlib import Path
+from types import SimpleNamespace
 import yaml
 
-# Racine du projet = dossier contenant ce fichier
 ROOT = Path(__file__).parent
 
-
 class Config:
-    """Configuration globale NSXAI."""
-
     def __init__(self, path: Path | None = None):
         self._path = path or ROOT / "config.yaml"
-        self._load()
-
-    def _load(self):
         if not self._path.exists():
             raise FileNotFoundError(f"config.yaml introuvable : {self._path}")
 
         with open(self._path, encoding="utf-8") as f:
             raw = yaml.safe_load(f)
 
-        # --- Jena / Fuseki server ---
-        j = raw.get("jena", {})
-        version        = j.get("version", "5.1.0")
-        install_dir    = ROOT / j.get("install_dir", "triplestore")
-        url_tpl        = j.get("download_url", "")
-        dir_tpl        = j.get("extracted_dir", "apache-jena-fuseki-{version}")
-        fuseki_bat_tpl = j.get("fuseki_bat", "fuseki-server.bat")
-        fuseki_sh_tpl  = j.get("fuseki_sh",  "fuseki-server")
-        run_dir_tpl    = j.get("run_dir",    "run")
+        self.verbose = raw.get("verbose", False)
+        self.quiet   = raw.get("quiet", False)
 
-        class JenaConfig:
-            pass
+        # Convert dict sections to SimpleNamespace for dot-notation access
+        self.jena       = SimpleNamespace(**raw.get("jena", {}))
+        self.fuseki     = SimpleNamespace(**raw.get("fuseki", {}))
+        self.frontend   = SimpleNamespace(**raw.get("frontend", {}))
+        self.api        = SimpleNamespace(**raw.get("api", {}))
+        self.ontologies = SimpleNamespace(**raw.get("ontologies", {}))
+        self.mlops      = SimpleNamespace(**raw.get("mlops", {}))
 
-        self.jena = JenaConfig()
-        self.jena.version      = version
-        self.jena.install_dir  = install_dir
-        self.jena.dir          = install_dir / dir_tpl.format(version=version)
-        self.jena.download_url = url_tpl.format(version=version)
-        self.jena.fuseki_bat   = self.jena.dir / fuseki_bat_tpl.format(version=version)
-        self.jena.fuseki_sh    = self.jena.dir / fuseki_sh_tpl.format(version=version)
-        self.jena.run_dir      = self.jena.dir / run_dir_tpl.format(version=version)
+        # --- API & Frontend ---
+        self.api.host = getattr(self.api, "host", "localhost")
+        self.api.port = getattr(self.api, "port", 8000)
+        self.api.debug = getattr(self.api, "debug", True)
+        self.api.cors_origins = getattr(self.api, "cors_origins", ["http://localhost:5173"])
+        self.api.url = f"http://{self.api.host}:{self.api.port}"
 
-        # --- Fuseki (triplestore) ---
-        fk = raw.get("fuseki", {})
-
-        class FusekiConfig:
-            pass
-
-        self.fuseki = FusekiConfig()
-        self.fuseki.url        = fk.get("url",     "http://localhost:3030")
-        self.fuseki.dataset    = fk.get("dataset", "nsxai")
-        self.fuseki.timeout    = fk.get("timeout", 30)
-        self.fuseki.query_url  = f"{self.fuseki.url}/{self.fuseki.dataset}/sparql"
-        self.fuseki.update_url = f"{self.fuseki.url}/{self.fuseki.dataset}/update"
-        self.fuseki.data_url   = f"{self.fuseki.url}/{self.fuseki.dataset}/data"
-        self.fuseki.ping_url   = f"{self.fuseki.url}/$/ping"
-        # Aliases pour compatibilite avec nsxai/api/services/fuseki.py
-        self.fuseki.query_endpoint  = self.fuseki.query_url
-        self.fuseki.update_endpoint = self.fuseki.update_url
-        self.fuseki.data_endpoint   = self.fuseki.data_url
-
-        # --- Frontend (Vite) ---
-        fe = raw.get("frontend", {})
-
-        class FrontendConfig:
-            pass
-
-        self.frontend = FrontendConfig()
-        self.frontend.host = fe.get("host", "localhost")
-        self.frontend.port = fe.get("port", 5173)
-        self.frontend.dir  = ROOT / fe.get("dir", "nsxai/app")
+        self.frontend.host = getattr(self.frontend, "host", "localhost")
+        self.frontend.port = getattr(self.frontend, "port", 5173)
+        self.frontend.dir  = ROOT / getattr(self.frontend, "dir", "nsxai/app")
         self.frontend.url  = f"http://{self.frontend.host}:{self.frontend.port}"
 
-        # --- API ---
-        ap = raw.get("api", {})
+        # --- Computed URLs (Fuseki) ---
+        url  = getattr(self.fuseki, "url", "http://localhost:3030")
+        dset = getattr(self.fuseki, "dataset", "nsxai")
+        self.fuseki.url = url
+        self.fuseki.dataset = dset
+        self.fuseki.timeout = getattr(self.fuseki, "timeout", 30)
+        self.fuseki.query_endpoint  = f"{url}/{dset}/sparql"
+        self.fuseki.update_endpoint = f"{url}/{dset}/update"
+        self.fuseki.data_endpoint   = f"{url}/{dset}/data"
+        self.fuseki.ping_url        = f"{url}/$/ping"
 
-        class ApiConfig:
-            pass
-
-        self.api = ApiConfig()
-        self.api.host         = ap.get("host",  "localhost")
-        self.api.port         = ap.get("port",  8000)
-        self.api.debug        = ap.get("debug", True)
-        self.api.cors_origins = ap.get("cors_origins", ["http://localhost:5173"])
-        self.api.url          = f"http://{self.api.host}:{self.api.port}"
-
+        # --- Computed Paths (Jena) ---
+        v = getattr(self.jena, "version", "5.1.0")
+        self.jena.install_dir = ROOT / getattr(self.jena, "install_dir", "triplestore")
+        self.jena.dir         = self.jena.install_dir / getattr(self.jena, "extracted_dir", f"apache-jena-fuseki-{v}").format(version=v)
+        self.jena.fuseki_bat  = self.jena.dir / getattr(self.jena, "fuseki_bat", "fuseki-server.bat").format(version=v)
+        self.jena.fuseki_sh   = self.jena.dir / getattr(self.jena, "fuseki_sh", "fuseki-server").format(version=v)
+        self.jena.run_dir     = self.jena.dir / getattr(self.jena, "run_dir", "run").format(version=v)
+        
         # --- Ontologies ---
-        ont = raw.get("ontologies", {})
+        self.ontologies.owl_dir = ROOT / getattr(self.ontologies, "owl_dir", "ontologies/owl")
+        self.ontologies.fuseki_config = ROOT / getattr(self.ontologies, "fuseki_config", "scripts/config/fuseki_config.ttl")
 
-        class OntConfig:
-            pass
+        # --- MLOps Columns ---
+        self.mlops.artifact_path = ROOT / getattr(self.mlops, "artifact_path", "nsxai/api/artifacts/task4_explanations.csv")
+        cols = getattr(self.mlops, "columns", {})
+        self.mlops.col_source       = cols.get("source", "source")
+        self.mlops.col_target       = cols.get("target", "target")
+        self.mlops.col_score        = cols.get("score", "neurosymbolic_score")
+        self.mlops.col_probability  = cols.get("probability", "probability_mean")
+        self.mlops.col_confidence   = cols.get("confidence", "symbolic_confidence")
+        self.mlops.col_label        = cols.get("label", "confidence_label")
+        self.mlops.col_explanation  = cols.get("explanation", "explanation")
+        self.mlops.col_is_validated = cols.get("is_validated", "known_positive")
 
-        self.ontologies = OntConfig()
-        self.ontologies.owl_dir       = ROOT / ont.get("owl_dir", "ontologies/owl")
-        self.ontologies.fuseki_config = ROOT / ont.get(
-            "fuseki_config", "scripts/config/fuseki_config.ttl"
-        )
-
-        # --- Options globales ---
-        self.verbose = raw.get("verbose", False)
-        self.quiet   = raw.get("quiet",   False)
-
-
-# Instance globale — importée par tous les scripts
 cfg = Config()
-
-# Compat avec l'ancien nsxai/api/config.py qui expose `config`
 config = cfg
 
-
 def load_config(path: str | Path | None = None) -> Config:
-    """Charge et retourne la configuration (utile pour les tests)."""
     if path is None:
         return cfg
     return Config(Path(path))
